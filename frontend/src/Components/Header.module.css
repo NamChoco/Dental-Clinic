@@ -1,0 +1,35 @@
+/* Header.module.css */
+.header {
+    background-color: #330a80; /* สีฟ้า */
+    color: #000; /* สีดำ */
+    padding: 5px;
+    display: flex; /* ใช้ Flexbox เพื่อจัดวางแท็บ */
+    justify-content: space-between; /* จัดวางแท็บชิดซ้ายและชิดขวา */
+    align-items: center; /* จัดวางแท็บตามแนวแกนตั้งตรงกลาง */
+    text-decoration: none; /* ลบการเน้นข้อความเป็นลิงก์ */
+    color: white; /* กำหนดสีข้อความเป็นสีขาว */
+  }
+  
+  .header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* ใช้ Flexbox เพื่อจัดวางแท็บในแนวนอน */
+  }
+  
+  .header li {
+    margin-right:20px;
+  }
+  
+  .header a {
+    text-decoration: none;
+    color: #ffffff; /* สีดำ */
+  }
+  
+  /* ให้แท็บชิดขวามี margin-left เพื่อช่วงระหว่างแท็บ */
+  .header li:last-child {
+    margin-right: 0;
+    margin-left: 10px;
+  }
+  
+  

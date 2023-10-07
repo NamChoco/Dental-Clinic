@@ -1,0 +1,181 @@
+.box {
+    padding: 8px 50px;
+    max-width: 250px; /* กำหนดความกว้างสูงสุด */ 
+    border-radius: 10px;
+    border: 2px solid #f4ebeb;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+}
+
+.box2 {
+  padding: 8px 50px;
+  max-width: 250px; /* กำหนดความกว้างสูงสุด */ 
+  border-radius: 10px;
+  border: 1px solid #020202;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+
+.border-box {
+    padding: 5px;
+    padding: 50px 127px;
+    max-width: 500px; /* กำหนดความกว้างสูงสุด */ 
+    border-radius: 10px;
+    border: 1px solid #1B1919;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 10.5% ;
+    
+  
+}
+
+.border-box1 {
+    padding: 25px 127px;
+    max-width: 500px;
+    border-radius: 10px;
+    border: 1px solid #1B1919;
+    margin-left: 10.5%;
+}
+
+
+.border-box1 {
+    padding: 0px 125px;
+    max-width: 499px;
+    border-radius: 1px;
+    border: 1px solid #1B1919;
+    margin-left: 10.5%;
+    text-align: left; /* จัดวางข้อความไปทางซ้าย */
+}
+
+.border-box11 {
+    padding: 0px 150px;
+    max-width: 50%;
+    border-radius: 0px;
+    border: 1px solid #1B1919;
+    margin-left: 10.5%;
+    margin-top: -1px;
+    border-top: 1px solid #1B1919;
+    border-left: 1px solid #1B1919;
+    border-right: 1px solid #1B1919;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.border-box12 {
+    padding: 0px 167px; /* เพิ่มความกว้างด้านขวา */
+    max-width: calc(50% + 40px); /* เพิ่มความกว้างเพิ่มเติม */
+    border-radius: 0px;
+    border: 1px solid #1B1919;
+    margin-left: -30px; /* ขยับไปด้านขวา */
+    margin-top: -1px;
+    border-top: 1px solid #1B1919;
+    border-left: 1px solid #1B1919;
+    border-right: 1px solid #1B1919;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.border-box11 + .border-box12 {
+    margin-left: 0px;
+}
+
+
+
+
+.border-box2 {
+    padding: 30px 127px;
+    max-width: 500px; /* กำหนดความกว้างสูงสุด */ 
+    border-radius: 10px;
+    border: 1px solid #1B1919;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 10.5% ;
+
+
+}
+
+.border-box4 {
+    padding: 0px 127px;
+    max-width: 500px; /* กำหนดความกว้างสูงสุด */ 
+    border-radius: 10px;
+    border: 1px solid #1B1919;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 10.5% ;
+
+
+}
+
+
+.border-box3 {
+    padding: 10px 127px;
+    max-width: 500px;
+    border-radius: 10px;
+    border: 1px solid #010080;
+    background: #010080;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-left: 10.5%;
+    transform: translateY(5%); /* เคลื่อนที่ลงมาในแนวตั้ง */
+  }
+
+  .border-box3 p {
+    color: white; /* สีข้อความเป็นสีขาว */
+    font-weight: bold;
+    font-size: 25px; /* ขนาดตัวอักษร */
+    text-align: center; /* จัดกลางข้อความ */
+  }
+
+  .border-box1 p {
+    color: #9E9E9E; /* สีข้อความเป็นสีขาว */
+    font-size: 20px; /* ขนาดตัวอักษร */
+    margin-left: -20%;
+    
+  }
+
+  .border-box4 p {
+    color: #9E9E9E; /* สีข้อความเป็นสีขาว */
+    font-size: 20px; /* ขนาดตัวอักษร */
+    margin-left: -20%;
+    
+  }
+
+  .border-box11 p {
+    color: #9E9E9E; /* สีข้อความเป็นสีขาว */
+    font-size: 20px; /* ขนาดตัวอักษร */
+    margin-left: -160%;
+    
+  }
+
+  .border-box12 p {
+    color: #9E9E9E; /* สีข้อความเป็นสีขาว */
+    font-size: 20px; /* ขนาดตัวอักษร */
+    margin-left: -400%;
+    
+  }
+
+  .container {
+    width: 95%; /* กำหนดความกว้างของคอนเทนเนอร์เป็น 100% */
+  }
+  
+  .asset {
+    width: 400px; /* กำหนดความกว้างของสี่เหลี่ยม */
+    height: 350px; /* กำหนดความสูงของสี่เหลี่ยม */
+    border: 3px solid #010080; /* กำหนดขอบของสี่เหลี่ยม */
+    background: #FFF; /* กำหนดพื้นหลังสีขาว */
+    float: right; /* ทำให้สี่เหลี่ยมลอยไปด้านขวา */
+    transform: translateY(5%); 
+  }
+
+  .asset p {
+    margin: 20px; /* กำหนดระยะห่างของข้อความภายในกล่อง */
+    font-size: 20px; /* ขนาดตัวอักษร */
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price {
+    margin-left: auto; /* ทำให้ข้อความเลื่อนไปด้านขวา */
+  }
+  
+

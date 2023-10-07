@@ -1,0 +1,8 @@
+/* HorizontalLine.css */
+.horizontal-line {
+    width: 95%; /* กำหนดความยาวเส้นบางในแนวนอนเป็น 100% */
+    height: 1.5px; /* ความสูงของเส้นบาง */
+    background-color: #4969dd; /* สีของเส้นบาง */
+    margin: 0px auto; /* ระยะห่างของเส้นบางด้านบนและด้านล่าง */
+  }
+  

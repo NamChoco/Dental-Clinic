@@ -1,0 +1,32 @@
+/* TabLinks.css */
+.tab-links {
+    display: flex;
+    align-items: right;
+    margin-left: 75%; /* ให้ div ชิดขวา */
+  }
+  
+  .tab-links nav ul {
+    list-style-type: none;
+    padding: 10;
+    margin: 100;
+    display: flex;
+  }
+  
+  .tab-links nav li {
+    margin-right: 0%;
+  }
+  
+  .tab-links nav a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .amount {
+    font-size: 30px;
+    margin-left: 100px; /* กำหนดระยะห่างด้านซ้ายของข้อความ "2,000 บาท" */
+  }
+  
+  .payment {
+    font-size: 30px; /* กำหนดขนาดตัวอักษรให้ใหญ่ขึ้น */
+    margin-left: -120px; /* ขยับข้อความ "ยอดชำระ" ไปทางซ้าย */
+  }

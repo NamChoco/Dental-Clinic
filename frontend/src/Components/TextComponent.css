@@ -1,0 +1,54 @@
+/* TextComponent.css */
+.text-component {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000000;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-right: 89%; /* ขยับไปด้านขวาเล็กน้อย */
+  }
+
+  .text-com {
+    font-size: 25px;
+      font-weight: bold;
+      color: #000000;
+      padding: 20px;
+      background-color: #ffffff;
+      margin-left: 9.6%; /* ขยับไปด้านขวาเล็กน้อย */
+  }
+.text-com2 {
+  font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-left: 9.6%; /* ขยับไปด้านขวาเล็กน้อย */
+}
+
+.textpay {
+  font-size: 25px;
+  
+    font-weight: bold;
+    color: #000000;
+    padding: 30px;
+    background-color: #ffffff;
+    margin-left: 65%; /* ขยับไปด้านขวาเล็กน้อย */
+}
+
+.textpay2 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000000;
+  padding: 30px;
+  background-color: #ffffff;
+  margin-left: 65%; /* ขยับไปด้านขวาเล็กน้อย */
+  text-align: center; /* จัดวางข้อความให้อยู่ด้านขวา */
+  
+}
+
+/* ตัวอย่าง CSS */
+.text-com9 {
+  font-size: 50px; /* ปรับขนาดตามที่คุณต้องการ */
+  /* สไตล์อื่นๆ ที่คุณต้องการใส่ไว้ที่นี่ */
+}
+

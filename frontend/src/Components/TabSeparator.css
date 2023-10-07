@@ -1,0 +1,8 @@
+/* TabSeparator.css */
+.tab-separator {
+    width: 1px; /* ความกว้างของเส้นบาง */
+    height: 20px; /* ความสูงของเส้นบาง */
+    background-color: #193266; /* สีของเส้นบาง */
+    margin: 0 10px; /* ระยะห่างระหว่างแท็บ */
+  }
+  
