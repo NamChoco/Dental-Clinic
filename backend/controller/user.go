@@ -10,7 +10,7 @@ import (
 // POST /users
 func CreateUser(c *gin.Context) {
 	var user entity.User
-	var gender entity.Gender
+	var service entity.Service
 
 	// bind เข้าตัวแปร user
 	if err := c.ShouldBindJSON(&user); err != nil {
@@ -19,18 +19,19 @@ func CreateUser(c *gin.Context) {
 	}
 
 	// ค้นหา gender ด้วย id
-	if tx := entity.DB().Where("id = ?", user.GenderID).First(&gender); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "gender not found"})
+	if tx := entity.DB().Where("id = ?", user.ServiceID).First(&service); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "service not found"})
 		return
 	}
 
 	// สร้าง User
 	u := entity.User{
-		Gender:    gender,         // โยงความสัมพันธ์กับ Entity Gender
+		Service:    service,         // โยงความสัมพันธ์กับ Entity Gender
 		FirstName: user.FirstName, // ตั้งค่าฟิลด์ FirstName
 		LastName:  user.LastName,  // ตั้งค่าฟิลด์ LastName
 		Email:     user.Email,     // ตั้งค่าฟิลด์ Email
 		Phone:     user.Phone,     // ตั้งค่าฟิลด์ Phone
+		Profile:   user.Profile,   // ตั้งค่าฟิลด์ Profile
 	}
 
 	// บันทึก
@@ -56,7 +57,7 @@ func GetUser(c *gin.Context) {
 // GET /users
 func ListUsers(c *gin.Context) {
 	var users []entity.User
-	if err := entity.DB().Preload("Gender").Raw("SELECT * FROM users").Find(&users).Error; err != nil {
+	if err := entity.DB().Preload("Service").Raw("SELECT * FROM users").Find(&users).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

@@ -1,12 +1,16 @@
-import { GendersInterface } from "./IGender";
+import { OccupationsInterface } from "./IOccupation";
 
 export interface MembersInterface {
+  Profile: string | undefined;
+
   ID?: number;
-  FirstName?: string;
-  LastName?: string;
+  Username?: string;
+  Password?: string;
+  Firstname?: string;
+  Lastname?: string;
   Email?: string;
   Phone?: string;
-  GenderID?: number;
-  Gender?: GendersInterface;
+  OccupationID?: number;
+  Occupations?:  OccupationsInterface;
+
 }
-  

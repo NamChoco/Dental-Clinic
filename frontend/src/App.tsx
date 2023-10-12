@@ -9,9 +9,11 @@ import PaymentPage from './pages/PaymentPage';
 import PromptPay from './pages/PromptPay';
 import Cards from './pages/Card';
 import PaymentPrompt from './pages/PaymentPrompt';
-import { Card } from 'antd';
+
 import Dentral from './pages/Dentral';
-// import Test1 from './Components/test';
+
+import Test2 from './pages/admin';
+import Test3 from './pages/member';
 
 function App() {
     const linkStyle = {
@@ -30,12 +32,13 @@ function App() {
         <TabLinks />
         <HorizontalLine />
         </div>  
-        {/* <Test1 /> */}
+       
 
 
         
       <Routes>
-
+          <Route path="/logout" element={<Test3/>} />
+          <Route path="/member" element={<Test2 />}> /</Route>
           <Route path="/Dentral" element={<Dentral />}> /</Route>
           <Route path="/Card" element={<Cards />} />
           <Route path="/Card/PromptPay" element={<PromptPay />}></Route>

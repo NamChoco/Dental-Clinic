@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Col, Row, Card, Statistic, Button } from 'antd';
 import { RightCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const static1 = {
 };
 
 const Dentral = () =>  (
-
+ 
   <>
     <Col xs={24} sm={24} md={24} lg={24} xl={12}>
       <h1 style={{ fontSize: '30px', marginLeft: '20px' }}>รายการทันตกรรม</h1>
@@ -117,6 +117,7 @@ const Dentral = () =>  (
           </Col>
         </Row>
       </Card>
+     
     </Col>
   </>
 );

@@ -8,81 +8,77 @@ import (
 )
 
 // POST /users
-func Listpayments(c *gin.Context) {
-	var user entity.User
-	var gender entity.Gender
-	var payment entity.Payment
+func CreatePayment(c *gin.Context) {
+	var payment  entity.Payment
+	var service entity.Service
+	var member entity.Member
 
 	// bind เข้าตัวแปร user
-	if err := c.ShouldBindJSON(&); err != nil {
+	if err := c.ShouldBindJSON(&payment); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Query the member with the matching Firstname
+	if tx := entity.DB().Where("Firstname = ?", payment.Name).First(&member); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "member not found"})
 		return
 	}
 
 	// ค้นหา gender ด้วย id
-	if tx := entity.DB().Where("id = ?", user.GenderID).First(&gender); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "gender not found"})
+	if tx := entity.DB().Where("id = ?", payment.ServiceID).First(&service); tx.RowsAffected == 0 {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "payment not found"})
 		return
 	}
 
+
+
 	// สร้าง User
-	u := entity.Payment{
-		User:    user,         // โยงความสัมพันธ์กับ Entity Gender
-		Name: user.FirstName, // ตั้งค่าฟิลด์ FirstName
-		LastName:  user.LastName,  // ตั้งค่าฟิลด์ LastName
-		Email:     user.Email,     // ตั้งค่าฟิลด์ Email
-		Phone:     user.Phone,     // ตั้งค่าฟิลด์ Phone
+	p := entity.Payment{
+		Service: service,         // โยงความสัมพันธ์กับ Entity Gender
+		Member: member,
+		Name: payment.Name, // ตั้งค่าฟิลด์ Name
+		Amountpay: payment.Amountpay,
+		Profile: payment.Profile,	
 	}
 
 	// บันทึก
-	if err := entity.DB().Create(&u).Error; err != nil {
+	if err := entity.DB().Create(&p).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"data": u})
+	c.JSON(http.StatusOK, gin.H{"data": p})
 }
 
 // GET /user/:id
-func GetUser(c *gin.Context) {
-	var user entity.User
+func GetPayment(c *gin.Context) {
+	var payment entity.Payment
 	id := c.Param("id")
-	if err := entity.DB().Preload("Gender").Raw("SELECT * FROM users WHERE id = ?", id).Find(&user).Error; err != nil {
+	if err := entity.DB().Preload("Service").Preload("Member").Raw("SELECT * FROM payments WHERE id = ?", id).Find(&payment).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": user})
+	
+	c.JSON(http.StatusOK, gin.H{"data": payment})
 }
 
 // GET /users
-func ListUsers(c *gin.Context) {
-	var users []entity.User
-	if err := entity.DB().Preload("Gender").Raw("SELECT * FROM users").Find(&users).Error; err != nil {
+func ListPayments(c *gin.Context) {
+	var payments []entity.Payment
+	if err := entity.DB().Preload("Service").Preload("Member").Raw("SELECT * FROM payments").Find(&payments).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": users})
+	
+	c.JSON(http.StatusOK, gin.H{"data": payments})
 }
-
-
-// PATCH /users
-func UpdateUser(c *gin.Context) {
-	var user entity.User
-	var result entity.User
-
-	if err := c.ShouldBindJSON(&user); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-	// ค้นหา user ด้วย id
-	if tx := entity.DB().Where("id = ?", user.ID).First(&result); tx.RowsAffected == 0 {
+// DELETE /users/:id
+func DeletePayment(c *gin.Context) {
+	id := c.Param("id")
+	if tx := entity.DB().Exec("DELETE FROM payments WHERE id = ?", id); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "user not found"})
 		return
 	}
-
-	if err := entity.DB().Save(&user).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-	c.JSON(http.StatusOK, gin.H{"data": user})
+	c.JSON(http.StatusOK, gin.H{"data": id})
 }

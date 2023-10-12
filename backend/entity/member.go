@@ -19,6 +19,5 @@ type Member struct {
     Payments     []Payment `gorm:"foreignKey:MemberID"`
     OccupationID *uint
     Occupation   Occupation `gorm:"foreignKey:OccupationID"`
-   
 }
 

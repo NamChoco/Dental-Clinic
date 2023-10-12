@@ -12,26 +12,58 @@ func DB() *gorm.DB {
 }
 
 func SetupDatabase() {
-	database, err := gorm.Open(sqlite.Open("sa-66.db"), &gorm.Config{})
+	database, err := gorm.Open(sqlite.Open("payment.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
 	// Migrate the schema
 	database.AutoMigrate(
 		&User{},
-		&Gender{},
+		&Service{},
+		&Payment{},
+		&Member{},
+		&Occupation{},
+
 	)
 
 	db = database
 
 	// Gender Data
-	male := Gender{
-		Name: "ชาย",
+	one := Service{
+		Name: "อุดฟัน",
+		Amount: "1000",
 	}
-	db.Model(&Gender{}).Create(&male)
+	db.Model(&Service{}).Create(&one)
 
-	female := Gender{
-		Name: "หญิง",
+	two := Service{
+		Name: "ถอนฟัน",
+		Amount: "2000",
 	}
-	db.Model(&Gender{}).Create(&female)
+	db.Model(&Service{}).Create(&two)
+
+	three := Service{
+		Name: "ขูดหินปูน",
+		Amount: "500",
+	}
+	db.Model(&Service{}).Create(&three)
+
+
+	// Gender Data
+	student := Occupation{
+		Name: "นักเรียน",
+		
+	}
+	db.Model(&Occupation{}).Create(&student)
+
+	us := Occupation{
+		Name: "ทั่วไป",
+		
+	}
+	db.Model(&Occupation{}).Create(&us)
+
+
+
+	
+
+	
 }

@@ -15,7 +15,16 @@ func main() {
 	r.GET("/user/:id", controller.GetUser)
 	r.POST("/users", controller.CreateUser)
 	// Gender Routes
-	r.GET("/genders", controller.ListGenders)
+	r.GET("/services", controller.ListServices)
+	r.GET("/occupations", controller.ListOccupations)
+
+	r.GET("/members", controller.ListMembers)
+	r.GET("/member/:id", controller.GetMember)
+	r.POST("/members", controller.CreateMember)
+
+	r.GET("/payments", controller.ListPayments)
+	r.GET("/payment/:id", controller.GetPayment)
+	r.POST("/payments", controller.CreatePayment)
 	// Run the server
 	r.Run()
 }
