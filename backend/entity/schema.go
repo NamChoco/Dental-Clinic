@@ -1,13 +1,27 @@
 package entity
 
 import (
-    "time"
-    "gorm.io/gorm"
+	"gorm.io/gorm"
 )
 
+type User struct {
+	gorm.Model
+	FirstName string
+	LastName  string
+	Email     string
+	Phone     string
+	Amountpay   string
+	Profile   string `gorm:"type:longtext"`
+	// ServiceID ทำหน้าที่เป็น FK
+	ServiceID *uint
+	Service   Service `gorm:"references:id"`
+	
+}
+
 type Member struct {
-    gorm.Model
-    BOD         time.Time
+	gorm.Model
+	
+	Profile   string `gorm:"type:longtext"`
     Username    string `gorm:"uniqueIndex"`
     Password    string
     Firstname   string
@@ -16,66 +30,42 @@ type Member struct {
     Gender      string
     PhoneNumber string `gorm:"uniqueIndex"`
 
-    Payments     []Payment `gorm:"foreignKey:MemberID"`
+    Payment    []Payment `gorm:"foreignKey:MemberID"`
     OccupationID *uint
-    Occupation   Occupation `gorm:"foreignKey:OccupationID"`
-   
-}
-
-
-
-type Occupation struct {
-    gorm.Model
-
-    OccupationName string
-    Discount   float64
-
-
-	Members  []Member `gorm:"foreignKey:OccupationID"`
-}
-
-type Payment struct {
-	gorm.Model
-	DOB      time.Time
-	Bank     string
-	Amount   int
-	
-	
-	MemberID *uint
-	Member   Member `gorm:"foreignKey:MemberID"`
-	
-	OccupationID *uint
-	Occupation   Occupation `gorm:"foreignKey:OccupationID"`
-	
-	ServiceID *uint
-	Service   Service `gorm:"foreignKey:ServiceID"`
-	
-	AdminID *uint
-	Admin   Admin `gorm:"foreignKey:AdminID"`
-	
-	
+    Occupation   Occupation `gorm:"references:id"`
 }
 
 type Service struct {
 	gorm.Model
-	Title	string
-	Amount	int
+	Name string
+	Amount string
 
+	Payment []Payment `gorm:"foreignKey:ServiceID"`
 	
-	
-	Payments   []Payment `gorm:"foreignKey:ServiceID"`
 }
 
-type Admin struct {
+
+type Payment struct {
 	gorm.Model
-
-	Username  string `gorm:"uniqueIndex"`
-	Password  string
-	Firstname string
-	Lastname  string
-	Email     string `gorm:"uniqueIndex"`
+	Name    string
+	Amountpay   string
+	Profile   string `gorm:"type:longtext"`
+	
+	ServiceID *uint
+	Service   Service `gorm:"references:id"`
 
 	
-	Payments  []Payment `gorm:"foreignKey:AdminID"`
-
+	MemberID *uint
+	Member  Member `gorm:"references:id"`
+	
 }
+type Occupation struct {
+    gorm.Model
+    Name     string
+    
+    Member   []Member `gorm:"foreignKey:OccupationID"`
+}
+
+
+
+

@@ -4,9 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/B6428549/payment/entity2"
+	"github.com/B6428549/payment/entity"
 )
-
 // POST /users
 func CreatePayment(c *gin.Context) {
 	var payment  entity.Payment
@@ -19,17 +18,21 @@ func CreatePayment(c *gin.Context) {
 		return
 	}
 
-	// Query the member with the matching Firstname
-	if tx := entity.DB().Where("Firstname = ?", payment.Name).First(&member); tx.RowsAffected == 0 {
+	
+	// The error you're encountering is likely here, where payment.Member.Username is empty
+	if tx := entity.DB().Where("id = ?", payment.MemberID).First(&member); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "member not found"})
 		return
 	}
-
+		
+	
 	// ค้นหา gender ด้วย id
 	if tx := entity.DB().Where("id = ?", payment.ServiceID).First(&service); tx.RowsAffected == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "payment not found"})
 		return
 	}
+
+	
 
 
 
@@ -40,6 +43,7 @@ func CreatePayment(c *gin.Context) {
 		Name: payment.Name, // ตั้งค่าฟิลด์ Name
 		Amountpay: payment.Amountpay,
 		Profile: payment.Profile,	
+		
 	}
 
 	// บันทึก

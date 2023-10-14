@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/B6428549/payment/controller"
-	"github.com/B6428549/payment/entity2"
+	"github.com/B6428549/payment/entity"
 )
 
 func main() {

@@ -5,12 +5,10 @@ export interface PaymentsInterface {
   Profile: string | undefined;
   ID?: number;
   Name?: string;
- 
   Amountpay?: string;
   ServiceID?: number;
   Service?:  ServicesInterface;
-  Amount?: ServicesInterface;
-  
+  Amount?: ServicesInterface; 
   MemberID?: number;
   Member?:  MembersInterface;
 

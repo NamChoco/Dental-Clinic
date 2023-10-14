@@ -5,22 +5,18 @@ import Header from './Components/Header';
 import logo from "./asset/logo.jpg";
 import TabLinks from './Components/TabLinks';
 import HorizontalLine from './Components/HorizontalLine';
-import PaymentPage from './pages/PaymentPage';
-import PromptPay from './pages/PromptPay';
-import Cards from './pages/Card';
-import PaymentPrompt from './pages/PaymentPrompt';
+import PaymentPage from './pages/payments/success/PaymentPage';
+import PromptPay from './pages/payments/PromptPay/PromptPay';
+import Cards from './pages/payments/Card/Card';
+import PaymentPrompt from './pages/payments/success/PaymentPrompt';
 
-import Dentral from './pages/Dentral';
+import Dentral from './pages/service/Dentral';
 
-import Test2 from './pages/admin';
-import Test3 from './pages/member';
+import Listpayment from './pages/admin';
+import Createmember from './pages/member';
+import Payment from './pages';
 
 function App() {
-    const linkStyle = {
-      textDecoration: 'none', // ลบเส้นใต้
-      color: 'inherit', // ใช้สีที่เป็นสีเดียวกับข้อความที่อยู่ภายใน
-    };
-
    return (
     
     <Router>
@@ -37,8 +33,9 @@ function App() {
 
         
       <Routes>
-          <Route path="/logout" element={<Test3/>} />
-          <Route path="/member" element={<Test2 />}> /</Route>
+          <Route path="/เบอร์" element={<Payment />} />
+          <Route path="/logout" element={<Createmember/>} />
+          <Route path="/member" element={<Listpayment />}> /</Route>
           <Route path="/Dentral" element={<Dentral />}> /</Route>
           <Route path="/Card" element={<Cards />} />
           <Route path="/Card/PromptPay" element={<PromptPay />}></Route>

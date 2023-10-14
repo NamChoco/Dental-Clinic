@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, Input, Select, Upload, message } from "antd";
-import TextComponent from '../Components/TextComponent';
-import TextCom1 from '../Components/TextCom1';
-import Grid from '../Components/Grid';
-import TextCom2 from '../Components/TextCom2';
+import TextComponent from '../../../Components/TextComponent';
+import TextCom1 from '../../../Components/TextCom1';
+import Grid from '../../../Components/Grid';
+import TextCom2 from '../../../Components/TextCom2';
 import { BrowserRouter as Router, Link, Routes, Route, useNavigate } from "react-router-dom";
-import Box from '../Components/Box';
-import Box2 from '../Components/Box2';
-import qr from '../asset/qr.jpg'
-import card from '../asset/card.jpg';
-import prom from '../asset/prom.jpg';
-import { PaymentsInterface } from "../pages/interfaces/IPayment";
-import { ImageUpload } from "../pages/interfaces/IUpload";
-import { ServicesInterface } from "./interfaces/IService";
-import { CreatePayment, GetServices } from "../pages/services/https";
+import Box from '../../../Components/Box';
+import Box2 from '../../../Components/Box2';
+import qr from '../../../assets/qr.jpg'
+import card from '../../../assets/card.jpg';
+import prom from '../../../assets/prom.jpg';
+import { MembersInterface } from '../../interfaces/IMember';
+import { PaymentsInterface } from "../../interfaces/IPayment";
+import { ImageUpload } from "../../interfaces/IUpload";
+import { ServicesInterface } from "../../interfaces/IService";
+import { CreatePayment, GetServices,GetMembers } from "../../services/https";
 import { PlusOutlined, ShoppingCartOutlined, PlusCircleOutlined } from "@ant-design/icons";
-
+import Cookies from 'js-cookie'; //port
+let serviceActive = Number(Cookies.get('Service'));
+Cookies.set('MemberUser', 'daimond');
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -25,10 +28,13 @@ const linkStyle = {
 };
 
 const PromptPay = () => {
+  const [members, setMembers] = useState<MembersInterface[]>([]);
   const [profile, setProfile] = useState<ImageUpload>();
   const [messageApi, contextHolder] = message.useMessage();
+  const payments: PaymentsInterface[] = [];
 
   const onFinish = async (values: PaymentsInterface) => {
+    values.MemberID = IDmember!;
     values.Profile = profile?.thumbUrl;
     let res = await CreatePayment(values);
 
@@ -62,6 +68,17 @@ const PromptPay = () => {
     getService();
   }, []);
 
+  const GetMembet = async () => {
+    let res = await GetMembers();
+    if (res) {
+      setMembers(res);
+    }
+  };
+
+  useEffect(() => {
+    GetMembet();
+  }, []);
+
   const [selectedServiceID, setSelectedServiceID] = useState<number | undefined>();
 
   const normFile = (e: any) => {
@@ -71,6 +88,31 @@ const PromptPay = () => {
     setProfile(e?.fileList[0]);
     return e?.fileList;
   };
+
+
+    // Declare IDmember at the beginning of the component
+    const usernameActive = Cookies.get('MemberUser') || "";
+    const foundMember = members.find(member => member.Username === usernameActive);
+    const IDmember = foundMember ? Number(foundMember.ID) : null;
+
+     // คำสั่งที่เรียกหลังจากการดึงข้อมูล members
+  useEffect(() => {
+    payments.forEach((payment) => {
+      const matchingMember = members.find((member) => member.ID === payment.MemberID);
+
+      if (matchingMember) {
+        // Set member.ID to the ID of the matching member
+        payment.MemberID = matchingMember.ID;
+      }
+    });
+  }, [members, payments]);
+
+  // let usernameActive = Cookies.get('MemberUser') || "";
+  // const foundMember = members.find(member => member.Username === usernameActive);
+  // const IDmember = foundMember ? Number(foundMember.ID) : null;
+
+  console.log(usernameActive);
+  console.log(IDmember);
 
   return (
     <>
@@ -95,7 +137,7 @@ const PromptPay = () => {
           </Grid>
         </div>
       </section>
-
+     <div style={{ marginTop: '300px' }}>
       {services
         .filter((service) => service.ID === selectedServiceID)
         .map((service) => (
@@ -112,7 +154,8 @@ const PromptPay = () => {
             </div>
           </div>
         ))}
-      <img src={qr} alt="qr " style={{ width: "15%", marginLeft: "420px", marginTop: "50px", borderRadius: "0%" }} />
+        </div>
+      <img src={qr} alt="qr " style={{ width: "15%", marginLeft: "420px", marginTop: "-300px", borderRadius: "0%" }} />
       <div style={{ marginLeft: "280px" }}>
         <TextCom2 text={<span><span style={{ color: "black" }}>ชื่อบัญชี : </span><span style={{ color: "blue" }}>ksdentralclinic</span></span>} />
       </div>
@@ -125,9 +168,9 @@ const PromptPay = () => {
         onFinish={onFinish}
         autoComplete="off"
       >
-        <div style={{ marginLeft: '160px' }}>
+       <div style={{ marginLeft: '160px' }}>
           <Col xs={24} sm={24} md={24} lg={24} xl={3}>
-            <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}>
+            <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}  >
               <Select allowClear value={selectedServiceID} onChange={(value) => setSelectedServiceID(value)}>
                 {services.map((item) => (
                   <Option value={item.ID} key={item.Name}>
@@ -172,6 +215,10 @@ const PromptPay = () => {
                   required: true,
                   message: "กรุณากรอกจำนวนเงินที่โอน !",
                 },
+                {
+                  pattern: /^[0-9]*$/, // Only allow numeric characters
+                  message: "กรุณากรอกตัวเลขเท่านั้น!",
+                },
               ]}
             >
               <TextArea
@@ -194,6 +241,12 @@ const PromptPay = () => {
               name="Profile"
               valuePropName="fileList"
               getValueFromEvent={normFile}
+              rules={[
+                {
+                  required: true,
+                  message: "กรุณาแนบสลิปโอนเงิน !",
+                },
+              ]}
             >
               <Upload maxCount={1} multiple={false} listType="picture-card">
                 <div>
@@ -217,6 +270,22 @@ const PromptPay = () => {
             </Button>
           </Form.Item>
         </div>
+              {/* <div style={{ marginLeft: '160px' }}>
+          <Col xs={24} sm={24} md={24} lg={24} xl={3}>
+          <Form.Item
+                  name="MemberID"
+                  label="MemberID"
+                  rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}
+                  initialValue={usernameActive}
+                >
+                    <Select allowClear showSearch optionFilterProp="children" disabled  >
+                      {members.map((item) => (
+                        <Option value={item.Username} key={item.Username}>{item.ID}</Option>
+                      ))}
+                    </Select>
+                </Form.Item>
+          </Col>
+        </div> */}
       </Form>
       {services
         .filter((service) => service.ID === selectedServiceID)

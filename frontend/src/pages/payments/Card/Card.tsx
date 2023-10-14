@@ -1,56 +1,69 @@
 import React, { useState, useEffect } from "react";
-import { Input, Button, Form, message, Table, Col, Row, Divider, Modal, Select } from "antd";
-import TextComponent from "../Components/TextComponent";
-import TextCom1 from "../Components/TextCom1";
-import Grid from "../Components/Grid";
-import TextCom2 from "../Components/TextCom2";
+import { Input, Button, Form, message, Table, Col, Row, Divider, Modal, Select, Space} from "antd";
+import TextComponent from "../../../Components/TextComponent";
+import TextCom1 from "../../../Components/TextCom1";
+import Grid from "../../../Components/Grid";
+import TextCom2 from "../../../Components/TextCom2";
 import { BrowserRouter as Router, Link, Routes, Route, useNavigate } from "react-router-dom";
-import Box from "../Components/Box";
-import Box2 from "../Components/Box2";
-import card from "../asset/card.jpg";
-import prom from "../asset/prom.jpg";
-import visa from "../asset/visa.jpg";
-import cvc from "../asset/cvc.jpg";
-import master from "../asset/master.jpg";
+import Box from "../../../Components/Box";
+import Box2 from "../../../Components/Box2";
+import card from '../../../assets/card.jpg';
+import prom from '../../../assets/prom.jpg';
+import visa from '../../../assets/visa.jpg';
+import cvc from '../../../assets/cvc.jpg';
+import master from '../../../assets/master.jpg';
 import { ShoppingCartOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { MembersInterface } from "./interfaces/IMember";
-import { PaymentsInterface } from "../pages/interfaces/IPayment";
-import { ServicesInterface } from "./interfaces/IService";
-import { CreatePayment, GetServices } from "../pages/services/https";
+import { MembersInterface } from "../../interfaces/IMember";
+import { PaymentsInterface } from "../../interfaces/IPayment";
+import { ServicesInterface } from "../../interfaces/IService";
+import { CreatePayment, GetServices, GetMembers } from "../../services/https";
+import Cookies from 'js-cookie'; //port
+import type { ColumnsType, TableProps } from 'antd/es/table';
+
+Cookies.set('MemberUser', 'daimond');
 
 const { Option } = Select;
 const { TextArea } = Input;
-
+let serviceActive = Number(Cookies.get('Service'));
 const linkStyle = {
   textDecoration: "none",
   color: "inherit",
 };
 
 const Card = () => {
-  const members: MembersInterface[] = [];
+  const [members, setMembers] = useState<MembersInterface[]>([]);
   const payments: PaymentsInterface[] = [];
   const [messageApi, contextHolder] = message.useMessage();
   const [services, setServices] = useState<ServicesInterface[]>([]);
   const navigate = useNavigate();
   const [selectedServiceID, setSelectedServiceID] = useState<number | undefined>(undefined);
 
-  const onFinish = async (values: PaymentsInterface) => {
-    let res = await CreatePayment(values);
-    if (res.status) {
-      messageApi.open({
-        type: "success",
-        content: "บันทึกข้อมูลสำเร็จ",
-      });
-      setTimeout(function () {
-        navigate("/Card/PaymentPage");
-      }, 2000);
-    } else {
-      messageApi.open({
-        type: "error",
-        content: "บันทึกข้อมูลไม่สำเร็จ",
-      });
-    }
-  };
+  // Declare IDmember at the beginning of the component
+  const usernameActive = Cookies.get('MemberUser') || "";
+  const foundMember = members.find(member => member.Username === usernameActive);
+  const IDmember = foundMember ? Number(foundMember.ID) : null;
+
+  // Move onFinish inside the if block
+    const onFinish = async (values: PaymentsInterface) => {
+      // Add MemberID to the values object with type assertion
+      values.MemberID = IDmember!;
+
+      let res = await CreatePayment(values);
+      if (res.status) {
+        messageApi.open({
+          type: "success",
+          content: "บันทึกข้อมูลสำเร็จ",
+        });
+        setTimeout(function () {
+          navigate("/Card/PaymentPage");
+        }, 2000);
+      } else {
+        messageApi.open({
+          type: "error",
+          content: "บันทึกข้อมูลไม่สำเร็จ",
+        });
+      }
+    };
 
   const getService = async () => {
     let res = await GetServices();
@@ -61,18 +74,46 @@ const Card = () => {
 
   useEffect(() => {
     getService();
-    
-  payments.forEach((payment) => {
-  const matchingMember = members.find((member) => member.Firstname === payment.Name);
+  }, []); // เรียกใช้ useEffect ในการดึงข้อมูล Services เมื่อคอมโพเนนต์เรนเดอร์
 
-  if (matchingMember) {
-    // Set member.ID to the ID of the matching member
-    payment.MemberID = matchingMember.ID;
-  }
-});
+  const GetMembet = async () => {
+    let res = await GetMembers();
+    if (res) {
+      setMembers(res);
+    }
+  };
+
+  useEffect(() => {
+    GetMembet();
   }, []);
- 
+  
+  const findMemberID = (name: string) => {
+    const foundMember = members.find(member => member.Firstname === name);
+    return foundMember ? Number(foundMember.ID) : null;
+  };
 
+
+  // คำสั่งที่เรียกหลังจากการดึงข้อมูล members
+  useEffect(() => {
+    payments.forEach((payment) => {
+      const matchingMember = members.find((member) => member.ID === payment.MemberID);
+
+      if (matchingMember) {
+        // Set member.ID to the ID of the matching member
+        payment.MemberID = matchingMember.ID;
+      }
+    });
+  }, [members, payments]);
+
+  // let usernameActive = Cookies.get('MemberUser') || "";
+  // const foundMember = members.find(member => member.Username === usernameActive);
+  // const IDmember = foundMember ? Number(foundMember.ID) : null;
+
+  console.log(usernameActive);
+  console.log(IDmember);
+
+  
+ 
   return (
     <>
       {contextHolder}
@@ -81,7 +122,7 @@ const Card = () => {
         <TextCom1 text="วิธีการชำระเงิน" />
       </div>
       <section className="app-section">
-        <div className="app-container">
+        <div className="app-container"> 
           <Grid>
             <Link to="/Card" style={linkStyle}>
               <Box2>
@@ -101,22 +142,22 @@ const Card = () => {
         </div>
       </section>
       
-      {services
-        .filter((service) => service.ID === selectedServiceID)
-        .map((service) => (
-          <div className="container" key={service.ID}>
-            <div className="asset">
+      <div className="container">
+        {services
+          .filter((service) => service.ID === selectedServiceID)
+          .map((service) => (
+            <div className="asset" key={service.ID}>
               <h2 style={{ textAlign: 'center' }}>รายการ</h2>
               <div key={service.ID}>
                 <div>
                   <h3 style={{ marginLeft: '20px' }}>
-                    <PlusCircleOutlined style={{ marginRight: '8px', fontSize: '25px' }} /> {service?.Name}
+                    <PlusCircleOutlined style={{ marginRight: '8px', fontSize: '25px' }} /> {service.Name}
                   </h3>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
       <TextCom2 text="หมายเลขบัตร" />
       <Form
         name="basic"
@@ -250,7 +291,7 @@ const Card = () => {
         </div>
         <div style={{ marginLeft: '160px' }}>
           <Col xs={24} sm={24} md={24} lg={24} xl={3}>
-            <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}>
+            <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}  >
               <Select allowClear value={selectedServiceID} onChange={(value) => setSelectedServiceID(value)}>
                 {services.map((item) => (
                   <Option value={item.ID} key={item.Name}>
@@ -261,6 +302,24 @@ const Card = () => {
             </Form.Item>
           </Col>
         </div>
+        {/* <div style={{ marginLeft: '160px' }}>
+          <Col xs={24} sm={24} md={24} lg={24} xl={3}>
+          <Form.Item
+                  name="ServiceID"
+                  label="รายการ"
+                  rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}
+                  initialValue={serviceActive}
+                >
+                    <Select allowClear showSearch optionFilterProp="children" disabled  >
+                      {services.map((item) => (
+                        <Option value={item.ID} key={item.ID}>{item.Name }</Option>
+                      ))}
+                    </Select>
+                </Form.Item>
+          </Col>
+        </div> */}
+
+        
         <div style={{ marginLeft: '160px' }}>
           <Form.Item>
             <Button
@@ -273,21 +332,39 @@ const Card = () => {
             </Button>
           </Form.Item>
         </div>
+                  {/* <div style={{ marginLeft: '160px' }}>
+          <Col xs={24} sm={24} md={24} lg={24} xl={3}>
+          <Form.Item
+                  name="MemberID"
+                  label="MemberID"
+                  rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}
+                  initialValue={usernameActive}
+                >
+                    <Select allowClear showSearch optionFilterProp="children" disabled  >
+                      {members.map((item) => (
+                        <Option value={item.Username} key={item.Username}>{item.ID}</Option>
+                      ))}
+                    </Select>
+                </Form.Item>
+          </Col>
+        </div> */}
       </Form>
-      {services
-        .filter((service) => service.ID === selectedServiceID)
-        .map((service) => (
-          <div style={{ marginTop: '-250px' }}>
-            <div className="tab-links">
-              <nav>
-                <ul>
-                  <li className="payment">ยอดชำระ</li>
-                  <li className="amount">{service?.Amount} บาท</li>
-                </ul>
-              </nav>
+      <div>
+        {services
+          .filter((service) => service.ID === selectedServiceID)
+          .map((service) => (
+            <div style={{ marginTop: '-250px' }}>
+              <div className="tab-links">
+                <nav>
+                  <ul>
+                    <li className="payment">ยอดชำระ</li>
+                    <li className="amount">{service?.Amount} บาท</li>
+                  </ul>
+                </nav>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </>
   );
 };

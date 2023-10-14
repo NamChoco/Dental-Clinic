@@ -28,7 +28,13 @@ function Customers() {
       key: "name",
     },
     {
-      title: "ยอดชำระ",
+      title: "IDservice",
+      dataIndex: "Service", // Assuming "Service" is the property containing the Service object
+      key: "amount",
+      render: (item) => item.ID, // Display the Amount property from the Service object
+    },
+    {
+      title: "ยอดชำระpromptpay",
       dataIndex: "Amountpay",
       key: "Amountpay",
     },
