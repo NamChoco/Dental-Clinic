@@ -8,7 +8,7 @@ import { MembersInterface } from "../interfaces/IMember";
 import { PaymentsInterface } from "../interfaces/IPayment";
 import { Link, useNavigate } from "react-router-dom";
 
-function Customers() {
+function Payments() {
   
   const columns: ColumnsType<PaymentsInterface> = [
     {
@@ -22,16 +22,28 @@ function Customers() {
         key: "service",
         render: (item) => Object.values(item.Name),
       },
-    {
-      title: "ชื่อ Card",
-      dataIndex: "Name",
-      key: "name",
-    },
+     
     {
       title: "IDservice",
       dataIndex: "Service", // Assuming "Service" is the property containing the Service object
       key: "amount",
       render: (item) => item.ID, // Display the Amount property from the Service object
+    },
+    {
+      title: "วันที่/เวลา",
+      dataIndex: "CreatedAt",
+      key: "createat",
+      render: (text) => new Date(text).toLocaleString(),
+    },
+    {
+      title: "ชื่อ Card",
+      dataIndex: "Namecard",
+      key: "namecard",
+    },
+    {
+      title: "ชื่อ Promptpay",
+      dataIndex: "Namepay",
+      key: "namepay",
     },
     {
       title: "ยอดชำระpromptpay",
@@ -93,7 +105,7 @@ function Customers() {
 
   const showModal = (val: PaymentsInterface) => {
     setModalText(
-      `คุณต้องการลบข้อมูลผู้ใช้ "${val.Name} ${val.ID}" หรือไม่ ?`
+      `คุณต้องการลบข้อมูลผู้ใช้ " ${val.ID}" หรือไม่ ?`
     );
     setDeleteId(val.ID);
     setOpen(true);
@@ -153,4 +165,7 @@ function Customers() {
   );
 }
 
-export default Customers;
+export default Payments;
+
+
+

@@ -40,10 +40,10 @@ func CreatePayment(c *gin.Context) {
 	p := entity.Payment{
 		Service: service,         // โยงความสัมพันธ์กับ Entity Gender
 		Member: member,
-		Name: payment.Name, // ตั้งค่าฟิลด์ Name
+		Namecard: payment.Namecard, // ตั้งค่าฟิลด์ Name
+		Namepay: payment.Namepay,
 		Amountpay: payment.Amountpay,
 		Profile: payment.Profile,	
-		
 	}
 
 	// บันทึก

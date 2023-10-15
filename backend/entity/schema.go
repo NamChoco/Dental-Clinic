@@ -1,6 +1,8 @@
 package entity
 
 import (
+	"time"
+
 	"gorm.io/gorm"
 )
 
@@ -47,14 +49,14 @@ type Service struct {
 
 type Payment struct {
 	gorm.Model
-	Name    string
+	Namecard    string
+	Namepay    string
 	Amountpay   string
 	Profile   string `gorm:"type:longtext"`
-	
+	CreatedAt time.Time `gorm:"autoUpdateTime:milli"`
+
 	ServiceID *uint
 	Service   Service `gorm:"references:id"`
-
-	
 	MemberID *uint
 	Member  Member `gorm:"references:id"`
 	

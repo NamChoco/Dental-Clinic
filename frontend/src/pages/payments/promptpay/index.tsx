@@ -17,8 +17,8 @@ import { ServicesInterface } from "../../interfaces/IService";
 import { CreatePayment, GetServices,GetMembers } from "../../services/https";
 import { PlusOutlined, ShoppingCartOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import Cookies from 'js-cookie'; //port
-let serviceActive = Number(Cookies.get('Service'));
-Cookies.set('MemberUser', 'daimond');
+// let serviceActive = Number(Cookies.get('Service'));
+// Cookies.set('usernameMember', 'daimond');
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -91,7 +91,7 @@ const PromptPay = () => {
 
 
     // Declare IDmember at the beginning of the component
-    const usernameActive = Cookies.get('MemberUser') || "";
+    const usernameActive = Cookies.get('usernameMember') || "";
     const foundMember = members.find(member => member.Username === usernameActive);
     const IDmember = foundMember ? Number(foundMember.ID) : null;
 
@@ -106,10 +106,6 @@ const PromptPay = () => {
       }
     });
   }, [members, payments]);
-
-  // let usernameActive = Cookies.get('MemberUser') || "";
-  // const foundMember = members.find(member => member.Username === usernameActive);
-  // const IDmember = foundMember ? Number(foundMember.ID) : null;
 
   console.log(usernameActive);
   console.log(IDmember);
@@ -185,7 +181,7 @@ const PromptPay = () => {
           <Col xs={24} sm={24} md={24} lg={24} xl={5}>
             <Form.Item
               label="ชื่อผู้โอน"
-              name="Name"
+              name="Namepay"
               rules={[
                 {
                   required: true,
@@ -195,7 +191,7 @@ const PromptPay = () => {
             >
               <TextArea
                 style={{ width: '749px' }}
-                name="Name"
+                name="Namepay"
                 placeholder=""
                 autoSize={{
                   minRows: 1.5,
@@ -270,22 +266,6 @@ const PromptPay = () => {
             </Button>
           </Form.Item>
         </div>
-              {/* <div style={{ marginLeft: '160px' }}>
-          <Col xs={24} sm={24} md={24} lg={24} xl={3}>
-          <Form.Item
-                  name="MemberID"
-                  label="MemberID"
-                  rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}
-                  initialValue={usernameActive}
-                >
-                    <Select allowClear showSearch optionFilterProp="children" disabled  >
-                      {members.map((item) => (
-                        <Option value={item.Username} key={item.Username}>{item.ID}</Option>
-                      ))}
-                    </Select>
-                </Form.Item>
-          </Col>
-        </div> */}
       </Form>
       {services
         .filter((service) => service.ID === selectedServiceID)

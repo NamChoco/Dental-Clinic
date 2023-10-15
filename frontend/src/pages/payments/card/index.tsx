@@ -19,17 +19,14 @@ import { ServicesInterface } from "../../interfaces/IService";
 import { CreatePayment, GetServices, GetMembers } from "../../services/https";
 import Cookies from 'js-cookie'; //port
 import type { ColumnsType, TableProps } from 'antd/es/table';
-
-Cookies.set('MemberUser', 'daimond');
-
+// Cookies.set('usernameMember', 'daimond');
+// let serviceActive = Number(Cookies.get('Service'));
 const { Option } = Select;
 const { TextArea } = Input;
-let serviceActive = Number(Cookies.get('Service'));
 const linkStyle = {
   textDecoration: "none",
   color: "inherit",
 };
-
 const Card = () => {
   const [members, setMembers] = useState<MembersInterface[]>([]);
   const payments: PaymentsInterface[] = [];
@@ -39,7 +36,7 @@ const Card = () => {
   const [selectedServiceID, setSelectedServiceID] = useState<number | undefined>(undefined);
 
   // Declare IDmember at the beginning of the component
-  const usernameActive = Cookies.get('MemberUser') || "";
+  const usernameActive = Cookies.get('usernameMember') || "";
   const foundMember = members.find(member => member.Username === usernameActive);
   const IDmember = foundMember ? Number(foundMember.ID) : null;
 
@@ -62,6 +59,9 @@ const Card = () => {
           type: "error",
           content: "บันทึกข้อมูลไม่สำเร็จ",
         });
+        setTimeout(function () {
+          navigate("/Card");
+        }, 2000);
       }
     };
 
@@ -87,11 +87,10 @@ const Card = () => {
     GetMembet();
   }, []);
   
-  const findMemberID = (name: string) => {
-    const foundMember = members.find(member => member.Firstname === name);
-    return foundMember ? Number(foundMember.ID) : null;
-  };
-
+  // const findMemberID = (name: string) => {
+  //   const foundMember = members.find(member => member.Firstname === name);
+  //   return foundMember ? Number(foundMember.ID) : null;
+  // };
 
   // คำสั่งที่เรียกหลังจากการดึงข้อมูล members
   useEffect(() => {
@@ -105,15 +104,8 @@ const Card = () => {
     });
   }, [members, payments]);
 
-  // let usernameActive = Cookies.get('MemberUser') || "";
-  // const foundMember = members.find(member => member.Username === usernameActive);
-  // const IDmember = foundMember ? Number(foundMember.ID) : null;
-
   console.log(usernameActive);
   console.log(IDmember);
-
-  
- 
   return (
     <>
       {contextHolder}
@@ -248,7 +240,7 @@ const Card = () => {
         <TextCom2 text="ชื่อผู้ถือบัตร" />
         <div style={{ marginLeft: '160px' }}>
           <Form.Item
-            name="Name"
+            name="Namecard"
             rules={[
               {
                 required: true,
@@ -258,7 +250,7 @@ const Card = () => {
           >
             <TextArea
               style={{ width: '749px' }}
-              name="Name"
+              name="Namecard"
               placeholder=""
               autoSize={{
                 minRows: 1.5,
@@ -302,24 +294,6 @@ const Card = () => {
             </Form.Item>
           </Col>
         </div>
-        {/* <div style={{ marginLeft: '160px' }}>
-          <Col xs={24} sm={24} md={24} lg={24} xl={3}>
-          <Form.Item
-                  name="ServiceID"
-                  label="รายการ"
-                  rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}
-                  initialValue={serviceActive}
-                >
-                    <Select allowClear showSearch optionFilterProp="children" disabled  >
-                      {services.map((item) => (
-                        <Option value={item.ID} key={item.ID}>{item.Name }</Option>
-                      ))}
-                    </Select>
-                </Form.Item>
-          </Col>
-        </div> */}
-
-        
         <div style={{ marginLeft: '160px' }}>
           <Form.Item>
             <Button
@@ -332,22 +306,6 @@ const Card = () => {
             </Button>
           </Form.Item>
         </div>
-                  {/* <div style={{ marginLeft: '160px' }}>
-          <Col xs={24} sm={24} md={24} lg={24} xl={3}>
-          <Form.Item
-                  name="MemberID"
-                  label="MemberID"
-                  rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}
-                  initialValue={usernameActive}
-                >
-                    <Select allowClear showSearch optionFilterProp="children" disabled  >
-                      {members.map((item) => (
-                        <Option value={item.Username} key={item.Username}>{item.ID}</Option>
-                      ))}
-                    </Select>
-                </Form.Item>
-          </Col>
-        </div> */}
       </Form>
       <div>
         {services

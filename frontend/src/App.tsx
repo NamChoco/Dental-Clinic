@@ -2,15 +2,15 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './Components/Header';
-import logo from "./asset/logo.jpg";
+import logo from "./assets/logo.jpg";
 import TabLinks from './Components/TabLinks';
 import HorizontalLine from './Components/HorizontalLine';
 import PaymentPage from './pages/payments/success/PaymentPage';
-import PromptPay from './pages/payments/PromptPay/PromptPay';
-import Cards from './pages/payments/Card/Card';
+import PromptPay from './pages/payments/promptpay';
+import Cards from './pages/payments/card';
 import PaymentPrompt from './pages/payments/success/PaymentPrompt';
 
-import Dentral from './pages/service/Dentral';
+import Service from './pages/service';
 
 import Listpayment from './pages/admin';
 import Createmember from './pages/member';
@@ -36,7 +36,7 @@ function App() {
           <Route path="/เบอร์" element={<Payment />} />
           <Route path="/logout" element={<Createmember/>} />
           <Route path="/member" element={<Listpayment />}> /</Route>
-          <Route path="/Dentral" element={<Dentral />}> /</Route>
+          <Route path="/Dentral" element={<Service />}> /</Route>
           <Route path="/Card" element={<Cards />} />
           <Route path="/Card/PromptPay" element={<PromptPay />}></Route>
           <Route path="/Card/PaymentPage" element={<PaymentPage />}>  
