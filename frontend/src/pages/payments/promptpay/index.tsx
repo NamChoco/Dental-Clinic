@@ -35,7 +35,7 @@ const PromptPay = () => {
 
   const onFinish = async (values: PaymentsInterface) => {
     values.MemberID = IDmember!;
-    values.Profile = profile?.thumbUrl;
+    values.Upload = profile?.thumbUrl;
     let res = await CreatePayment(values);
 
     if (res.status) {
@@ -143,7 +143,7 @@ const PromptPay = () => {
               <div key={service.ID}>
                 <div>
                   <h3 style={{ marginLeft: '20px' }}>
-                    <PlusCircleOutlined style={{ marginRight: '8px', fontSize: '25px' }} /> {service?.Name}
+                    <PlusCircleOutlined style={{ marginRight: '8px', fontSize: '25px' }} /> {service?.Title}
                   </h3>
                 </div>
               </div>
@@ -169,8 +169,8 @@ const PromptPay = () => {
             <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}  >
               <Select allowClear value={selectedServiceID} onChange={(value) => setSelectedServiceID(value)}>
                 {services.map((item) => (
-                  <Option value={item.ID} key={item.Name}>
-                    {item.Name}
+                  <Option value={item.ID} key={item.Title}>
+                    {item.Title}
                   </Option>
                 ))}
               </Select>
@@ -275,7 +275,7 @@ const PromptPay = () => {
               <nav>
                 <ul>
                   <li className="payment">ยอดชำระ</li>
-                  <li className="amount">{service?.Amount} บาท</li>
+                  <li className="amount">{service?.Price} บาท</li>
                 </ul>
               </nav>
             </div>

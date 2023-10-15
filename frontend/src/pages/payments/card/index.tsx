@@ -60,7 +60,7 @@ const Card = () => {
           content: "บันทึกข้อมูลไม่สำเร็จ",
         });
         setTimeout(function () {
-          navigate("/Card");
+          navigate("/Dentral");
         }, 2000);
       }
     };
@@ -143,7 +143,7 @@ const Card = () => {
               <div key={service.ID}>
                 <div>
                   <h3 style={{ marginLeft: '20px' }}>
-                    <PlusCircleOutlined style={{ marginRight: '8px', fontSize: '25px' }} /> {service.Name}
+                    <PlusCircleOutlined style={{ marginRight: '8px', fontSize: '25px' }} /> {service.Title}
                   </h3>
                 </div>
               </div>
@@ -286,8 +286,8 @@ const Card = () => {
             <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}  >
               <Select allowClear value={selectedServiceID} onChange={(value) => setSelectedServiceID(value)}>
                 {services.map((item) => (
-                  <Option value={item.ID} key={item.Name}>
-                    {item.Name}
+                  <Option value={item.ID} key={item.Title}>
+                    {item.Title}
                   </Option>
                 ))}
               </Select>
@@ -316,7 +316,7 @@ const Card = () => {
                 <nav>
                   <ul>
                     <li className="payment">ยอดชำระ</li>
-                    <li className="amount">{service?.Amount} บาท</li>
+                    <li className="amount">{service?.Price} บาท</li>
                   </ul>
                 </nav>
               </div>

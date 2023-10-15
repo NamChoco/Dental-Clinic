@@ -10,10 +10,7 @@ func main() {
 	entity.SetupDatabase()
 	r := gin.Default()
 	r.Use(CORSMiddleware())
-	// User Routes
-	r.GET("/users", controller.ListUsers)
-	r.GET("/user/:id", controller.GetUser)
-	r.POST("/users", controller.CreateUser)
+
 	// Gender Routes
 	r.GET("/services", controller.ListServices)
 	r.GET("/occupations", controller.ListOccupations)

@@ -2,7 +2,6 @@ package controller
 
 import (
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 	"github.com/B6428549/payment/entity"
 )
@@ -32,10 +31,6 @@ func CreatePayment(c *gin.Context) {
 		return
 	}
 
-	
-
-
-
 	// สร้าง User
 	p := entity.Payment{
 		Service: service,         // โยงความสัมพันธ์กับ Entity Gender
@@ -43,7 +38,7 @@ func CreatePayment(c *gin.Context) {
 		Namecard: payment.Namecard, // ตั้งค่าฟิลด์ Name
 		Namepay: payment.Namepay,
 		Amountpay: payment.Amountpay,
-		Profile: payment.Profile,	
+		Upload: payment.Upload,	
 	}
 
 	// บันทึก

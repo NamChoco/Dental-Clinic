@@ -6,19 +6,6 @@ import (
 	"gorm.io/gorm"
 )
 
-type User struct {
-	gorm.Model
-	FirstName string
-	LastName  string
-	Email     string
-	Phone     string
-	Amountpay   string
-	Profile   string `gorm:"type:longtext"`
-	// ServiceID ทำหน้าที่เป็น FK
-	ServiceID *uint
-	Service   Service `gorm:"references:id"`
-	
-}
 
 type Member struct {
 	gorm.Model
@@ -39,8 +26,8 @@ type Member struct {
 
 type Service struct {
 	gorm.Model
-	Name string
-	Amount string
+	Title string
+	Price string
 
 	Payment []Payment `gorm:"foreignKey:ServiceID"`
 	
@@ -52,7 +39,7 @@ type Payment struct {
 	Namecard    string
 	Namepay    string
 	Amountpay   string
-	Profile   string `gorm:"type:longtext"`
+	Upload   string `gorm:"type:longtext"`
 	CreatedAt time.Time `gorm:"autoUpdateTime:milli"`
 
 	ServiceID *uint

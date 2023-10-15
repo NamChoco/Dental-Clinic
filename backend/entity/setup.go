@@ -18,7 +18,7 @@ func SetupDatabase() {
 	}
 	// Migrate the schema
 	database.AutoMigrate(
-		&User{},
+
 		&Service{},
 		&Payment{},
 		&Member{},
@@ -30,20 +30,20 @@ func SetupDatabase() {
 
 	// // Gender Data
 	// one := Service{
-	// 	Name: "อุดฟัน",
-	// 	Amount: "1000",
+	// 	Title: "อุดฟัน",
+	// 	Price: "1000",
 	// }
 	// db.Model(&Service{}).Create(&one)
 
 	// two := Service{
-	// 	Name: "ถอนฟัน",
-	// 	Amount: "2000",
+	// 	Title: "ถอนฟัน",
+	// 	Price: "2000",
 	// }
 	// db.Model(&Service{}).Create(&two)
 
 	// three := Service{
-	// 	Name: "ขูดหินปูน",
-	// 	Amount: "500",
+	// 	Title: "ขูดหินปูน",
+	// 	Price: "500",
 	// }
 	// db.Model(&Service{}).Create(&three)
 

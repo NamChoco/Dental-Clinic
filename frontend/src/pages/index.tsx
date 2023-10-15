@@ -197,7 +197,7 @@ function HistoryCreate() {
                   <Form.Item name="ServicecID" label="รายการ" rules={[{ required: true,  message: "กรุณาระบุรายการ !", }]}>
                     <Select allowClear showSearch optionFilterProp="children">
                       {services.map((item) => (
-                        <Option value={item.ID} key={item.ID}>{item.Name}</Option>
+                        <Option value={item.ID} key={item.ID}>{item.Title}</Option>
                       ))}
                     </Select>
                   </Form.Item>

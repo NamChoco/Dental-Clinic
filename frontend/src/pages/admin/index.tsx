@@ -20,7 +20,7 @@ function Payments() {
         title: " รายการ",
         dataIndex: "Service",
         key: "service",
-        render: (item) => Object.values(item.Name),
+        render: (item) => Object.values(item.Title),
       },
      
     {
@@ -55,7 +55,7 @@ function Payments() {
         dataIndex: "Profile",
         key: "profile",
         render: (text, record, index) => (
-          <img src={record.Profile} className="w3-left w3-circle w3-margin-right" width="50%" />
+          <img src={record.Upload} className="w3-left w3-circle w3-margin-right" width="50%" />
         )
       },
       {

@@ -1,5 +1,5 @@
 export interface ServicesInterface {
     ID?: number;
-    Name?: string;
-    Amount?: string;
+    Title?: string;
+    Price?: string;
   }
