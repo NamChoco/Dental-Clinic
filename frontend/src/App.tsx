@@ -13,8 +13,8 @@ import PaymentPrompt from './pages/payments/success/PaymentPrompt';
 import Service from './pages/service';
 
 import Listpayment from './pages/admin';
-import Createmember from './pages/member';
-import Payment from './pages';
+import Createmember from './pages/member/create';
+import Payment from './pages/member';
 
 function App() {
    return (

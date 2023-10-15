@@ -9,7 +9,6 @@ import (
 
 type Member struct {
 	gorm.Model
-	
 	Profile   string `gorm:"type:longtext"`
     Username    string `gorm:"uniqueIndex"`
     Password    string
@@ -33,7 +32,6 @@ type Service struct {
 	
 }
 
-
 type Payment struct {
 	gorm.Model
 	Namecard    string
@@ -48,6 +46,7 @@ type Payment struct {
 	Member  Member `gorm:"references:id"`
 	
 }
+
 type Occupation struct {
     gorm.Model
     Name     string
