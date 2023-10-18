@@ -12,7 +12,7 @@ const PaymentPage = () => (
         <Link to="/home">หน้าแรก</Link>
       </Button>,
       <Button key="buy">
-        <Link to="/Dentral">Buy again</Link>
+        <Link to="/service">Buy again</Link>
       </Button>,
     ]}
   />

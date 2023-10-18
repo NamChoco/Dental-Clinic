@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, Input, Select, Upload, message } from "antd";
-import TextComponent from '../../../Components/TextComponent';
-import TextCom1 from '../../../Components/TextCom1';
-import Grid from '../../../Components/Grid';
-import TextCom2 from '../../../Components/TextCom2';
+import TextComponent from '../../../Components/Text/TextComponent';
+import TextCom1 from '../../../Components/Text/TextCom1';
+import Grid from '../../../Components/Grid/Grid';
+import TextCom2 from '../../../Components/Text/TextCom2';
 import { BrowserRouter as Router, Link, Routes, Route, useNavigate } from "react-router-dom";
-import Box from '../../../Components/Box';
-import Box2 from '../../../Components/Box2';
+import Box from '../../../Components/Box/Box';
+import Box2 from '../../../Components/Box/Box2';
 import qr from '../../../assets/qr.jpg'
 import card from '../../../assets/card.jpg';
 import prom from '../../../assets/prom.jpg';
@@ -34,17 +34,19 @@ const PromptPay = () => {
   const payments: PaymentsInterface[] = [];
 
   const onFinish = async (values: PaymentsInterface) => {
+    // Parse the 'Amountpay' value to an integer
+  
     values.MemberID = IDmember!;
     values.Upload = profile?.thumbUrl;
     let res = await CreatePayment(values);
-
+  
     if (res.status) {
       messageApi.open({
         type: "success",
         content: "บันทึกข้อมูลสำเร็จ",
       });
       setTimeout(() => {
-        navigate("/Card/PaymentPage");
+        navigate("/success");
       }, 2000);
     } else {
       messageApi.open({
@@ -117,15 +119,16 @@ const PromptPay = () => {
       <div>
         <TextCom1 text="วิธีการชำระเงิน" />
       </div>
+      <div style={{marginLeft: "180px" }}>
       <section className='app-section'>
         <div className='app-container'>
           <Grid>
             <Link to="/Card" style={linkStyle}>
-              <Box >
+              <Box>
                 <h1><img src={card} alt="Logo" style={{ width: "20%", borderRadius: "0%" }} /> Card</h1>
               </Box>
             </Link>
-            <Link to="/Card/PromptPay" style={linkStyle}>
+            <Link to="/PromptPay" style={linkStyle}>
               <Box2>
                 <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> PromptPay</h1>
               </Box2>
@@ -133,6 +136,7 @@ const PromptPay = () => {
           </Grid>
         </div>
       </section>
+      </div>
      <div style={{ marginTop: '300px' }}>
       {services
         .filter((service) => service.ID === selectedServiceID)
@@ -267,20 +271,16 @@ const PromptPay = () => {
           </Form.Item>
         </div>
       </Form>
-      {services
-        .filter((service) => service.ID === selectedServiceID)
-        .map((service) => (
-          <div style={{ marginTop: '-250px' }}>
-            <div className="tab-links">
-              <nav>
-                <ul>
-                  <li className="payment">ยอดชำระ</li>
-                  <li className="amount">{service?.Price} บาท</li>
-                </ul>
-              </nav>
-            </div>
+      <div style={{ display: 'flex', marginLeft :"1050px", marginTop :"-200px" }}>
+             {services
+             .filter((service) => service.ID === selectedServiceID)
+            .map((service) => (
+           <div style={{ display: 'flex', flexDirection: 'row', marginLeft: '10px' }}>
+            <h2 style={{ marginRight: '10px' }}>ยอดชำระ</h2>
+                <h2>{service?.Price} บาท</h2>
+         </div>
+             ))}
           </div>
-        ))}
     </>
   );
 };

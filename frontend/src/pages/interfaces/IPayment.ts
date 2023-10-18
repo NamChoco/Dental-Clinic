@@ -5,9 +5,9 @@ export interface PaymentsInterface {
   ID?: number;
   Namecard?: string;
   Namepay?: string;
-  Amountpay?: string;
+  Amountpay?: number;
   
-  ServiceID?: number;
+  ServiceID?: string;
   Service?:  ServicesInterface;
   Amount?: ServicesInterface; 
   MemberID?: number;

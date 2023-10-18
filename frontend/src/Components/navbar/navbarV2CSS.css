@@ -1,0 +1,93 @@
+/* --------------------Dropdown-------------------- */
+.navbarMember-v2 {
+    position: fixed;  /*กำหนดตำแหน่งให้ลอยตาม windows*/
+    width: 100%;    /*ความกว้างพอดีกับ windows*/
+    margin: 0;    /*กำหนดระยะห่างจากขอบออกไปให้เป็น 0*/
+    padding: 0;   /*กำหนดระยะ content กับขอบ*/
+}
+
+.navbarMember-v2 .navbar-v2 ul {
+    list-style: none;
+    background-color: #010080;
+    padding: 0;
+    margin: 0;
+}
+
+.navbarMember-v2 .navbar-v2 li {
+    font-size: 1rem;
+    line-height: 30px;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+.navbarMember-v2 button{
+    padding: 0;
+    margin: 0;
+    background-color: #010080;
+    font-size: 1rem;
+    line-height: 30px;
+    border: none;
+    color: white;
+}
+
+.navbarMember-v2 .navbar-v2 a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.navbarMember-v2 .navbar-v2 button {
+    /* display: block; */
+    transition: 0.3s;
+}
+
+.navbar-v2 a:hover {
+    background-color: #6EC7E2;
+}
+.navbar-v2 button:hover {
+    background-color: #6EC7E2;
+    width: 100%;
+}
+
+.navbar-v2 li li a{
+    font-size: .8em;
+}
+
+.navbar-v2 li button{
+    font-size: .9em;
+}
+
+@media screen and (min-width: 650px) {
+    .navbar-v2 li {
+        width: 130px;
+        border-bottom: none;
+        height: 30px;
+        line-height: 30px;
+        font-size: 1.4em;
+        display: inline-block;
+    }
+    .navbar-v2 a {
+        border-bottom: none;
+    }
+    .navbar-v2 > li > li {
+        text-align: left;
+    }
+    .navbar-v2 > li > li > a {
+        padding-left: 0px;
+    }
+    .navbar-v2 li ul {
+        position: absolute;
+        display: none;
+        width: inherit;
+    }
+    .navbar-v2 li:hover ul {
+        display: block;
+        border-radius: 15px;
+        background-color: #0a0a9c;
+    }
+    .navbar-v2 li ul li {
+        display: block;
+    }
+
+}

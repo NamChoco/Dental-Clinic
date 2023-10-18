@@ -1,0 +1,171 @@
+.from-popup-pageRegister{
+    position: fixed;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    background: #b57171;
+    height: 750px;
+    max-height: fit-content;
+    /* max-width: 1400px; */
+    max-width: fit-content;
+    transform: translate(-50%, -50%);
+    /* border-radius: 50px solid black; */
+}
+/* --------------------form-boxSignUP-------------------- */
+.form-popup .form-boxSignUP{
+    
+    padding: 20px;
+    background-color: #fff;
+    max-width: 100%;
+    width: 50%;
+}
+
+.form-boxSignUP form a{
+    display: flex;
+    margin-top: 4%;
+    margin-right: 0px;
+    transform: translateX(68%);
+}
+
+/* --------------------contentSignUP-------------------- */
+
+
+.form-contentSignUP h2{
+    text-align: center;
+    margin-bottom: 50px;
+    /* background-color: #21ccdf; */
+}
+
+.form-contentSignUP{
+    width: 100%;
+    padding: 20px;
+    /* margin-top: 10px; */
+    margin-left: 30px;
+    box-sizing: border-box;
+    /* border: 1px solid black; */
+    /* background-color: #e2e2e2; */
+}
+
+.form-contentSignUP form {
+    text-align: left;
+}
+/* --------------------input-field-text-------------------- */
+form .input-field-text {
+    position: relative;
+
+    height: 35px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#distance{
+    margin-left: 60px;
+}
+
+form .input-field-radio {
+    display: flex;
+    height: 35px;
+    width: 100%;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.input-field-text input{
+    width: 80%;
+    height: 100%;
+    outline: none;
+    padding: 0 15px;
+    border: 0px;
+    /* border-radius: 20px; */
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    /* background-color: aqua; */
+}
+
+.input-field-text-birthday input{
+    width: 50%;
+    height: 100%;
+    outline: none;
+    padding: 0 15px;
+    border: 0px;
+    /* border-radius: 20px; */
+    /* border-bottom: 1px solid black; */
+    font-size: 20px;
+    /* background-color: aqua; */
+}
+
+.input-field-text input:is(:focus, :valid) {
+    padding: 0px 15px 0;
+}
+
+.input-field-text label{
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    transform: translateX(-9%);
+    left: 15px;
+    color: #9E9E9E;
+    pointer-events: none;
+}
+
+.input-field-text input:is(:focus, :valid) ~ label {
+    color: #21ccdf;
+    font-size: 0.8rem;
+    transform: translateY(-180%);
+    
+    transition: 0.2s ease;
+}
+
+
+.input-field-text-occupation select{
+    width: 50%;
+    height: 100%;
+    outline: none;
+    padding: 0 15px;
+    border: 0px;
+    /* border-radius: 20px; */
+    /* border-bottom: 1px solid black; */
+    font-size: 20px;
+    /* background-color: aqua; */
+    color: #fff;
+    background-color: #010080;
+}
+
+
+/* --------------------BUTTON-------------------- */
+#button-SIGNUP {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#button-SIGNUP button{
+    width: 40%;
+    font-weight: 500px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    padding: 14px 0;
+    border-radius: 30px;
+    color: #fff;
+    background: #010080;
+}
+
+#button-SIGNUP button:hover, :active{
+    /* background-color: #6EC7E2; */
+    color: 010080;
+}
+
+#button-signUp form button{
+    width: 40%;
+    font-weight: 500px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    padding: 14px 0;
+    border-radius: 30px;
+}
+
+#button-signUp button:hover, :active{
+    /* background-color: #C0C0C0; */
+    color: 010080;
+}

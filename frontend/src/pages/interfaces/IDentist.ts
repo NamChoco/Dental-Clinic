@@ -1,8 +1,6 @@
-import { OccupationInterface } from "./IOccupation";
-import { DentistsInterface } from "./IDentist";
+import { AdminInterface } from "./IAdmin";
 import { GendersInterface } from "./IGender";
-
-export interface MembersInterface {
+export interface DentistsInterface {
     ID?: number;
     Username?: string;
     Password?: string;
@@ -11,10 +9,8 @@ export interface MembersInterface {
     Email?: string;
     Birthday?: string;
     Phone_number?: string;
-
-    
-    OccupationID?: number;
-    Occupation?: OccupationInterface;
+    AdminID?: number;
+    Admin?: AdminInterface;
 
     GenderID?: number;
     Gender?: GendersInterface;

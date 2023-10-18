@@ -1,5 +1,4 @@
-export interface OccupationsInterface {
+export interface OccupationInterface {
     ID?: number;
     Name?: string;
-    
-  }
+}
