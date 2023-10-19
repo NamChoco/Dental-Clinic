@@ -30,7 +30,6 @@ function NavbarAdmin() {
                         <ul>
                             <li><Link to=''>แอดมิน</Link>
                                 <ul>
-                                    <li ><Link to='./home'>โปรไฟล์</Link></li>
                                     <li><Link to=''>ประวัติการรักษา</Link></li>
                                     <li><Link to=''>วันนัดหมาย</Link></li>
                                     <li><Link to=''>จัดการหมอ</Link></li>

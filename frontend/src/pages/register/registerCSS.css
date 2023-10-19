@@ -131,6 +131,9 @@ form .input-field-radio {
     background-color: #010080;
 }
 
+#gender-margin{
+    margin-top: 13px;
+}
 
 /* --------------------BUTTON-------------------- */
 #button-SIGNUP {
