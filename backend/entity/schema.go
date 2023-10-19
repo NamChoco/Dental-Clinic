@@ -10,7 +10,7 @@ type Appointment struct {
 	gorm.Model
 	DateTime string
 	Problem  string
-	
+	Time		time.Time `gorm:"autoCreateTime:milli"`
 
 	
 	MemberID *uint
