@@ -138,7 +138,7 @@ type History struct {
 
 type Service struct {
 	gorm.Model
-	Title string
+	Title string 
 	Price string
 
 	Payment []Payment `gorm:"foreignKey:ServiceID"`

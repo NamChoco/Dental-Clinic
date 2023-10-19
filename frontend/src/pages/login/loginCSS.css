@@ -1,11 +1,11 @@
 @font-face {
     font-family: ttf;
-    src: url(./../../font/SnowBold.ttf);
+    src: url(./../../font/DM\ Academy.ttf);
 }
 
-/* *{
-    font-family: SnowBold;
-} */
+*{
+    font-family: DM\ Academy;
+}
 
 
 .form-popup{

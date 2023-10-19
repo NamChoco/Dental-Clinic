@@ -123,7 +123,7 @@ function Register() {
                                     <input autoComplete='off' type="text" name='Email' onChange={handleInput} required/>
                                     <label>Email</label>
                                 </div>
-                                <div className="input-field-text-occupation">
+                                <div id='gender-margin' className="input-field-text-occupation">
                                     <label htmlFor="">Gender:     </label>
                                     <select 
                                         value={input.GenderID}
