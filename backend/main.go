@@ -34,7 +34,8 @@ func main() {
 	// Payment Routes
 	r.GET("/payments", controller.ListPayments)
 	r.POST("/payments", controller.CreatePayment)
-	r.GET("/payment/:id", controller.GetPayment)
+	r.GET("/payments/:id", controller.GetPayment)
+	r.DELETE("/payments/:id", controller.DeletePayment)
 	// Service Routes
 	r.GET("/services", controller.ListServices)
 	//History Routes

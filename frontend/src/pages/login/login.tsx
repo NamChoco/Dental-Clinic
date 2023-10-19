@@ -34,14 +34,16 @@ function Login() {
         let dentist = await LoginDentistByUsername(input.Username);
         let admin = await LoginAdminByUsername(input.Username);
         console.log(input.Username)
-        console.log(member)
+        // console.log(member)
+        console.log(dentist)
+        // console.log(admin)
         
         if (input.Username[0] === member.Username && input.Password[0] === member.Password) {
             const usernameValues = input.Username as string;
 
             Cookies.set('usernameMember',usernameValues,{ expires: 7 }); //setCookie(name, value, {วันหมดอายุ})
 
-            let c = Cookies.get('username')
+            let c = Cookies.get('usernameMember')
             console.log(c)
             messageApi.open({
                 type: "success",
@@ -62,7 +64,7 @@ function Login() {
             });
 
             setTimeout(function () {
-                navigate("/service");
+                navigate("/"); //******************** */
             }, 2000);
         } else if (input.Username[0] === admin.Username && input.Password[0] === admin.Password){
             const usernameValues = input.Username as string;
@@ -76,7 +78,7 @@ function Login() {
             });
 
             setTimeout(function () {
-                navigate("/service"); //******************** */
+                navigate("/"); //******************** */
             }, 2000);
         } else {
             messageApi.open({

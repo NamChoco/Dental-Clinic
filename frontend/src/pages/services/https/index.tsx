@@ -216,7 +216,7 @@ async function GetPaymentById(id: Number | undefined) {
     method: "GET"
   };
 
-  let res = await fetch(`${apiUrl}/payment/${id}`, requestOptions)
+  let res = await fetch(`${apiUrl}/payments/${id}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {

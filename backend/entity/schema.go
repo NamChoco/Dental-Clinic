@@ -40,6 +40,9 @@ type Member struct {
 
 	OccupationID *uint
 	Occupation   Occupation `gorm:"foreignKey:OccupationID"`
+
+	AdminID *uint
+	Admin   Admin `gorm:"foreignKey:AdminID"`
 	// clear
 }
 
@@ -56,6 +59,9 @@ type Dentist struct {
 
 	GenderID *uint
 	Gender   Gender `gorm:"foreignKey:GenderID"`
+
+	AdminID *uint
+	Admin   Admin `gorm:"foreignKey:AdminID"`
 
 	Appointment []Appointment `gorm:"foreignKey:DentistID"`
 
@@ -88,6 +94,9 @@ type Admin struct {
 	LastName  string
 	Email     string
 	// clear
+	Dentist []Dentist `gorm:"foreignKey:AdminID"`
+
+	Member []Member `gorm:"foreignKey:AdminID"`
 }
 
 type Payment struct {
