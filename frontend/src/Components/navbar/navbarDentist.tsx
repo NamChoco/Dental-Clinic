@@ -33,7 +33,7 @@ function NavbarDentist() {
                             <li><Link to=''>หมอ</Link>
                                 <ul>
                                     <li ><Link to=''>โปรไฟล์</Link></li>
-                                    <li><Link to=''>ประวัติการรักษา</Link></li>
+                                    <li><Link to='/history'>ประวัติการรักษา</Link></li>
                                     <li><Link to=''>นัดหมาย</Link></li>
                                 </ul>
                             </li>

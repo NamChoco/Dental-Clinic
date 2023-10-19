@@ -4,19 +4,21 @@ import NavbarMember from '../../../../Components/navbar/navbarMember';
 import Menu from '../../../../Components/menu/menu';
 // content
 
-import Dentral from '../../../service';
+import Memberhistory from '../../../history/user';
 
 
-function Memberservice(){
+
+function MemberHistory(){
     return (
         <>
             <div>
                 <NavbarMember />
                 <Menu />
-                <Dentral />
+                <Memberhistory/>
+                
                 
             </div>
         </>
     )
 }
-export default Memberservice
+export default MemberHistory

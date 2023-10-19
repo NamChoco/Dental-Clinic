@@ -34,7 +34,7 @@ function NavbarMember() {
                             <li><Link to=''>สมาชิก</Link>
                                 <ul>
                                     <li ><Link to=''>โปรไฟล์</Link></li>
-                                    <li><Link to=''>ประวัติการรักษา</Link></li>
+                                    <li><Link to='/memberhistory'>ประวัติการรักษา</Link></li>
                                     <li><Link to='/service'>บริการ</Link></li>
                                     <li><Link to=''>นัดหมาย</Link></li>
                                 </ul>
