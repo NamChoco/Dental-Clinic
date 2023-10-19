@@ -87,7 +87,7 @@ func GetMemberByUsername(c *gin.Context) {
 func LoginMemberByUsername(c *gin.Context) {
 	var member entity.Member
 	username := c.Param("username")
-	if err := entity.DB().Preload("Occupation").Preload("Gender").Raw("SELECT * FROM members WHERE username = ?", username).Find(&member).Error; err != nil {
+	if err := entity.DB().Preload("Occupation").Preload("Gender").Preload("Admin").Raw("SELECT * FROM members WHERE username = ?", username).Find(&member).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

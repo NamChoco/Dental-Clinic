@@ -143,6 +143,7 @@ function Payments() {
     <>
       {contextHolder}
       <Row>
+
         <Col span={12}>
           <h2>จัดการข้อมูล Payment</h2>
         </Col>
@@ -150,7 +151,7 @@ function Payments() {
       </Row>
       <Divider />
       <div style={{ marginTop: 20 }}>
-        <Table rowKey="ID" columns={columns} dataSource={payments} />
+        <Table rowKey="ID" columns={columns} dataSource={payments} pagination={{ pageSize: 2}} size="middle"/>
       </div>
       <Modal
         title="ลบข้อมูล ?"
