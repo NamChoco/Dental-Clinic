@@ -15,7 +15,6 @@ function Memberservice(){
                 <Menu />
                 <Dentral />
                 
-                
             </div>
         </>
     )

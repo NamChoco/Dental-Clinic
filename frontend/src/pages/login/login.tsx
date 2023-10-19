@@ -64,7 +64,7 @@ function Login() {
             });
 
             setTimeout(function () {
-                navigate("/"); //******************** */
+                navigate("/serviceDentist"); //******************** */
             }, 2000);
         } else if (input.Username[0] === admin.Username && input.Password[0] === admin.Password){
             const usernameValues = input.Username as string;
@@ -78,7 +78,7 @@ function Login() {
             });
 
             setTimeout(function () {
-                navigate("/"); //******************** */
+                navigate("/serviceAdmin"); //******************** */
             }, 2000);
         } else {
             messageApi.open({

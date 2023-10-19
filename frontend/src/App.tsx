@@ -10,13 +10,16 @@ import Menu from './Components/menu/menu';
 
 // Member
 import NavbarMember from './Components/navbar/navbarMember';
+import Memberservice from "./pages/layouts/member/payment/memberservice";
 
 
 // Dentist
 import NavbarDentist from './Components/navbar/navbarDentist';
+import Dentistservice from "./pages/layouts/dentist/dentistservice";
 
 // Admin
 import NavbarAdmin from './Components/navbar/navbarAdmin';
+import Adminservice from "./pages/layouts/admin/adminservice";
 
 
 // History
@@ -36,7 +39,7 @@ import Service from './pages/service';
 //Payment
 import PromptPay from './pages/layouts/member/payment/memberprom';
 import Cards from './pages/layouts/member/payment/membercard';
-import Payment from './pages/layouts/member/payment/memberservice'
+// import Payment from './pages/layouts/member/payment/memberservice'
 import Success from './pages/layouts/member/payment/membersuccess'
 import Showpayment from "./pages/layouts/admin/payment/showpayment";
 
@@ -47,11 +50,14 @@ function App() {
          <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/NavbarAdmin" element={<NavbarAdmin  />} />
+               {/* หน้าแรก admin */}
+              <Route path="/serviceAdmin" element={<Adminservice />} /> 
+               {/* หน้าแรก dentist */}
+              <Route path="/serviceDentist" element={<Dentistservice />} />
               
 
               {/* Payment */}
-              <Route path="/service" element={<Payment />} />
+              <Route path="/service" element={<Memberservice />} />
               <Route path="/Card" element={<Cards />}/>
               <Route path="/PromptPay" element={<PromptPay />}/>
               <Route path="/success" element={<Success />}/>  
