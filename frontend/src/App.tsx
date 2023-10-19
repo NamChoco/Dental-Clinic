@@ -20,6 +20,11 @@ import NavbarAdmin from './Components/navbar/navbarAdmin';
 
 
 // History
+import DentistHistory from './pages/layouts/dentist/history'
+import DentistHistoryEdit from './pages/layouts/dentist/historyedit'
+import DentistHistoryCreate from "./pages/layouts/dentist/hitorycreate";
+import MemberHistory from "./pages/layouts/member/history/memberhistory";
+
 
 // Layout
 
@@ -34,6 +39,7 @@ import Cards from './pages/layouts/member/payment/membercard';
 import Payment from './pages/layouts/member/payment/memberservice'
 import Success from './pages/layouts/member/payment/membersuccess'
 import Showpayment from "./pages/layouts/admin/payment/showpayment";
+
 function App() {
   return (
     <>
@@ -50,6 +56,13 @@ function App() {
               <Route path="/PromptPay" element={<PromptPay />}/>
               <Route path="/success" element={<Success />}/>  
               <Route path="/showpayment" element={<Showpayment />} />
+              {/* History */}
+
+              <Route path="/history" element={<DentistHistory />} />
+              <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
+              <Route path="/history/create" element={<DentistHistoryCreate />} />
+              <Route path="/memberhistory" element={<MemberHistory />} />
+
          </Routes>
        </Router>
     </>

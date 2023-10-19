@@ -8,54 +8,54 @@ import (
 
 type Appointment struct {
 	gorm.Model
-	DateTime 	string 
-	Problem  	string 
+	DateTime string
+	Problem  string
 
 	MemberID *uint
-	Member 	Member `gorm:"foreignKey:MemberID"`
+	Member   Member `gorm:"foreignKey:MemberID"`
 
 	DentistID *uint
-	Dentist Dentist `gorm:"foreignKey:DentistID"`
+	Dentist   Dentist `gorm:"foreignKey:DentistID"`
 	// clear
 }
 
 type Member struct {
 	gorm.Model
-	Username 		string 
-	Password 		string
-	FirstName 		string
-	LastName 		string
-	Email 			string
-	Birthday 		string
-	Phone_number 	string
+	Username     string
+	Password     string
+	FirstName    string
+	LastName     string
+	Email        string
+	Birthday     string
+	Phone_number string
 
-	Appointment 	[]Appointment 	`gorm:"foreignKey:MemberID"`
+	Appointment []Appointment `gorm:"foreignKey:MemberID"`
 
-	Payment 		[]Payment 		`gorm:"foreignKey:MemberID"`
+	Payment []Payment `gorm:"foreignKey:MemberID"`
 
-	History 		[]History 		`gorm:"foreignKey:MemberID"`
+	History []History `gorm:"foreignKey:MemberID"`
 
-	GenderID 		*uint
-	Gender 			Gender 			`gorm:"foreignKey:GenderID"`
+	GenderID *uint
+	Gender   Gender `gorm:"foreignKey:GenderID"`
 
-	OccupationID 	*uint
-	Occupation 		Occupation		`gorm:"foreignKey:OccupationID"`
+	OccupationID *uint
+	Occupation   Occupation `gorm:"foreignKey:OccupationID"`
 	// clear
 }
 
 type Dentist struct {
 	gorm.Model
 
-	Username string 
-	Password string
-	FirstName string
-	LastName string
-	Email string
-	Birthday string
+	Username     string
+	Password     string
+	FirstName    string
+	LastName     string
+	Email        string
+	Birthday     string
 	Phone_number string
 
 	GenderID *uint
-	Gender Gender `gorm:"foreignKey:GenderID"`
+	Gender   Gender `gorm:"foreignKey:GenderID"`
 
 	Appointment []Appointment `gorm:"foreignKey:DentistID"`
 
@@ -82,27 +82,27 @@ type Occupation struct {
 type Admin struct {
 	gorm.Model
 
-	Username string 
-	Password string
+	Username  string
+	Password  string
 	FirstName string
-	LastName string
-	Email string
+	LastName  string
+	Email     string
 	// clear
 }
 
 type Payment struct {
 	gorm.Model
-	Namecard    string
-	Namepay    	string
-	Amountpay   string
-	Upload   	string 		`gorm:"type:longtext"`
-	CreatedAt 	time.Time 	`gorm:"autoUpdateTime:milli"`
+	Namecard  string
+	Namepay   string
+	Amountpay string
+	Upload    string    `gorm:"type:longtext"`
+	CreatedAt time.Time `gorm:"autoUpdateTime:milli"`
 
-	ServiceID 	*uint
-	Service   	Service 	`gorm:"references:id"`
+	ServiceID *uint
+	Service   Service `gorm:"references:id"`
 
-	MemberID 	*uint
-	Member  	Member 		`gorm:"references:id"`
+	MemberID *uint
+	Member   Member `gorm:"references:id"`
 	// clear
 }
 
@@ -116,22 +116,22 @@ type History struct {
 	Gender   Gender `gorm:"references:id"`
 
 	MemberID *uint
-	Member Member `gorm:"foreignKey:MemberID"`
+	Member   Member `gorm:"foreignKey:MemberID"`
 
 	DentistID *uint
-	Dentist Dentist `gorm:"foreignKey:DentistID"`
+	Dentist   Dentist `gorm:"foreignKey:DentistID"`
 
 	ServiceID *uint
-	Service Service `gorm:"foreignKey:ServiceID"`
+	Service   Service `gorm:"foreignKey:ServiceID"`
 	// clear
 }
 
 type Service struct {
 	gorm.Model
-	Title 	string
-	Price 	string
-	
-    Payment []Payment `gorm:"foreignKey:ServiceID"`
+	Title string
+	Price string
+
+	Payment []Payment `gorm:"foreignKey:ServiceID"`
 	History []History `gorm:"foreignKey:ServiceID"`
 	// clear
 }

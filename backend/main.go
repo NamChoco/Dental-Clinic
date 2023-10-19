@@ -4,13 +4,15 @@ import (
 	"github.com/B6428549/payment/controller"
 	"github.com/B6428549/payment/entity"
 	"github.com/gin-gonic/gin"
+	
 )
 
-const PORT = "8080"
 
 func main() {
 	entity.SetupDatabase()
 	r := gin.Default()
+	r.ForwardedByClientIP = true
+	r.SetTrustedProxies([]string{"127.0.0.1"})
 	r.Use(CORSMiddleware())
 	// Member Routes
 	r.POST("/members", controller.CreateMember)
@@ -24,6 +26,7 @@ func main() {
 
 	// Dentist Routes
 	r.GET("/dentist/:username", controller.LoginDentistByUsername)
+	r.GET("/dentist", controller.ListDentist)
 	
 	// Admin Routes
 	r.GET("/admin/:username", controller.LoginAdminByUsername)
@@ -34,9 +37,18 @@ func main() {
 	r.GET("/payment/:id", controller.GetPayment)
 	// Service Routes
 	r.GET("/services", controller.ListServices)
+	//History Routes
+	r.GET("/histories", controller.ListHistories)
+	r.GET("/historiesbyusername", controller.ListHistoriesByUserID)
+	r.GET("/history/byuserName/:username", controller.GetHistoryByUsername)
+	r.GET("/history/:id", controller.GetHistory)
+	r.POST("/histories", controller.CreateHistory)
+	r.PATCH("/histories", controller.UpdateHistory)
+	r.DELETE("/histories/:id", controller.DeleteHistory)
+
 
 	// Run the server
-	r.Run("localhost: " + PORT)
+	r.Run(":8080")
 
 }
 
@@ -45,7 +57,7 @@ func CORSMiddleware() gin.HandlerFunc {
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT, DELETE, PATCH")
 
 		if c.Request.Method == "OPTIONS" {
 			c.AbortWithStatus(204)

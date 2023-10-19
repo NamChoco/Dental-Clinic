@@ -61,47 +61,47 @@ func SetupDatabase() {
 	db.Model(&Occupation{}).Create(&CPE)
 	// ------------------------------
 
-	// // Dentist Data
-	// usernameD := Dentist{
-	// 	Username: "GITTI",
-	// 	Password: "1234567890",
-	// 	FirstName: "Panu",
-	// 	LastName: "sriwisut",
-	// 	Email: "",
-	// 	Phone_number: "แก้จนเป็นบ้า",
-	// }
-	// db.Model(&Dentist{}).Create(&usernameD)
+	// Dentist Data
+	usernameD := Dentist{
+		Username: "GITTI",
+		Password: "1234567890",
+		FirstName: "Panu",
+		LastName: "sriwisut",
+		Email: "",
+		Phone_number: "แก้จนเป็นบ้า",
+	}
+	db.Model(&Dentist{}).Create(&usernameD)
 	
-	// // ------------------------------
+	// ------------------------------
 
-	// // Admin Data
-	// usernameA := Admin{
-	// 	Username: "Komsan",
-	// 	Password: "0000",
-	// 	FirstName: "Komsansan",
-	// 	LastName: "sriwichai",
-	// 	Email: "sansan@gmail.com",
-	// }
-	// db.Model(&Admin{}).Create(&usernameA)
-	// // ------------------------------
+	// Admin Data
+	usernameA := Admin{
+		Username: "Komsan",
+		Password: "0000",
+		FirstName: "Komsansan",
+		LastName: "sriwichai",
+		Email: "sansan@gmail.com",
+	}
+	db.Model(&Admin{}).Create(&usernameA)
+	// ------------------------------
 
-	// // Service Data
-	// one := Service{
-	// 	Title: "อุดฟัน",
-	// 	Price: "1000",
-	// }
-	// db.Model(&Service{}).Create(&one)
+	// Service Data
+	one := Service{
+		Title: "อุดฟัน",
+		Price: "1000",
+	}
+	db.Model(&Service{}).Create(&one)
 
-	// two := Service{
-	// 	Title: "ถอนฟัน",
-	// 	Price: "2000",
-	// }
-	// db.Model(&Service{}).Create(&two)
+	two := Service{
+		Title: "ถอนฟัน",
+		Price: "2000",
+	}
+	db.Model(&Service{}).Create(&two)
 
-	// three := Service{
-	// 	Title: "ขูดหินปูน",
-	// 	Price: "500",
-	// }
-	// db.Model(&Service{}).Create(&three)
+	three := Service{
+		Title: "ขูดหินปูน",
+		Price: "500",
+	}
+	db.Model(&Service{}).Create(&three)
 
 }
