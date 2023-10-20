@@ -3,6 +3,7 @@ import History from "../../history";
 import NavbarDentist from '../../../Components/navbar/navbarDentist';
 //Menu
 import Menu from '../../../Components/menu/menu';
+import DentistMenu from '../../../Components/menu/dentistManu';
 // content
 
 
@@ -13,12 +14,12 @@ import Menu from '../../../Components/menu/menu';
 function DentistHistory(){
     return (
         <>
-            <div>
+            <div >
                 <NavbarDentist/>
-                <Menu />
-                <History />
-                
-                
+                <DentistMenu />
+                <div style={{ margin: '40px'}}> 
+                <History />   
+                </div>
             </div>
         </>
     )

@@ -16,6 +16,7 @@ import {
   Select,
   message,
   TimePicker,
+  Col,
 } from "antd";
 //import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
@@ -25,14 +26,15 @@ import { MembersInterface } from "../interfaces/IMember";
 import { CreateAppointment } from "../services/https/index";
 import {
   //GetAppointment,
-  GetDentist,
+  GetDentistByID,
   GetMemberByID,
 } from "../services/https";
 // import { ColumnsType } from "antd/es/table";
 const { Option } = Select;
-const formattime = "HH:mm";
 
 const Body = () => {
+  const dateFormat = "DD/MM/YYYY";
+  const timeFormat = "H:mm A";
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const [dentists, setDentists] = useState<DentistsInterface[]>([]);
@@ -68,10 +70,8 @@ const Body = () => {
     }
   };
 
-  const dateFormat = "DD/MM/YYYY";
-
   const GetDentists = async () => {
-    let res = await GetDentist(); // Change to GetDentists()
+    let res = await GetDentistByID(); // Change to GetDentists()
     if (res) {
       setDentists(res);
     }
@@ -101,20 +101,10 @@ const Body = () => {
               </>
             ),
           },
-          {
-            href: "/memberRecord",
-            title: (
-              <>
-                <CarryOutOutlined />
-                <span>ประวัติการนัดหมายลูกค้า</span>
-              </>
-            ),
-          },
         ]}
       />
-      <h2 className="tabText">บันทึกการนัดหมาย</h2>
-      <div className="box">
-        <div className="tab">
+      <div className="boxx" style={{ marginLeft: "25%" }}>
+        <div style={{ marginLeft: "25%" }}>
           <Form
             name="basic"
             labelCol={{ span: 8 }}
@@ -123,48 +113,66 @@ const Body = () => {
             initialValues={{ remember: true }}
             onFinish={onFinish}
             autoComplete="off"
+            
           >
-            <Form.Item
-              label="ชื่อผู้ป่วย"
-              className="tabname"
-              name="MemberID"
-              rules={[{ required: true, message: "กรุณาระบุชื่อผู้ป่วย!" }]}
-            >
-              <Select allowClear showSearch optionFilterProp="children">
-                {members.map((item) => (
-                  <Option value={item.ID} key={item.Username}>
-                    {item.Username}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
-            <Form.Item
-              label="แพทย์ผู้นัด"
-              className="tabdent"
-              name="DentistID"
-              rules={[{ required: true, message: "กรุณาระบุหมอ!" }]}
-            >
-              <Select allowClear showSearch optionFilterProp="children">
-                {dentists.map((item) => (
-                  <Option value={item.ID} key={item.Username}>
-                    {item.Username}
-                  </Option>
-                ))}
-              </Select>
-            </Form.Item>
+            <div className="boxxx">
+              <Col xs={15} sm={15} md={15} lg={15} xl={15}>
+                <Form.Item
+                  label="ชื่อผู้ป่วย"
+                  className="tabname"
+                  name="MemberID"
+                  rules={[{ required: true, message: "กรุณาระบุชื่อผู้ป่วย!" }]}
+                >
+                  <Select allowClear showSearch optionFilterProp="children">
+                    {members.map((item) => (
+                      <Option value={item.ID} key={item.Username}>
+                        {item.Username}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+                <Form.Item
+                  label="แพทย์ผู้นัด"
+                  className="tabdent"
+                  name="DentistID"
+                  rules={[{ required: true, message: "กรุณาระบุหมอ!" }]}
+                >
+                  <Select allowClear showSearch optionFilterProp="children">
+                    {dentists.map((item) => (
+                      <Option value={item.ID} key={item.Username}>
+                        {item.Username}
+                      </Option>
+                    ))}
+                  </Select>
+                </Form.Item>
 
-            <Form.Item
-              label="เหตุที่นัด"
-              className="tabprob"
-              name="Problem"
-              rules={[{ required: true, message: "กรุณาระบุการนัดหมาย!" }]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item label="วันนัดหมาย" className="tabdate" name="DateTime">
-              <DatePicker format={dateFormat} />
-              <TimePicker style={{ marginLeft: "10px" }} format={formattime} />
-            </Form.Item>
+                <Form.Item
+                  label="เหตุที่นัด"
+                  className="tabprob"
+                  name="Problem"
+                  rules={[{ required: true, message: "กรุณาระบุการนัดหมาย!" }]}
+                >
+                  <Input />
+                </Form.Item>
+              </Col>
+            </div>
+            <div className="dt" style={{ marginLeft: "46px" }}>
+              <Form.Item label="วันนัดหมาย" className="tabdate" name="Datie">
+                <DatePicker
+                  name="datie"
+                  // Pass the formatted time string from Go
+                  format={dateFormat}
+                />
+              </Form.Item>
+              <Form.Item className="tabdate" name="Time">
+                <TimePicker
+                  name="time"
+                  style={{ marginLeft: "10px" }}
+                  format={timeFormat}
+                  //defaultValue={moment()} // Set the default time to the current time
+                />
+              </Form.Item>
+            </div>
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
                 ยืนยัน

@@ -33,10 +33,9 @@ func CreateAppointment(c *gin.Context) {
 
 	// Create a new appointment object
 	newAppointment := entity.Appointment{
-		DateTime:  appointment.DateTime,
+		Datie:  appointment.Datie,
 		Time: appointment.Time,
 		Problem:   appointment.Problem,
-
 		DentistID: appointment.DentistID,
 		Dentist: dentist,
 		MemberID: appointment.MemberID,

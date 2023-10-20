@@ -1,7 +1,7 @@
 // navbar
 import NavbarMember from '../../../../Components/navbar/navbarMember';
 //Menu
-import Menu from '../../../../Components/menu/menu';
+import MemberMenu from '../../../../Components/menu/membertsx';
 // content
 
 import Memberhistory from '../../../history/user';
@@ -13,9 +13,10 @@ function MemberHistory(){
         <>
             <div>
                 <NavbarMember />
-                <Menu />
+                <MemberMenu />
+                <div style={{ margin: '40px'}}> 
                 <Memberhistory/>
-                
+                </div>
                 
             </div>
         </>

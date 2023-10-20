@@ -1,7 +1,7 @@
 // navbar
 import NavbarMember from "../../../../Components/navbar/navbarMember";
 //Menu
-import Menu from "../../../../Components/menu/menu";
+import MemberMenu from '../../../../Components/menu/membertsx';
 // content
 
 import MemberRecord from "../../../ShowMember/index";
@@ -11,7 +11,7 @@ function ShowMember() {
     <>
       <div>
         <NavbarMember />
-        <Menu />
+        <MemberMenu />
         <MemberRecord />
       </div>
     </>

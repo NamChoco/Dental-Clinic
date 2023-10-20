@@ -283,6 +283,26 @@ async function CreateAppointment(data: AppointmentInterface) {
 
   return res;
 }
+async function GetDentistByID() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/dentists`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
 async function GetMemberByID() {
   const requestOptions = {
     method: "GET",
@@ -458,6 +478,7 @@ export {
   DeleteAppointmentByID,
   GetAppointment,
   GetDentist,
+  GetDentistByID,
   GetMemberByID,
 
   //ยังไม่มีหลังบ้าน

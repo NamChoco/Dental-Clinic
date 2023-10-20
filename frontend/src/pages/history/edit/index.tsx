@@ -127,7 +127,7 @@ function CustomerEdit() {
     <div>
       {contextHolder}
       <Card>
-        <h2> แก้ไขข้อมูล ผู้ดูแลระบบ</h2>
+        <h2> แก้ไขข้อมูล ผู้ป่วย</h2>
         <Divider />
         <Form
           name="basic"
