@@ -32,22 +32,16 @@ function ShowRecord() {
       key: "id",
     },
     {
-      title: "ชื่อ",
+      title: "ชื่อ-นามสกุล",
       dataIndex: "Member",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
-    },
-    {
-      title: "นามสกุล",
-      dataIndex: "Member",
-      key: "id",
-      render: (item) => Object.values(item.LastName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "แพทย์ผู้นัด",
       dataIndex: "Dentist",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "เหตุที่นัด",
@@ -55,19 +49,21 @@ function ShowRecord() {
       key: "problems",
     },
     {
-      title: "วันที่",
-      dataIndex: "DateTime",
-      key: "datetimes",
-      render: (text: string) => dayjs(text).format("DD/MM/YYYY"),
+      title: "วันที่นัด",
+      dataIndex: "Datie", // Assuming this field contains a date
+      key: "daties",
+      render: (date) => {
+        const dater = dayjs(date).format("DD/MM/YYYY");
+        return dater;
+      },
     },
     {
-      title: "เวลานัด",
-      dataIndex: "Time",
+      title: "เวลาที่นัด",
+      dataIndex: "Time", // Assuming this field contains a time
       key: "times",
-      render: (Time) => {
-        const times = new Date(Time);
-        const formattimes = times.toLocaleTimeString(); // "th-TH" is the locale for Thai language, you can change it as needed
-        return formattimes;
+      render: (time) => {
+        const timer = dayjs(time).format("H:mm A");
+        return timer;
       },
     },
   ];
@@ -97,12 +93,13 @@ function ShowRecord() {
           },
         ]}
       />
-      <h2 className="tabText">นัดหมาย</h2>
-      <Row>
-        <Col>
-          <Table rowKey="ID" columns={columns} dataSource={appointments} />
-        </Col>
-      </Row>
+      <div className="tableRecord">
+        <Row>
+          <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+            <Table rowKey="ID" columns={columns} dataSource={appointments} />
+          </Col>
+        </Row>
+      </div>
       <footer className="footer">
         ks clinic
         <p className="icon">

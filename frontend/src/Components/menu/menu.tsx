@@ -22,11 +22,6 @@ function Menu() {
                         <div><Link to=''>ติดต่อเรา</Link></div> 
                     </div>
                 </div>
-                <div className='content'>
-                </div>
-                <div className='footer'>
-                    
-                </div>
             </div>
         </>
     )

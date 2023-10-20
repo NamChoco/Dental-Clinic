@@ -1,7 +1,7 @@
 // navbar
 import NavbarMember from '../../../../Components/navbar/navbarMember';
 //Menu
-import Menu from '../../../../Components/menu/menu';
+import MemberMenu from '../../../../Components/menu/membertsx';
 // content
 
 import Success from '../../../payments/success';
@@ -12,7 +12,7 @@ function Membersuccess(){
         <>
             <div>
                 <NavbarMember />
-                <Menu />
+                <MemberMenu />
                 <Success />
                 
                 

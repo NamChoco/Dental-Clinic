@@ -1,7 +1,7 @@
 // navbar
 import NavbarMember from '../../../../Components/navbar/navbarMember';
 //Menu
-import Menu from '../../../../Components/menu/menu';
+import MemberMenu from '../../../../Components/menu/membertsx';
 // content
 
 import Card from '../../../payments/card';
@@ -13,7 +13,7 @@ function Membercard(){
         <>
             <div>
                 <NavbarMember />
-                <Menu />
+                <MemberMenu />
                 <Card/>
                 
                 

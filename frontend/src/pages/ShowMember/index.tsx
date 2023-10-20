@@ -1,11 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import {
-  CalendarOutlined,
-  CarryOutOutlined,
-  GlobalOutlined,
-} from "@ant-design/icons";
+import dayjs from "dayjs";
+import { CarryOutOutlined, GlobalOutlined } from "@ant-design/icons";
 import { Breadcrumb, Table, Col } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { GetAppointment } from "../services/https";
@@ -17,13 +14,13 @@ const Membershow = () => {
       title: "ชื่อ",
       dataIndex: "Member",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "แพทย์ผู้นัด",
       dataIndex: "Dentist",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "เหตุที่นัด",
@@ -31,12 +28,19 @@ const Membershow = () => {
       key: "problems",
     },
     {
-      title: "วันที่-เวลาทำการนัดหมาย",
+      title: "วันที่นัด",
+      dataIndex: "Datie",
+      key: "daties",
+      render: (date) => {
+        return dayjs(date).format("DD/MM/YYYY");
+      },
+    },
+    {
+      title: "เวลาที่นัด",
       dataIndex: "Time",
-      key: "datetimes",
-      render: (createdAt) => {
-        const date = new Date(createdAt);
-        return date.toLocaleString();
+      key: "times",
+      render: (time) => {
+        return dayjs(time).format("H:mm A");
       },
     },
   ];
@@ -69,8 +73,7 @@ const Membershow = () => {
           },
         ]}
       />
-      <h2 className="tabText">นัดหมาย</h2>
-      <Col>
+      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
         <Table columns={columns} dataSource={appointments} />
       </Col>
       <footer className="footer">
