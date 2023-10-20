@@ -1,7 +1,7 @@
-import { PaymentsInterface } from "../../interfaces/IPayment";
-import { MembersInterface } from "../../interfaces/IMember";
-import { HistoryInterface } from "../../interfaces/IHistory";
-import { AppointmentInterface } from "../../interfaces/IAppointments";
+import { PaymentsInterface } from "../interfaces/IPayment";
+import { MembersInterface } from "../interfaces/IMember";
+import { HistoryInterface } from "../interfaces/IHistory";
+import { AppointmentInterface } from "../interfaces/IAppointments";
 
 const apiUrl = "http://localhost:8080";
 

@@ -56,10 +56,10 @@ function App() {
           <Route path="/showpayment" element={<Showpayment />} />
           {/* History */}
 
-          {/* <Route path="/history" element={<DentistHistory />} /> */}
-          {/* <Route path="/history/edit/:id" element={<DentistHistoryEdit />} /> */}
-          {/* <Route path="/history/create" element={<DentistHistoryCreate />} /> */}
-          {/* <Route path="/memberhistory" element={<MemberHistory />} /> */}
+          <Route path="/history" element={<DentistHistory />} />
+          <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
+          <Route path="/history/create" element={<DentistHistoryCreate />} />
+          <Route path="/memberhistory" element={<MemberHistory />} />
 
           <Route path="/dentApp" element={<NavbarAppointment />} />
           <Route path="/dentRecord" element={<NavbarShowrecord />} />
