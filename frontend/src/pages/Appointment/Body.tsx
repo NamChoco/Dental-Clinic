@@ -20,15 +20,15 @@ import {
 } from "antd";
 //import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
-import { AppointmentInterface } from "../interfaces/IAppointments";
-import { DentistsInterface } from "../interfaces/IDentist";
-import { MembersInterface } from "../interfaces/IMember";
-import { CreateAppointment } from "../services/https/index";
+import { AppointmentInterface } from "../../interfaces/IAppointments";
+import { DentistsInterface } from "../../interfaces/IDentist";
+import { MembersInterface } from "../../interfaces/IMember";
+import { CreateAppointment } from "../../services/index";
 import {
   //GetAppointment,
   GetDentistByID,
   GetMemberByID,
-} from "../services/https";
+} from "../../services/index";
 // import { ColumnsType } from "antd/es/table";
 const { Option } = Select;
 
@@ -90,7 +90,6 @@ const Body = () => {
             initialValues={{ remember: true }}
             onFinish={onFinish}
             autoComplete="off"
-            
           >
             <div className="boxxx">
               <Col xs={15} sm={15} md={15} lg={15} xl={15}>
