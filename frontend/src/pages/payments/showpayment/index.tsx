@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Space, Table, Button, Col, Row, Divider, Modal, message } from "antd";
 import { PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
-import { GetPayments, DeletePaymentByID } from "../../services/https";
-import { GetMembers } from "../../services/https";
-import { MembersInterface } from "../../interfaces/IMember";
-import { PaymentsInterface } from "../../interfaces/IPayment";
+import { GetPayments,DeletePaymentByID } from "../../../services";
+import { GetMembers } from "../../../services";
+import { MembersInterface } from "../../../interfaces/IMember";
+import { PaymentsInterface } from "../../../interfaces/IPayment";
 import { Link, useNavigate } from "react-router-dom";
+ 
 
 function Payments() {
   
