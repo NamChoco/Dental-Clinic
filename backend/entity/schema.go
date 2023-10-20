@@ -10,7 +10,9 @@ type Appointment struct {
 	gorm.Model
 	DateTime string
 	Problem  string
+	Time		time.Time `gorm:"autoCreateTime:milli"`
 
+	
 	MemberID *uint
 	Member   Member `gorm:"foreignKey:MemberID"`
 
@@ -137,7 +139,7 @@ type History struct {
 
 type Service struct {
 	gorm.Model
-	Title string
+	Title string 
 	Price string
 
 	Payment []Payment `gorm:"foreignKey:ServiceID"`

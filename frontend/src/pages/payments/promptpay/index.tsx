@@ -216,7 +216,6 @@ const PromptPay = () => {
                   message: "กรุณากรอกจำนวนเงินที่โอน !",
                 },
                 {
-                  pattern: /^[0-9]*$/, // Only allow numeric characters
                   message: "กรุณากรอกตัวเลขเท่านั้น!",
                 },
               ]}
@@ -228,6 +227,12 @@ const PromptPay = () => {
                 autoSize={{
                   minRows: 1.5,
                   maxRows: 5,
+                }}
+                onKeyPress={(e) => {
+                  const allowedCharacters = /^[0-9.]+$/;
+                  if (e.key === ' ' || !allowedCharacters.test(e.key)) {
+                    e.preventDefault();
+                  }
                 }}
               />
             </Form.Item>

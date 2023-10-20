@@ -70,7 +70,6 @@ function Payments() {
       key: "manage",
       render: (text, record, index) => (
         <>
-          <Button  onClick={() =>  navigate(`/customer/edit/${record.ID}`)} shape="circle" icon={<EditOutlined />} size={"large"} />
           <Button
             onClick={() => showModal(record)}
             style={{ marginLeft: 10 }}

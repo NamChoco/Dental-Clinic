@@ -4,7 +4,6 @@ import (
 	"github.com/B6428549/payment/controller"
 	"github.com/B6428549/payment/entity"
 	"github.com/gin-gonic/gin"
-	
 )
 
 
@@ -26,7 +25,7 @@ func main() {
 
 	// Dentist Routes
 	r.GET("/dentist/:username", controller.LoginDentistByUsername)
-	r.GET("/dentist", controller.ListDentist)
+	r.GET("/dentists", controller.ListDentist)
 	
 	// Admin Routes
 	r.GET("/admin/:username", controller.LoginAdminByUsername)
@@ -46,6 +45,11 @@ func main() {
 	r.POST("/histories", controller.CreateHistory)
 	r.PATCH("/histories", controller.UpdateHistory)
 	r.DELETE("/histories/:id", controller.DeleteHistory)
+
+	//Appointment Routes
+	r.GET("/appointments", controller.ListAppointment)
+	r.POST("/appointments", controller.CreateAppointment)
+	r.DELETE("/appointments/:id", controller.DeleteAppointment)
 
 
 	// Run the server
