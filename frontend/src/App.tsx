@@ -14,7 +14,7 @@ import DentistMain from "./pages/layouts/dentist/dentistMain";
 
 // Admin
 import NavbarAdmin from "./Components/navbar/navbarAdmin";
-import AdminMain from "./pages/layouts/admin/adminMain"
+import AdminMain from "./pages/layouts/admin/adminMain";
 
 // History
 import DentistHistory from "./pages/layouts/dentist/history";
