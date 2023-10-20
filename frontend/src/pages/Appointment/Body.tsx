@@ -80,29 +80,6 @@ const Body = () => {
   return (
     <div>
       {contextHolder}
-      <Breadcrumb
-        className="web"
-        items={[
-          {
-            href: "/dentApp",
-            title: (
-              <>
-                <CalendarOutlined />
-                <span>บันทึกการนัดหมาย</span>
-              </>
-            ),
-          },
-          {
-            href: "/dentRecord",
-            title: (
-              <>
-                <CarryOutOutlined />
-                <span>ประวัติการนัดหมาย</span>
-              </>
-            ),
-          },
-        ]}
-      />
       <div className="boxx" style={{ marginLeft: "25%" }}>
         <div style={{ marginLeft: "25%" }}>
           <Form
