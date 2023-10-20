@@ -6,15 +6,15 @@ import Menu from "./Components/menu/menu";
 
 // Member
 import NavbarMember from "./Components/navbar/navbarMember";
-import Memberservice from "./pages/layouts/member/payment/memberservice";
+import MemberMain from "./pages/layouts/member/payment/memberMain";
 
 // Dentist
 import NavbarDentist from "./Components/navbar/navbarDentist";
-import Dentistservice from "./pages/layouts/dentist/dentistservice";
+import DentistMain from "./pages/layouts/dentist/dentistMain";
 
 // Admin
 import NavbarAdmin from "./Components/navbar/navbarAdmin";
-import Adminservice from "./pages/layouts/admin/adminservice";
+import AdminMain from "./pages/layouts/admin/adminMain"
 
 // History
 import DentistHistory from "./pages/layouts/dentist/history";
@@ -45,12 +45,13 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
           {/* หน้าแรก admin */}
-          <Route path="/serviceAdmin" element={<Adminservice />} />
+          <Route path="/serviceAdmin" element={<AdminMain />} />
           {/* หน้าแรก dentist */}
-          <Route path="/serviceDentist" element={<Dentistservice />} />
+          <Route path="/serviceDentist" element={<DentistMain />} />
 
           {/* Payment */}
-          <Route path="/service" element={<Memberservice />} />
+          <Route path="/serviceMember" element={<MemberMain />} />
+          <Route path="/service" element={<Service />} />
           <Route path="/Card" element={<Cards />} />
           <Route path="/PromptPay" element={<PromptPay />} />
           <Route path="/success" element={<Success />} />
