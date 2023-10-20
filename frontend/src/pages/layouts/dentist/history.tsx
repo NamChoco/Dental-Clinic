@@ -13,12 +13,12 @@ import Menu from '../../../Components/menu/menu';
 function DentistHistory(){
     return (
         <>
-            <div>
+            <div >
                 <NavbarDentist/>
                 <Menu />
-                <History />
-                
-                
+                <div style={{ margin: '40px'}}> 
+                <History />   
+                </div>
             </div>
         </>
     )
