@@ -16,8 +16,9 @@ function DentistHistoryEdit(){
             <div>
                 <NavbarDentist/>
                 <Menu />
+                <div style={{ margin: '40px'}}>
                 <HistoryEdit />
-                
+                </div>
                 
             </div>
         </>

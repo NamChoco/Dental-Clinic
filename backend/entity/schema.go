@@ -12,6 +12,7 @@ type Appointment struct {
 	Problem  string
 	Time	 time.Time
 
+	
 	MemberID *uint
 	Member   Member `gorm:"foreignKey:MemberID"`
 

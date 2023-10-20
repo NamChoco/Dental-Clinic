@@ -14,8 +14,9 @@ function MemberHistory(){
             <div>
                 <NavbarMember />
                 <Menu />
+                <div style={{ margin: '40px'}}> 
                 <Memberhistory/>
-                
+                </div>
                 
             </div>
         </>
