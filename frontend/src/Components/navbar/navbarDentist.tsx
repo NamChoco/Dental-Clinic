@@ -42,6 +42,9 @@ function NavbarDentist() {
                     <li>
                       <Link to="/dentapp">นัดหมาย</Link>
                     </li>
+                    <li>
+                      <Link to="/dentrecord">ประวัตินัดหมาย</Link>
+                    </li>
                   </ul>
                 </li>
                 <li>

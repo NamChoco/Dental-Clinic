@@ -2,6 +2,7 @@
 import NavbarDentist from "../../../../Components/navbar/navbarDentist";
 //Menu
 import Menu from "../../../../Components/menu/menu";
+import DentistMenu from "../../../../Components/menu/dentistManu";
 // content
 
 import Navbarappointment from "../../../Appointment/Body";
@@ -11,7 +12,7 @@ function AdminshowAppointment() {
     <>
       <div>
         <NavbarDentist />
-        <Menu />
+        <DentistMenu />
         <Navbarappointment />
       </div>
     </>

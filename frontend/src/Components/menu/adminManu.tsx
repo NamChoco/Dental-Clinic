@@ -8,7 +8,7 @@ import Logo from './../../photo/tooth1.png';
 // import profile from './../../photo/girl.png';
 import NavbarAdmin from '../navbar/navbarAdmin';
 
-function Menu() {
+function AdminMenu() {
     return (
         <>
             <div className='home'>
@@ -17,7 +17,7 @@ function Menu() {
                         <img src={Logo} alt='logo' />
                     </div>
                     <div className='menu'>
-                        <div><Link to='/'>หน้าหลัก</Link></div>
+                        <div><Link to='/serviceAdmin'>หน้าหลัก</Link></div>
                         <div><Link to=''>แพทย์</Link></div>
                         <div><Link to=''>ติดต่อเรา</Link></div> 
                     </div>
@@ -26,4 +26,4 @@ function Menu() {
         </>
     )
 }
-export default Menu
+export default AdminMenu
