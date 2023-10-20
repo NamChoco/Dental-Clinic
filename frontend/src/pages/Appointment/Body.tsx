@@ -25,14 +25,15 @@ import { MembersInterface } from "../interfaces/IMember";
 import { CreateAppointment } from "../services/https/index";
 import {
   //GetAppointment,
-  GetDentist,
+  GetDentistByID,
   GetMemberByID,
 } from "../services/https";
 // import { ColumnsType } from "antd/es/table";
 const { Option } = Select;
-const formattime = "HH:mm";
 
 const Body = () => {
+  const dateFormat = "DD/MM/YYYY";
+  const timeFormat = "H:mm A";
   const navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
   const [dentists, setDentists] = useState<DentistsInterface[]>([]);
@@ -68,10 +69,8 @@ const Body = () => {
     }
   };
 
-  const dateFormat = "DD/MM/YYYY";
-
   const GetDentists = async () => {
-    let res = await GetDentist(); // Change to GetDentists()
+    let res = await GetDentistByID(); // Change to GetDentists()
     if (res) {
       setDentists(res);
     }
@@ -161,9 +160,20 @@ const Body = () => {
             >
               <Input />
             </Form.Item>
-            <Form.Item label="วันนัดหมาย" className="tabdate" name="DateTime">
-              <DatePicker format={dateFormat} />
-              <TimePicker style={{ marginLeft: "10px" }} format={formattime} />
+            <Form.Item label="วันนัดหมาย" className="tabdate" name="Datie">
+              <DatePicker
+                name="datie"
+                // Pass the formatted time string from Go
+                format={dateFormat}
+              />
+            </Form.Item>
+            <Form.Item label="วันนัดหมาย" className="tabdate" name="Time">
+              <TimePicker
+                name="time"
+                style={{ marginLeft: "10px" }}
+                format={timeFormat}
+                //defaultValue={moment()} // Set the default time to the current time
+              />
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">

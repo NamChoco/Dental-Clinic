@@ -3,7 +3,7 @@ import { DentistsInterface } from "./IDentist";
 
 export interface AppointmentInterface {
   Problem?: string;
-  DateTime?: string;
+  Date?: string;
   Time?: string;
 
   MemberID?: number;

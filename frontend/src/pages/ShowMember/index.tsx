@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import "./index.css";
+import dayjs from "dayjs";
 import {
   CalendarOutlined,
   CarryOutOutlined,
@@ -31,12 +32,11 @@ const Membershow = () => {
       key: "problems",
     },
     {
-      title: "วันที่-เวลาทำการนัดหมาย",
-      dataIndex: "Time",
-      key: "datetimes",
-      render: (createdAt) => {
-        const date = new Date(createdAt);
-        return date.toLocaleString();
+      title: "วัน-เวลาที่นัดหมาย",
+      dataIndex: "Datie", // Assuming this field contains a date
+      key: "daties",
+      render: (date) => {
+        return dayjs(date).format("DD/MM/YYYY H:mm A");
       },
     },
   ];

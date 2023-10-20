@@ -32,16 +32,10 @@ function ShowRecord() {
       key: "id",
     },
     {
-      title: "ชื่อ",
+      title: "ชื่อ-นามสกุล",
       dataIndex: "Member",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
-    },
-    {
-      title: "นามสกุล",
-      dataIndex: "Member",
-      key: "id",
-      render: (item) => Object.values(item.LastName),
+      render: (item) => Object.values(item.FirstName + "" + item.LastName),
     },
     {
       title: "แพทย์ผู้นัด",
@@ -55,19 +49,19 @@ function ShowRecord() {
       key: "problems",
     },
     {
-      title: "วันที่",
-      dataIndex: "DateTime",
-      key: "datetimes",
-      render: (text: string) => dayjs(text).format("DD/MM/YYYY"),
+      title: "วันนัด",
+      dataIndex: "Datie", // Assuming this field contains a date
+      key: "daties",
+      render: (date) => {
+        return dayjs(date).format("DD/MM/YYYY");
+      },
     },
     {
       title: "เวลานัด",
-      dataIndex: "Time",
+      dataIndex: "Time", // Assuming this field contains a time
       key: "times",
-      render: (Time) => {
-        const times = new Date(Time);
-        const formattimes = times.toLocaleTimeString(); // "th-TH" is the locale for Thai language, you can change it as needed
-        return formattimes;
+      render: (time) => {
+        return dayjs(time).format("H:mm A");
       },
     },
   ];

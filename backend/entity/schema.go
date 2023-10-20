@@ -8,9 +8,9 @@ import (
 
 type Appointment struct {
 	gorm.Model
-	DateTime string
+	Datie 	 time.Time
 	Problem  string
-	Time		time.Time `gorm:"autoCreateTime:milli"`
+	Time	 time.Time
 
 	MemberID *uint
 	Member   Member `gorm:"foreignKey:MemberID"`
