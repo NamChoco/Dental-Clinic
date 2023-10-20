@@ -13,7 +13,7 @@ import { GetGender } from '../../services/https';
 
 import './registerCSS.css';
 
-function Register() {
+function Register() {   
     let navigate = useNavigate();
     const [messageApi , contextHolder] = message.useMessage();
     const [inputOccupation, setOccupation] = useState<OccupationInterface[]>([]);
