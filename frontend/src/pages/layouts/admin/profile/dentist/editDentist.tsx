@@ -2,7 +2,7 @@
 import NavbarAdmin from '../../../../../Components/navbar/navbarAdmin';
 
 //Menu
-import Menu from '../../../../../Components/menu/menu';
+import AdminMenu from '../../../../../Components/menu/adminManu';
 // content
 import AdminEditDentistProfile from '../../../../profile/admin/dentist/edit/adminDentistEdit';
 
@@ -15,7 +15,7 @@ function AdminEditDentist(){
         <>
             <div>
                 <NavbarAdmin />
-                <Menu />
+                <AdminMenu />
                 <AdminEditDentistProfile />
                 
                 
