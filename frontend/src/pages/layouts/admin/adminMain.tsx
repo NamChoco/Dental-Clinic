@@ -2,6 +2,7 @@
 import NavbarAdmin from '../../../Components/navbar/navbarAdmin';
 //Menu
 import Menu from '../../../Components/menu/menu';
+import AdminMenu from '../../../Components/menu/adminManu';
 // content
 import Main from '../../Main/main'
 
@@ -12,7 +13,7 @@ function AdminMain(){
         <>
             <div>
                 <NavbarAdmin />
-                <Menu />
+                <AdminMenu />
                 <Main />
             </div>
         </>

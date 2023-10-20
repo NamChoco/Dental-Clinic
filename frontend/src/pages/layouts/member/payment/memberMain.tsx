@@ -1,7 +1,7 @@
 // navbar
 import NavbarMember from '../../../../Components/navbar/navbarMember';
 //Menu
-import Menu from '../../../../Components/menu/menu';
+import MemberMenu from '../../../../Components/menu/membertsx';
 // content
 import Main from '../../../Main/main'
 
@@ -12,7 +12,7 @@ function MemberMain(){
         <>
             <div>
                 <NavbarMember />
-                <Menu />
+                <MemberMenu />
                 <Main />
             </div>
         </>

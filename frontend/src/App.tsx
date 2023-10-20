@@ -5,15 +5,13 @@ import Register from "./pages/register/register";
 import Menu from "./Components/menu/menu";
 
 // Member
-import NavbarMember from "./Components/navbar/navbarMember";
 import MemberMain from "./pages/layouts/member/payment/memberMain";
 
 // Dentist
-import NavbarDentist from "./Components/navbar/navbarDentist";
 import DentistMain from "./pages/layouts/dentist/dentistMain";
 
 // Admin
-import NavbarAdmin from "./Components/navbar/navbarAdmin";
+
 import AdminMain from "./pages/layouts/admin/adminMain"
 
 // History
@@ -30,7 +28,7 @@ import Service from "./pages/service";
 //Payment
 import PromptPay from "./pages/layouts/member/payment/memberprom";
 import Cards from "./pages/layouts/member/payment/membercard";
-// import Payment from './pages/layouts/member/payment/memberservice'
+import Payment from './pages/layouts/member/payment/memberservice'
 import Success from "./pages/layouts/member/payment/membersuccess";
 import Showpayment from "./pages/layouts/admin/payment/showpayment";
 import NavbarAppointment from "./pages/layouts/dentist/appointment/showappointment";
@@ -51,7 +49,7 @@ function App() {
 
           {/* Payment */}
           <Route path="/serviceMember" element={<MemberMain />} />
-          <Route path="/service" element={<Service />} />
+          <Route path="/service" element={<Payment />} />
           <Route path="/Card" element={<Cards />} />
           <Route path="/PromptPay" element={<PromptPay />} />
           <Route path="/success" element={<Success />} />

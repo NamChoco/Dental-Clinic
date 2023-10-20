@@ -1,7 +1,8 @@
 // navbar
 import NavbarDentist from "../../../../Components/navbar/navbarDentist";
 //Menu
-import Menu from "../../../../Components/menu/menu";
+
+import DentistMenu from "../../../../Components/menu/dentistManu";
 // content
 import Navbarshowrecord from "../../../ShowRecord/index";
 
@@ -10,7 +11,7 @@ function AdminshowRecord() {
     <>
       <div>
         <NavbarDentist />
-        <Menu />
+        <DentistMenu />
         <Navbarshowrecord />
       </div>
     </>
