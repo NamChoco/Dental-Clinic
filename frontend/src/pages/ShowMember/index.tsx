@@ -69,8 +69,7 @@ const Membershow = () => {
           },
         ]}
       />
-      <h2 className="tabText">นัดหมาย</h2>
-      <Col>
+      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
         <Table columns={columns} dataSource={appointments} />
       </Col>
       <footer className="footer">

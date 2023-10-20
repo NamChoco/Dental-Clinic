@@ -1,5 +1,5 @@
 // navbar
-import NavbarAdmin from "../../../../Components/navbar/navbarAdmin";
+import NavbarAdmin from "../../../../Components/navbar/navbarDentist";
 //Menu
 import Menu from "../../../../Components/menu/menu";
 // content

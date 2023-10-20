@@ -91,12 +91,13 @@ function ShowRecord() {
           },
         ]}
       />
-      <h2 className="tabText">นัดหมาย</h2>
-      <Row>
-        <Col>
-          <Table rowKey="ID" columns={columns} dataSource={appointments} />
-        </Col>
-      </Row>
+      <div className="tableRecord">
+        <Row>
+          <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+            <Table rowKey="ID" columns={columns} dataSource={appointments} />
+          </Col>
+        </Row>
+      </div>
       <footer className="footer">
         ks clinic
         <p className="icon">

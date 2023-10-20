@@ -33,9 +33,9 @@ import Cards from "./pages/layouts/member/payment/membercard";
 // import Payment from './pages/layouts/member/payment/memberservice'
 import Success from "./pages/layouts/member/payment/membersuccess";
 import Showpayment from "./pages/layouts/admin/payment/showpayment";
-import NavbarAppointment from "./pages/layouts/admin/appointment/showappointment";
-import NavbarShowrecord from "./pages/layouts/admin/appointment/showdentist";
-import NavbarShowmember from "./pages/ShowMember/index";
+import NavbarAppointment from "./pages/layouts/dentist/appointment/showappointment";
+import NavbarShowrecord from "./pages/layouts/dentist/appointment/showdentist";
+import NavbarShowmember from "./pages/layouts/member/showmember/showmember";
 
 function App() {
   return (
