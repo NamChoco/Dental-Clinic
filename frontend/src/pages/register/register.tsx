@@ -28,8 +28,8 @@ function Register() {
         Birthday: '',
         Phone_number: '',
         OccupationID: 1,
-        DentistID: 1,
         GenderID: 1,
+        AdminID: 1,
     })
 
     const handleInput  = (e: any) => {
@@ -75,6 +75,7 @@ function Register() {
         values.Phone_number = input.Phone_number
         values.OccupationID = input.OccupationID;
         values.GenderID = input.GenderID;
+        values.AdminID = 1;
 
         console.log(values);
         console.log(input.OccupationID);
