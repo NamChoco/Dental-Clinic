@@ -100,15 +100,6 @@ const Body = () => {
               </>
             ),
           },
-          {
-            href: "/memberRecord",
-            title: (
-              <>
-                <CarryOutOutlined />
-                <span>ประวัติการนัดหมายลูกค้า</span>
-              </>
-            ),
-          },
         ]}
       />
       <h2 className="tabText">บันทึกการนัดหมาย</h2>
