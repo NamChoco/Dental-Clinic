@@ -2,11 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import dayjs from "dayjs";
-import {
-  CalendarOutlined,
-  CarryOutOutlined,
-  GlobalOutlined,
-} from "@ant-design/icons";
+import { CarryOutOutlined, GlobalOutlined } from "@ant-design/icons";
 import { Breadcrumb, Table, Col } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { GetAppointment } from "../../services/https";
@@ -18,13 +14,13 @@ const Membershow = () => {
       title: "ชื่อ",
       dataIndex: "Member",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "แพทย์ผู้นัด",
       dataIndex: "Dentist",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "เหตุที่นัด",
@@ -32,11 +28,19 @@ const Membershow = () => {
       key: "problems",
     },
     {
-      title: "วัน-เวลาที่นัดหมาย",
-      dataIndex: "Datie", // Assuming this field contains a date
+      title: "วันที่นัด",
+      dataIndex: "Datie",
       key: "daties",
       render: (date) => {
-        return dayjs(date).format("DD/MM/YYYY H:mm A");
+        return dayjs(date).format("DD/MM/YYYY");
+      },
+    },
+    {
+      title: "เวลาที่นัด",
+      dataIndex: "Time",
+      key: "times",
+      render: (time) => {
+        return dayjs(time).format("H:mm A");
       },
     },
   ];

@@ -1,7 +1,8 @@
 // navbar
-import NavbarAdmin from "../../../../Components/navbar/navbarDentist";
+import NavbarDentist from "../../../../Components/navbar/navbarDentist";
 //Menu
-import Menu from "../../../../Components/menu/menu";
+
+import DentistMenu from "../../../../Components/menu/dentistManu";
 // content
 import Navbarshowrecord from "../../../ShowRecord/index";
 
@@ -9,8 +10,8 @@ function AdminshowRecord() {
   return (
     <>
       <div>
-        <NavbarAdmin />
-        <Menu />
+        <NavbarDentist />
+        <DentistMenu />
         <Navbarshowrecord />
       </div>
     </>

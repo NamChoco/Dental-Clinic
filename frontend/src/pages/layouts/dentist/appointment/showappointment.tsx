@@ -1,7 +1,8 @@
 // navbar
-import NavbarAdmin from "../../../../Components/navbar/navbarDentist";
+import NavbarDentist from "../../../../Components/navbar/navbarDentist";
 //Menu
 import Menu from "../../../../Components/menu/menu";
+import DentistMenu from "../../../../Components/menu/dentistManu";
 // content
 
 import Navbarappointment from "../../../Appointment/Body";
@@ -10,8 +11,8 @@ function AdminshowAppointment() {
   return (
     <>
       <div>
-        <NavbarAdmin />
-        <Menu />
+        <NavbarDentist />
+        <DentistMenu />
         <Navbarappointment />
       </div>
     </>

@@ -35,13 +35,13 @@ function ShowRecord() {
       title: "ชื่อ-นามสกุล",
       dataIndex: "Member",
       key: "id",
-      render: (item) => Object.values(item.FirstName + "" + item.LastName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "แพทย์ผู้นัด",
       dataIndex: "Dentist",
       key: "id",
-      render: (item) => Object.values(item.FirstName),
+      render: (item) => Object.values(item.FirstName + " " + item.LastName),
     },
     {
       title: "เหตุที่นัด",
@@ -49,19 +49,21 @@ function ShowRecord() {
       key: "problems",
     },
     {
-      title: "วันนัด",
+      title: "วันที่นัด",
       dataIndex: "Datie", // Assuming this field contains a date
       key: "daties",
       render: (date) => {
-        return dayjs(date).format("DD/MM/YYYY");
+        const dater = dayjs(date).format("DD/MM/YYYY");
+        return dater;
       },
     },
     {
-      title: "เวลานัด",
+      title: "เวลาที่นัด",
       dataIndex: "Time", // Assuming this field contains a time
       key: "times",
       render: (time) => {
-        return dayjs(time).format("H:mm A");
+        const timer = dayjs(time).format("H:mm A");
+        return timer;
       },
     },
   ];
