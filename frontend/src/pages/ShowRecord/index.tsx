@@ -7,8 +7,8 @@ import {
 } from "@ant-design/icons";
 import { Breadcrumb, Table, Col, Row } from "antd"; // Added Row component
 import { ColumnsType } from "antd/lib/table";
-import { AppointmentInterface } from "../interfaces/IAppointments";
-import { GetAppointment } from "../services/https";
+import { AppointmentInterface } from "../../interfaces/IAppointments";
+import { GetAppointment } from "../../services/https";
 import dayjs from "dayjs";
 
 function ShowRecord() {

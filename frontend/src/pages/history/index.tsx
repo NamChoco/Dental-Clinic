@@ -4,12 +4,12 @@ import { PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 import type { ColumnsType, TableProps } from 'antd/es/table';
 
-import { GetHistory, DeleteHistoryByID, GetDentist } from "../services/https";
+import { GetHistory, DeleteHistoryByID, GetDentist } from "../../services/https";
 
-import { HistoryInterface } from "../interfaces/IHistory";
+import { HistoryInterface } from "../../interfaces/IHistory";
 
 import { Link, useNavigate } from "react-router-dom";
-import { DentistsInterface } from "../interfaces/IDentist";
+import { DentistsInterface } from "../../interfaces/IDentist";
 import Cookies from "js-cookie";
 
 

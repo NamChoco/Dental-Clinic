@@ -23,12 +23,12 @@ import { useNavigate } from "react-router-dom";
 import { AppointmentInterface } from "../../interfaces/IAppointments";
 import { DentistsInterface } from "../../interfaces/IDentist";
 import { MembersInterface } from "../../interfaces/IMember";
-import { CreateAppointment } from "../../services/index";
+import { CreateAppointment } from "../../services/https/index";
 import {
   //GetAppointment,
   GetDentistByID,
   GetMemberByID,
-} from "../../services/index";
+} from "../../services/https";
 // import { ColumnsType } from "antd/es/table";
 const { Option } = Select;
 

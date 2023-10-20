@@ -3,13 +3,13 @@ import { message , Form, } from 'antd';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // interface
-import { MembersInterface } from '../interfaces/IMember';
-import { GendersInterface } from '../interfaces/IGender';
-import { OccupationInterface } from '../interfaces/IOccupation';
-import { CreateMember } from '../services/https';
+import { MembersInterface } from '../../interfaces/IMember';
+import { GendersInterface } from '../../interfaces/IGender';
+import { OccupationInterface } from '../../interfaces/IOccupation';
+import { CreateMember } from '../../services/https';
 // GET FK
-import { GetOccupations } from '../services/https';
-import { GetGender } from '../services/https';
+import { GetOccupations } from '../../services/https';
+import { GetGender } from '../../services/https';
 
 import './registerCSS.css';
 

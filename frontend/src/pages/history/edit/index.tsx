@@ -13,14 +13,14 @@ import {
   Select,
 } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import { HistoryInterface } from "../../interfaces/IHistory";
-import { GendersInterface } from "../../interfaces/IGender";
-import { ServicesInterface } from "../../interfaces/IService";
-import { GetDentist, GetHistoryById, GetServices ,GetMembers,  UpdateHistory } from "../../services/https";
+import { HistoryInterface } from "../../../interfaces/IHistory";
+import { GendersInterface } from "../../../interfaces/IGender";
+import { ServicesInterface } from "../../../interfaces/IService";
+import { GetDentist, GetHistoryById, GetServices ,GetMembers,  UpdateHistory } from "../../../services/https";
 import { useNavigate, useParams } from "react-router-dom";
-import { MembersInterface } from "../../interfaces/IMember";
+import { MembersInterface } from "../../../interfaces/IMember";
 import Cookies from 'js-cookie'; //port
-import { DentistsInterface } from "../../interfaces/IDentist";
+import { DentistsInterface } from "../../../interfaces/IDentist";
 const { Option } = Select;
 
 function CustomerEdit() {

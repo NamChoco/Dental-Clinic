@@ -9,6 +9,7 @@ export interface DentistsInterface {
     Email?: string;
     Birthday?: string;
     Phone_number?: string;
+    
     AdminID?: number;
     Admin?: AdminInterface;
 

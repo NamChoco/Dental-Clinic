@@ -13,10 +13,10 @@ import visa from '../../../assets/visa.jpg';
 import cvc from '../../../assets/cvc.jpg';
 import master from '../../../assets/master.jpg';
 import { ShoppingCartOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { MembersInterface } from "../../interfaces/IMember";
-import { PaymentsInterface } from "../../interfaces/IPayment";
-import { ServicesInterface } from "../../interfaces/IService";
-import { CreatePayment, GetServices, GetMembers } from "../../services/https";
+import { MembersInterface } from "../../../interfaces/IMember";
+import { PaymentsInterface } from "../../../interfaces/IPayment";
+import { ServicesInterface } from "../../../interfaces/IService";
+import { CreatePayment, GetServices, GetMembers } from "../../../services/https";
 import Cookies from 'js-cookie'; //port
 import type { ColumnsType, TableProps } from 'antd/es/table';
 // Cookies.set('usernameMember', 'daimond');

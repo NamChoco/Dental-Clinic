@@ -32,7 +32,8 @@ function NavbarAdmin() {
                                 <ul>
                                     <li><Link to=''>ประวัติการรักษา</Link></li>
                                     <li><Link to=''>วันนัดหมาย</Link></li>
-                                    <li><Link to=''>จัดการหมอ</Link></li>
+                                    <li><Link to='/admin/data/dentist'>จัดการหมอ</Link></li>
+                                    <li><Link to='/admin/data/member'>จัดการสมาชิก</Link></li>
                                     <li><Link to='/showpayment'>ยืนยันการชำระเงิน</Link></li>
                                 </ul>
                             </li>

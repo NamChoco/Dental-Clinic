@@ -1,5 +1,5 @@
 import { OccupationInterface } from "./IOccupation";
-import { DentistsInterface } from "./IDentist";
+import { AdminInterface } from "./IAdmin";
 import { GendersInterface } from "./IGender";
 
 export interface MembersInterface {
@@ -12,7 +12,9 @@ export interface MembersInterface {
     Birthday?: string;
     Phone_number?: string;
 
-    
+    AdminID?: number
+    Admin?: AdminInterface;
+
     OccupationID?: number;
     Occupation?: OccupationInterface;
 

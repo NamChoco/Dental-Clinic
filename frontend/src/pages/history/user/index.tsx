@@ -3,9 +3,9 @@ import { Space, Table, Button, Col, Row, Divider, Modal, message } from "antd";
 
 import type { ColumnsType, TableProps } from 'antd/es/table';
 
-import { GetHistory, DeleteHistoryByID } from "../../services/https";
+import { GetHistory, DeleteHistoryByID } from "../../../services/https";
 
-import { HistoryInterface } from "../../interfaces/IHistory";
+import { HistoryInterface } from "../../../interfaces/IHistory";
 
 import { Link, useNavigate } from "react-router-dom";
 

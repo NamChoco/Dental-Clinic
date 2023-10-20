@@ -10,11 +10,11 @@ import Box2 from '../../../Components/Box/Box2';
 import qr from '../../../assets/qr.jpg'
 import card from '../../../assets/card.jpg';
 import prom from '../../../assets/prom.jpg';
-import { MembersInterface } from '../../interfaces/IMember';
-import { PaymentsInterface } from "../../interfaces/IPayment";
-import { ImageUpload } from "../../interfaces/IUpload";
-import { ServicesInterface } from "../../interfaces/IService";
-import { CreatePayment, GetServices,GetMembers } from "../../services/https";
+import { MembersInterface } from '../../../interfaces/IMember';
+import { PaymentsInterface } from "../../../interfaces/IPayment";
+import { ImageUpload } from "../../../interfaces/IUpload";
+import { ServicesInterface } from "../../../interfaces/IService";
+import { CreatePayment, GetServices,GetMembers } from "../../../services/https";
 import { PlusOutlined, ShoppingCartOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import Cookies from 'js-cookie'; //port
 // let serviceActive = Number(Cookies.get('Service'));

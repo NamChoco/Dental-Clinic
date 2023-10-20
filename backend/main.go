@@ -6,7 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 func main() {
 	entity.SetupDatabase()
 	r := gin.Default()
@@ -17,6 +16,9 @@ func main() {
 	r.POST("/members", controller.CreateMember)
 	r.GET("/members", controller.ListMembers)
 	r.GET("/member/:username", controller.LoginMemberByUsername)
+	r.PATCH("/members", controller.UpdateDentist)
+	r.DELETE("/members/:username", controller.DeleteMember)
+	r.GET("/members/:username", controller.GetMemberByUsername)
 
 	// Occupation Routes
 	r.GET("/occupations", controller.ListOccupations)
@@ -26,7 +28,10 @@ func main() {
 	// Dentist Routes
 	r.GET("/dentist/:username", controller.LoginDentistByUsername)
 	r.GET("/dentists", controller.ListDentist)
-	
+	r.DELETE("/dentists/:username", controller.DeleteDentist)
+	r.POST("/dentists", controller.CreateDentist)
+	r.PATCH("/dentists", controller.UpdateDentist)
+
 	// Admin Routes
 	r.GET("/admin/:username", controller.LoginAdminByUsername)
 
@@ -50,7 +55,6 @@ func main() {
 	r.GET("/appointments", controller.ListAppointment)
 	r.POST("/appointments", controller.CreateAppointment)
 	r.DELETE("/appointments/:id", controller.DeleteAppointment)
-
 
 	// Run the server
 	r.Run(":8080")

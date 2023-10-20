@@ -15,10 +15,10 @@ import {
 
 import { Table } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import { HistoryInterface } from "../../interfaces/IHistory";
-import { GendersInterface } from "../../interfaces/IGender";
-import { ServicesInterface } from "../../interfaces/IService";
-import { MembersInterface } from "../../interfaces/IMember";
+import { HistoryInterface } from "../../../interfaces/IHistory";
+import { GendersInterface } from "../../../interfaces/IGender";
+import { ServicesInterface } from "../../../interfaces/IService";
+import { MembersInterface } from "../../../interfaces/IMember";
 
 import type { ColumnsType, TableProps } from "antd/es/table";
 
@@ -28,10 +28,10 @@ import {
   GetServices,
   GetMembers,
   GetDentist,
-} from "../../services/https";
+} from "../../../services/https";
 import { useNavigate } from "react-router-dom";
 
-import { DentistsInterface } from "../../interfaces/IDentist";
+import { DentistsInterface } from "../../../interfaces/IDentist";
 import Cookies from "js-cookie"; //port
 //Cookies.set('Name', '1');
 

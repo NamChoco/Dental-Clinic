@@ -11,8 +11,14 @@ import MemberMain from "./pages/layouts/member/payment/memberMain";
 import DentistMain from "./pages/layouts/dentist/dentistMain";
 
 // Admin
-
-import AdminMain from "./pages/layouts/admin/adminMain";
+import NavbarAdmin from "./Components/navbar/navbarAdmin";
+import AdminMain from "./pages/layouts/admin/adminMain"
+import AdminDentistData from "./pages/layouts/admin/profile/dentist/dantistData";
+import AdCreateDentist from "./pages/layouts/admin/profile/dentist/createDentist";
+import AdminEditDentist from "./pages/layouts/admin/profile/dentist/editDentist";
+import AdminMemberData from "./pages/layouts/admin/profile/member/memberData";
+import AdCreateMember from "./pages/layouts/admin/profile/member/createMember";
+import AdminEditMember from "./pages/layouts/admin/profile/member/editMember";
 
 // History
 import DentistHistory from "./pages/layouts/dentist/history";
@@ -56,10 +62,17 @@ function App() {
           <Route path="/showpayment" element={<Showpayment />} />
           {/* History */}
 
-          <Route path="/history" element={<DentistHistory />} />
-          <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
-          <Route path="/history/create" element={<DentistHistoryCreate />} />
-          <Route path="/memberhistory" element={<MemberHistory />} />
+          {/* <Route path="/history" element={<DentistHistory />} /> */}
+          {/* <Route path="/history/edit/:id" element={<DentistHistoryEdit />} /> */}
+          {/* <Route path="/history/create" element={<DentistHistoryCreate />} /> */}
+          {/* <Route path="/memberhistory" element={<MemberHistory />} /> */}
+          
+          <Route path="/admin/data/dentist" element={<AdminDentistData />} />
+          <Route path="/admin/create/dentist" element={<AdCreateDentist />} />
+          <Route path="/admin/dentist/edit/:username" element={<AdminEditDentist />} />
+          <Route path="/admin/data/member" element={<AdminMemberData />} />
+          <Route path="/admin/create/member" element={<AdCreateMember />} />
+          <Route path="/admin/member/edit/:username" element={<AdminEditMember />} />
 
           <Route path="/dentApp" element={<NavbarAppointment />} />
           <Route path="/dentRecord" element={<NavbarShowrecord />} />
