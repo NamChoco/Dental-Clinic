@@ -7,7 +7,8 @@ import { Breadcrumb, Table, Col } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { GetAppointment } from "../../services/https";
 import { AppointmentInterface } from "../../interfaces/IAppointments";
-
+import Cookies from "js-cookie";
+let usernameActive = String(Cookies.get("usernameMember"));
 const Membershow = () => {
   const columns: ColumnsType<AppointmentInterface> = [
     {
@@ -46,7 +47,11 @@ const Membershow = () => {
   ];
 
   const [appointments, setAppointments] = useState<AppointmentInterface[]>([]);
-
+  const filteredByUsersname = appointments.filter(
+    (appointment) => appointment.Member?.Username === usernameActive
+  );
+  console.log(filteredByUsersname);
+  console.log(usernameActive);
   const GetAppointments = async () => {
     let res = await GetAppointment();
     if (res) {
@@ -74,7 +79,7 @@ const Membershow = () => {
         ]}
       />
       <Col xs={24} sm={24} md={24} lg={24} xl={24}>
-        <Table columns={columns} dataSource={appointments} />
+        <Table columns={columns} dataSource={filteredByUsersname} />
       </Col>
       <footer className="footer">
         ks clinic

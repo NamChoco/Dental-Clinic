@@ -75,6 +75,7 @@ function Register() {
         values.Phone_number = input.Phone_number
         values.OccupationID = input.OccupationID;
         values.GenderID = input.GenderID;
+        values.AdminID = 1;
 
         console.log(values);
         console.log(input.OccupationID);

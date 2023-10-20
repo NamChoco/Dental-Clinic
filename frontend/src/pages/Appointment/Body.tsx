@@ -90,7 +90,6 @@ const Body = () => {
             initialValues={{ remember: true }}
             onFinish={onFinish}
             autoComplete="off"
-            
           >
             <div className="boxxx">
               <Col xs={15} sm={15} md={15} lg={15} xl={15}>

@@ -1,4 +1,3 @@
-
 import { MembersInterface } from "../../interfaces/IMember";
 import { PaymentsInterface } from "../../interfaces/IPayment";
 import { HistoryInterface } from "../../interfaces/IHistory";
@@ -238,6 +237,26 @@ async function GetAppointment() {
   };
 
   let res = await fetch(`${apiUrl}/appointments`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+async function GetAppointmentbyUsernameMember(username: String | undefined) {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/appointments/${username}`, requestOptions)
     .then((response) => response.json())
     .then((res) => {
       if (res.data) {
@@ -525,7 +544,7 @@ async function UpdateDentist(data: DentistsInterface) {
 
 async function DeleteDentistByUsername(username: string | undefined) {
   const requestOptions = {
-    method: "DELETE"
+    method: "DELETE",
   };
 
   let res = await fetch(`${apiUrl}/dentists/${username}`, requestOptions)
@@ -542,7 +561,7 @@ async function DeleteDentistByUsername(username: string | undefined) {
 }
 async function GetDentistByUsername(username: string | undefined) {
   const requestOptions = {
-    method: "GET"
+    method: "GET",
   };
 
   let res = await fetch(`${apiUrl}/dentist/${username}`, requestOptions)
@@ -560,7 +579,7 @@ async function GetDentistByUsername(username: string | undefined) {
 
 async function DeleteMemberByUsername(username: string | undefined) {
   const requestOptions = {
-    method: "DELETE"
+    method: "DELETE",
   };
 
   let res = await fetch(`${apiUrl}/members/${username}`, requestOptions)
@@ -598,7 +617,7 @@ async function UpdateMember(data: MembersInterface) {
 
 async function GetMemberByUsername(username: string | undefined) {
   const requestOptions = {
-    method: "GET"
+    method: "GET",
   };
 
   let res = await fetch(`${apiUrl}/members/${username}`, requestOptions)
@@ -633,6 +652,7 @@ export {
   GetDentist,
   GetDentistByID,
   GetMemberByID,
+  GetAppointmentbyUsernameMember,
 
   //ยังไม่มีหลังบ้าน
   GetHistory,
@@ -640,8 +660,6 @@ export {
   GetHistoryById,
   UpdateHistory,
   CreateHistory,
-
-
   CreateDentist,
   GetDentistByUsername,
   DeleteDentistByUsername,
@@ -649,5 +667,5 @@ export {
   UpdateDentist,
   GetMemberByUsername,
   DeleteMemberByUsername,
-  UpdateMember
+  UpdateMember,
 };
