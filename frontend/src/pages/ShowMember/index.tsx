@@ -9,8 +9,8 @@ import {
 } from "@ant-design/icons";
 import { Breadcrumb, Table, Col } from "antd";
 import { ColumnsType } from "antd/es/table";
-import { GetAppointment } from "../services/https";
-import { AppointmentInterface } from "../interfaces/IAppointments";
+import { GetAppointment } from "../../services/https";
+import { AppointmentInterface } from "../../interfaces/IAppointments";
 
 const Membershow = () => {
   const columns: ColumnsType<AppointmentInterface> = [

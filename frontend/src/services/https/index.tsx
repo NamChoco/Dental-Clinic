@@ -1,7 +1,8 @@
-import { PaymentsInterface } from "../../interfaces/IPayment";
 import { MembersInterface } from "../../interfaces/IMember";
+import { PaymentsInterface } from "../../interfaces/IPayment";
 import { HistoryInterface } from "../../interfaces/IHistory";
 import { AppointmentInterface } from "../../interfaces/IAppointments";
+import { DentistsInterface } from "../../interfaces/IDentist";
 
 const apiUrl = "http://localhost:8080";
 
@@ -459,7 +460,158 @@ async function UpdateHistory(data: HistoryInterface) {
 
   return res;
 }
-//-------------------------------------------------dentist---------------------------------------------------//
+//-------------------------------------------------profile---------------------------------------------------//
+async function GetAdmin() {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  let res = await fetch(`${apiUrl}/admin`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+async function CreateDentist(data: DentistsInterface) {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+
+  let res = await fetch(`${apiUrl}/dentists`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return { status: true, message: res.data };
+      } else {
+        return { status: false, message: res.error };
+      }
+    });
+
+  return res;
+}
+
+async function UpdateDentist(data: DentistsInterface) {
+  const requestOptions = {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+
+  let res = await fetch(`${apiUrl}/dentists`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return { status: true, message: res.data };
+      } else {
+        return { status: false, message: res.error };
+      }
+    });
+
+  return res;
+}
+
+async function DeleteDentistByUsername(username: string | undefined) {
+  const requestOptions = {
+    method: "DELETE"
+  };
+
+  let res = await fetch(`${apiUrl}/dentists/${username}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+async function GetDentistByUsername(username: string | undefined) {
+  const requestOptions = {
+    method: "GET"
+  };
+
+  let res = await fetch(`${apiUrl}/dentist/${username}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+async function DeleteMemberByUsername(username: string | undefined) {
+  const requestOptions = {
+    method: "DELETE"
+  };
+
+  let res = await fetch(`${apiUrl}/members/${username}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
+
+async function UpdateMember(data: MembersInterface) {
+  const requestOptions = {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  };
+
+  let res = await fetch(`${apiUrl}/members`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return { status: true, message: res.data };
+      } else {
+        return { status: false, message: res.error };
+      }
+    });
+
+  return res;
+}
+
+async function GetMemberByUsername(username: string | undefined) {
+  const requestOptions = {
+    method: "GET"
+  };
+
+  let res = await fetch(`${apiUrl}/members/${username}`, requestOptions)
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.data) {
+        return res.data;
+      } else {
+        return false;
+      }
+    });
+
+  return res;
+}
 
 export {
   CreateMember,
@@ -487,4 +639,14 @@ export {
   GetHistoryById,
   UpdateHistory,
   CreateHistory,
+
+
+  CreateDentist,
+  GetDentistByUsername,
+  DeleteDentistByUsername,
+  GetAdmin,
+  UpdateDentist,
+  GetMemberByUsername,
+  DeleteMemberByUsername,
+  UpdateMember
 };
