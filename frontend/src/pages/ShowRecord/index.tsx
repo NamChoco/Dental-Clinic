@@ -70,29 +70,6 @@ function ShowRecord() {
 
   return (
     <div>
-      <Breadcrumb
-        className="web"
-        items={[
-          {
-            href: "/dentApp",
-            title: (
-              <>
-                <CalendarOutlined />
-                <span>บันทึกการนัดหมาย</span>
-              </>
-            ),
-          },
-          {
-            href: "/dentRecord",
-            title: (
-              <>
-                <CarryOutOutlined />
-                <span>ประวัติการนัดหมาย</span>
-              </>
-            ),
-          },
-        ]}
-      />
       <div className="tableRecord">
         <Row>
           <Col xs={24} sm={24} md={24} lg={24} xl={24}>

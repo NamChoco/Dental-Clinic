@@ -19,23 +19,20 @@ body {
 .button {
   color: white;
 }
-s .tab {
-  margin-top: 70px;
-}
 .tabdent {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .tabname {
-  margin-top: 50px;
+  margin-top: 65px;
 }
 .tablname {
   margin-top: 45px;
 }
 .tabprob {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .tabdate {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .web {
   margin-top: 60px;
@@ -80,6 +77,7 @@ s .tab {
   justify-content: center;
 }
 .boxx {
+  margin-top: 90px;
   width: 50%;
   height: 370px;
   border-radius: 10px;
@@ -90,6 +88,14 @@ s .tab {
   display: flex;
 }
 .tableRecord {
-  align-items: center;
-  justify-content: center;
+  margin-left: 200px;
+  height: 670px;
+  width: 75%;
+  border-radius: 10px;
+  border: solid #100080;
+  margin-top: 80px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.12);
+}
+.sub {
+  margin-bottom: 20px;
 }

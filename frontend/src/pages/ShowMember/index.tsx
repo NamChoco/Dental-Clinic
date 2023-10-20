@@ -64,23 +64,11 @@ const Membershow = () => {
 
   return (
     <div>
-      <Breadcrumb
-        className="web"
-        items={[
-          {
-            href: "/memberRecord",
-            title: (
-              <>
-                <CarryOutOutlined />
-                <span>ประวัติการนัดหมายของลูกค้า</span>
-              </>
-            ),
-          },
-        ]}
-      />
-      <Col xs={24} sm={24} md={24} lg={24} xl={24}>
-        <Table columns={columns} dataSource={filteredByUsersname} />
-      </Col>
+      <div className="tableRecord">
+        <Col xs={24} sm={24} md={24} lg={24} xl={24}>
+          <Table columns={columns} dataSource={filteredByUsersname} />
+        </Col>
+      </div>
       <footer className="footer">
         ks clinic
         <p className="icon">
