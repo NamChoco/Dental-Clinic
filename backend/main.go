@@ -16,7 +16,7 @@ func main() {
 	r.POST("/members", controller.CreateMember)
 	r.GET("/members", controller.ListMembers)
 	r.GET("/member/:username", controller.LoginMemberByUsername)
-	r.PATCH("/members", controller.UpdateDentist)
+	r.PATCH("/members", controller.UpdateMember)
 	r.DELETE("/members/:username", controller.DeleteMember)
 	r.GET("/members/:username", controller.GetMemberByUsername)
 

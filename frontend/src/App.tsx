@@ -6,9 +6,13 @@ import Menu from "./Components/menu/menu";
 
 // Member
 import MemberMain from "./pages/layouts/member/payment/memberMain";
+import MProfile from "./pages/layouts/member/profile/memberProfile";
+import MProfileEdit from "./pages/layouts/member/profile/edit/memberProfileEdit";
 
 // Dentist
 import DentistMain from "./pages/layouts/dentist/dentistMain";
+import DProfile from "./pages/layouts/dentist/profile/dentistProfile"
+import DProfileEdit from "./pages/layouts/dentist/profile/edit/dentistProfileEdit";
 
 // Admin
 import NavbarAdmin from "./Components/navbar/navbarAdmin";
@@ -69,16 +73,14 @@ function App() {
 
           <Route path="/admin/data/dentist" element={<AdminDentistData />} />
           <Route path="/admin/create/dentist" element={<AdCreateDentist />} />
-          <Route
-            path="/admin/dentist/edit/:username"
-            element={<AdminEditDentist />}
-          />
+          <Route path="/admin/dentist/edit/:username"  element={<AdminEditDentist />}/>
           <Route path="/admin/data/member" element={<AdminMemberData />} />
           <Route path="/admin/create/member" element={<AdCreateMember />} />
-          <Route
-            path="/admin/member/edit/:username"
-            element={<AdminEditMember />}
-          />
+          <Route path="/admin/member/edit/:username"element={<AdminEditMember />}/>
+          <Route path="/dentist/profile/:username"element={<DProfile />}/>
+          <Route path="/dentist/profile/:username/edit"element={<DProfileEdit />}/>
+          <Route path="/member/profile/:username"element={<MProfile />}/>
+          <Route path="/member/profile/:username/edit"element={<MProfileEdit />}/>
 
           <Route path="/dentApp" element={<NavbarAppointment />} />
           <Route path="/dentRecord" element={<NavbarShowrecord />} />

@@ -3,15 +3,32 @@ import { Form, message } from "antd";
 import Cookies from "js-cookie";
 import "./navbarV2CSS.css";
 import profileDentist from "./../../photo/dental-care.png";
+import { GetDentistByUsername } from "../../services/https";
 
 import { Layout } from "antd";
+import { useEffect, useState } from "react";
+import { DentistsInterface } from "../../interfaces/IDentist";
+
 function NavbarDentist() {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
-
+  const username = Cookies.get("usernameDentist");
+  const [dentist, setDentist] = useState<DentistsInterface>();
+  
+  const getDentistByUsername = async () => {
+    let res = await GetDentistByUsername(username);
+    console.log(res);
+    if (res) {
+      setDentist(res);
+    }
+  }
+  useEffect(() => {
+    getDentistByUsername();
+  }, []);
+  
   const handleSubmit2 = async () => {
     Cookies.remove("usernameDentist");
-
+    
     if (true) {
       messageApi.open({
         type: "success",
@@ -34,7 +51,7 @@ function NavbarDentist() {
                   <Link to="">หมอ</Link>
                   <ul>
                     <li>
-                      <Link to="">โปรไฟล์</Link>
+                      <Link to={`/dentist/profile/${dentist?.Username}`}>โปรไฟล์</Link>
                     </li>
                     <li>
                       <Link to="/history">ประวัติการรักษา</Link>
