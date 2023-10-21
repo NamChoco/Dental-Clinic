@@ -1,6 +1,6 @@
 .box {
     padding: 8px 50px;
-    max-width: 250px; /* กำหนดความกว้างสูงสุด */ 
+    max-width: 280px; /* กำหนดความกว้างสูงสุด */ 
     border-radius: 10px;
     border: 2px solid #f4ebeb;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -9,7 +9,7 @@
 
 .box2 {
   padding: 8px 50px;
-  max-width: 250px; /* กำหนดความกว้างสูงสุด */ 
+  max-width: 280px; /* กำหนดความกว้างสูงสุด */ 
   border-radius: 10px;
   border: 1px solid #020202;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -152,13 +152,15 @@
 
   .container {
     width: 95%; /* กำหนดความกว้างของคอนเทนเนอร์เป็น 100% */
+    
   }
   
   .asset {
     width: 400px; /* กำหนดความกว้างของสี่เหลี่ยม */
-    height: 350px; /* กำหนดความสูงของสี่เหลี่ยม */
+    height: 300px; /* กำหนดความสูงของสี่เหลี่ยม */
     border: 3px solid #010080; /* กำหนดขอบของสี่เหลี่ยม */
-    background: #FFF; /* กำหนดพื้นหลังสีขาว */
+    border-radius: 10px;
+    background: #ffffff; /* กำหนดพื้นหลังสีขาว */
     float: right; /* ทำให้สี่เหลี่ยมลอยไปด้านขวา */
     transform: translateY(5%); 
   }

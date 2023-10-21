@@ -52,7 +52,7 @@ function Login() {
       });
 
       setTimeout(function () {
-        navigate("/service");
+        navigate("/serviceMember");
       }, 2000);
     } else if (
       input.Username[0] === dentist.Username &&
