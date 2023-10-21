@@ -61,15 +61,6 @@ func GetAppointment(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": appointment})
 }
-func GetAppointmentbyUsernameMember(c *gin.Context) {
-	var appointment entity.Appointment
-	username := c.Param("username")
-	if err := entity.DB().Preload("Member").Preload("Dentist").Raw("SELECT * FROM members WHERE username = ?", username).Find(&appointment).Error; err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-		return
-	}
-	c.JSON(http.StatusOK, gin.H{"data": appointment})
-}
 	// GET /appointments	
 func ListAppointment(c *gin.Context) {
 	var appointment []entity.Appointment
@@ -79,32 +70,5 @@ func ListAppointment(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"data": appointment})
 }
-// DELETE /apointments/:id
-func DeleteAppointment(c *gin.Context) {
-	id := c.Param("id")
-	if tx := entity.DB().Exec("DELETE FROM appointments WHERE id = ?", id); tx.RowsAffected == 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "user not found"})
-		return
-	}
-	c.JSON(http.StatusOK, gin.H{"data": id})
-}
 
-// func GetAppointmentbyUsernameMember(c *gin.Context) {
-// 	var member entity.Member
-// 	var appointment entity.Appointment
-// 	// usernameM := c.Param("username")
-// 	// Select users with orders between 100 and 200
-
-// 	if err := entity.DB().Where("Name = ?", ).First(&member); tx.RowsAffected == 0 {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		return
-// 	}
-	
-	
-// 	if err := entity.DB().Raw("SELECT * FROM appointments WHERE id = ?", username).Find(&username).Error; err != nil {
-// 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-// 		return
-// 	}
-// 	c.JSON(http.StatusOK, gin.H{"data": username})
-// }
 

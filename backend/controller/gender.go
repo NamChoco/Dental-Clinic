@@ -13,6 +13,7 @@ func ListGenders(c *gin.Context) {
 	if err := entity.DB().Raw("SELECT * FROM genders").Scan(&genders).Error; err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
+		
 	}
 	c.JSON(http.StatusOK, gin.H{"data": genders})
 }

@@ -39,9 +39,9 @@ const { Option } = Select;
 
 function HistoryCreate() {
   const navigate = useNavigate();
+
   const [messageApi, contextHolder] = message.useMessage();
   const [genders, setGenders] = useState<GendersInterface[]>([]);
-
   const [services, setService] = useState<ServicesInterface[]>([]);
   const [members, setMembers] = useState<MembersInterface[]>([]);
   const [dentists, setDentists] = useState<DentistsInterface[]>([]);
@@ -175,7 +175,7 @@ function HistoryCreate() {
 
           <Divider />
           <Card>
-            <Table rowKey="ID" columns={columns} dataSource={members} />
+            <Table rowKey="ID" columns={columns} dataSource={members} pagination={{ pageSize: 7}} size="middle"/>
           </Card>
         </Col>
         <Col xs={24} sm={24} md={24} lg={12} xl={10}>

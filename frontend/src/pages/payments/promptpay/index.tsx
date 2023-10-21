@@ -43,7 +43,7 @@ const PromptPay = () => {
     if (res.status) {
       messageApi.open({
         type: "success",
-        content: "บันทึกข้อมูลสำเร็จ",
+        content: "ชำระเงินสำเร็จ",
       });
       setTimeout(() => {
         navigate("/success");
@@ -51,7 +51,7 @@ const PromptPay = () => {
     } else {
       messageApi.open({
         type: "error",
-        content: "บันทึกข้อมูลไม่สำเร็จ",
+        content: "ชำระเงินไม่สำเร็จ",
       });
     }
   };
@@ -119,25 +119,42 @@ const PromptPay = () => {
       <div>
         <TextCom1 text="วิธีการชำระเงิน" />
       </div>
-      <div style={{marginLeft: "180px" }}>
+      <div style={{marginLeft: "245px" }}>
       <section className='app-section'>
         <div className='app-container'>
           <Grid>
             <Link to="/Card" style={linkStyle}>
-              <Box>
+              <Box >
+              <div style={{marginLeft: "30px"}}>
                 <h1><img src={card} alt="Logo" style={{ width: "20%", borderRadius: "0%" }} /> Card</h1>
+                 </div>
               </Box>
-            </Link>
+            </Link>        
             <Link to="/PromptPay" style={linkStyle}>
+    
               <Box2>
+                <div className="dt">
                 <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> PromptPay</h1>
+                </div>
               </Box2>
             </Link>
+            <div/>
           </Grid>
         </div>
       </section>
       </div>
-     <div style={{ marginTop: '300px' }}>
+     
+        <div style={{marginTop: "330px"}}>
+      <img src={qr} alt="qr " style={{ width: "15%", marginLeft: "420px", marginTop: "-300px", borderRadius: "0%" }} />
+     
+      <div style={{ marginLeft: "280px" }}>
+        <TextCom2 text={<span><span style={{ color: "black" }}>ชื่อบัญชี : </span><span style={{ color: "blue" }}>ksdentralclinic</span></span>} />
+      </div>
+      <div style={{ marginLeft: "266px" }}>
+        <TextCom2 text={<span><span style={{ color: "black" }}>เลขพร้อมเพย์ : </span><span style={{ color: "blue" }}>0956639823</span></span>} />
+      </div>
+      </div>
+      <div style={{ marginRight: '150px',marginBottom: "50px"}}>
       {services
         .filter((service) => service.ID === selectedServiceID)
         .map((service) => (
@@ -155,20 +172,14 @@ const PromptPay = () => {
           </div>
         ))}
         </div>
-      <img src={qr} alt="qr " style={{ width: "15%", marginLeft: "420px", marginTop: "-300px", borderRadius: "0%" }} />
-      <div style={{ marginLeft: "280px" }}>
-        <TextCom2 text={<span><span style={{ color: "black" }}>ชื่อบัญชี : </span><span style={{ color: "blue" }}>ksdentralclinic</span></span>} />
-      </div>
-      <div style={{ marginLeft: "266px" }}>
-        <TextCom2 text={<span><span style={{ color: "black" }}>เลขพร้อมเพย์ : </span><span style={{ color: "blue" }}>0956639823</span></span>} />
-      </div>
+      
       <Form
         name="basic"
         layout="vertical"
         onFinish={onFinish}
         autoComplete="off"
       >
-       <div style={{ marginLeft: '160px' }}>
+       <div style={{ marginLeft: '160px' ,marginTop: "-20px" }}>
           <Col xs={24} sm={24} md={24} lg={24} xl={3}>
             <Form.Item name="ServiceID" label="รายการ" rules={[{ required: true, message: "กรุณาระบุรายการ !" }]}  >
               <Select allowClear value={selectedServiceID} onChange={(value) => setSelectedServiceID(value)}>
@@ -181,6 +192,7 @@ const PromptPay = () => {
             </Form.Item>
           </Col>
         </div>
+        
         <div style={{ marginLeft: '160px' }}>
           <Col xs={24} sm={24} md={24} lg={24} xl={5}>
             <Form.Item
@@ -205,6 +217,7 @@ const PromptPay = () => {
             </Form.Item>
           </Col>
         </div>
+        
         <div style={{ marginLeft: '160px' }}>
           <Col xs={24} sm={24} md={24} lg={24} xl={5}>
             <Form.Item

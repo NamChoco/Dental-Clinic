@@ -54,7 +54,6 @@ func main() {
 	//Appointment Routes
 	r.GET("/appointments", controller.ListAppointment)
 	r.POST("/appointments", controller.CreateAppointment)
-	r.DELETE("/appointments/:id", controller.DeleteAppointment)
 
 	// Run the server
 	r.Run(":8080")
@@ -76,3 +75,4 @@ func CORSMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 }
+

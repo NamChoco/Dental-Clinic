@@ -22,7 +22,7 @@ function NavbarAdmin() {
     }
     return (
         <>
-        <div>
+        <div>   
             {contextHolder}
             <div className='navbarMember-v2'>
                 <div className='navbar-v2'>
@@ -30,8 +30,7 @@ function NavbarAdmin() {
                         <ul>
                             <li><Link to=''>แอดมิน</Link>
                                 <ul>
-                                    <li><Link to=''>ประวัติการรักษา</Link></li>
-                                    <li><Link to=''>วันนัดหมาย</Link></li>
+                                    <li><Link to='/history'>ประวัติการรักษา</Link></li>
                                     <li><Link to='/admin/data/dentist'>จัดการหมอ</Link></li>
                                     <li><Link to='/admin/data/member'>จัดการสมาชิก</Link></li>
                                     <li><Link to='/showpayment'>ยืนยันการชำระเงิน</Link></li>
@@ -52,4 +51,5 @@ function NavbarAdmin() {
         </>
     );
 }
+
 export default NavbarAdmin
