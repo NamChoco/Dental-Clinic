@@ -30,6 +30,7 @@ function NavbarMember() {
     window.location.href = '/memberhistory';
   };
   
+  
   return (
     <>
       <Layout>
