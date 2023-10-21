@@ -29,6 +29,11 @@ function NavbarMember() {
     // รีเฟรชหน้าเว็บในพาท /memberhistory
     window.location.href = "/memberRecord";
   };
+
+  const handleViewHistory = () => {
+    window.location.href = "/memberhistory";
+  };
+
   return (
     <>
       <Layout>
@@ -44,7 +49,9 @@ function NavbarMember() {
                       <Link to="">โปรไฟล์</Link>
                     </li>
                     <li>
-                      <Link to="/memberhistory">ประวัติการรักษา</Link>
+                      <Link to="/memberhistory" onClick={handleViewHistory}>
+                        ดูประวัติการรักษา
+                      </Link>
                     </li>
                     <li>
                       <Link to="/service">บริการ</Link>

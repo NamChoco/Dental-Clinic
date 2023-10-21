@@ -67,11 +67,13 @@ function Customers() {
 
   const navigate = useNavigate();
 
+
+
   //กำหนดค่า fillter
-  const [users, setUsers] = useState<HistoryInterface[]>([]);
-  const filteredByUsersname = users.filter(user => user.Member?.Username === usernameActive);
+  const [history, setHistorys] = useState<HistoryInterface[]>([]);
+  const filteredByUsersname = history.filter(history => history.Member?.Username === usernameActive);
   console.log(filteredByUsersname);
-  // const userWithMatchingUsername = users.find(user => user.Member?.Username === usernameActive);
+  // const userWithMatchingUsername = history.find(history => history.Member?.Username === usernameActive);
   // const IDUser = String(userWithMatchingUsername)
   // Cookies.set('IDUser', IDUser);
 
@@ -83,10 +85,10 @@ function Customers() {
   const [modalText, setModalText] = useState<String>();
   const [deleteId, setDeleteId] = useState<Number>();
 
-  const getUsers = async () => {
+  const getHistorys = async () => {
     let res = await GetHistory();
     if (res) {
-      setUsers(res);
+      setHistorys(res);
     }
   };
 
@@ -96,8 +98,12 @@ function Customers() {
   };
 
   useEffect(() => {
-    getUsers();
+    getHistorys();
   }, []);
+
+
+  
+
 
   return (
     <>
@@ -110,7 +116,7 @@ function Customers() {
       </Row>
       <Divider />
       <div style={{ marginTop: 20 }}>
-        <Table rowKey="ID" columns={columns} dataSource={filteredByUsersname} />
+        <Table rowKey="ID" columns={columns} dataSource={filteredByUsersname} pagination={{ pageSize: 5}} size="middle"/>
       </div>
 
     </>

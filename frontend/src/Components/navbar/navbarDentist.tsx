@@ -22,6 +22,7 @@ function NavbarDentist() {
       }, 2000);
     }
   };
+  
   return (
     <>
       <Layout>
