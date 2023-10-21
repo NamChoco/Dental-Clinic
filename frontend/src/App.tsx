@@ -40,6 +40,7 @@ import Showpayment from "./pages/layouts/admin/payment/showpayment";
 import NavbarAppointment from "./pages/layouts/dentist/appointment/showappointment";
 import NavbarShowrecord from "./pages/layouts/dentist/appointment/showdentist";
 import NavbarShowmember from "./pages/layouts/member/showmember/showmember";
+import Datacontact from "./pages/layouts/dentist/contact";
 
 function App() {
   return (
@@ -52,7 +53,8 @@ function App() {
           <Route path="/serviceAdmin" element={<AdminMain />} />
           {/* หน้าแรก dentist */}
           <Route path="/serviceDentist" element={<DentistMain />} />
-
+          {/* Menu */}
+          <Route path="/contact" element={<Datacontact />} />
           {/* Payment */}
           <Route path="/serviceMember" element={<MemberMain />} />
           <Route path="/service" element={<Payment />} />

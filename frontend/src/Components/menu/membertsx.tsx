@@ -19,7 +19,7 @@ function MemberMenu() {
                     <div className='menu'>
                         <div><Link to='/serviceMember'>หน้าหลัก</Link></div>
                         <div><Link to=''>แพทย์</Link></div>
-                        <div><Link to=''>ติดต่อเรา</Link></div> 
+                        <div><Link to='/contact'>ติดต่อเรา</Link></div> 
                     </div>
                 </div>
             </div>
