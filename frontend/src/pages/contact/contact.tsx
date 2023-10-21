@@ -40,7 +40,6 @@ const ContactData = () => {
             </div>
           </Col>
           </Card>
-          
         ))}
         <img src={map} alt="Logo" style={{ width: '50%'}}/>
       </Row>
