@@ -23,14 +23,12 @@ function NavbarMember() {
       }, 2000);
     }
   };
+  
   const handleViewHistory = () => {
-    // คลิกดูประวัติการรักษา
-    // ทำงานอื่น ๆ ที่คุณต้องการที่นี่
-    // รีเฟรชหน้าเว็บในพาท /memberhistory
     window.location.href = '/memberhistory';
   };
   
-  
+
   return (
     <>
       <Layout>
