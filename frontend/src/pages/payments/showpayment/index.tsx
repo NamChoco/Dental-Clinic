@@ -121,6 +121,8 @@ function Payments() {
         content: "ลบข้อมูลสำเร็จ",
       });
       GetPayments();
+       // Refresh หน้าเว็บ
+    window.location.reload();
     } else {
       setOpen(false);
       messageApi.open({
