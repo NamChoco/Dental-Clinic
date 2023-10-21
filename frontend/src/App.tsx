@@ -6,9 +6,13 @@ import Menu from "./Components/menu/menu";
 
 // Member
 import MemberMain from "./pages/layouts/member/payment/memberMain";
+import MProfile from "./pages/layouts/member/profile/memberProfile";
+import MProfileEdit from "./pages/layouts/member/profile/edit/memberProfileEdit";
 
 // Dentist
 import DentistMain from "./pages/layouts/dentist/dentistMain";
+import DProfile from "./pages/layouts/dentist/profile/dentistProfile"
+import DProfileEdit from "./pages/layouts/dentist/profile/edit/dentistProfileEdit";
 
 // Admin
 import NavbarAdmin from "./Components/navbar/navbarAdmin";
@@ -25,6 +29,7 @@ import DentistHistory from "./pages/layouts/dentist/history";
 import DentistHistoryEdit from "./pages/layouts/dentist/historyedit";
 import DentistHistoryCreate from "./pages/layouts/dentist/hitorycreate";
 import MemberHistory from "./pages/layouts/member/history/memberhistory";
+import HistoryAdmin from "./pages/layouts/admin/history";
 
 // Layout
 
@@ -40,6 +45,7 @@ import Showpayment from "./pages/layouts/admin/payment/showpayment";
 import NavbarAppointment from "./pages/layouts/dentist/appointment/showappointment";
 import NavbarShowrecord from "./pages/layouts/dentist/appointment/showdentist";
 import NavbarShowmember from "./pages/layouts/member/showmember/showmember";
+import Datacontact from "./pages/layouts/dentist/contact";
 
 function App() {
   return (
@@ -52,7 +58,8 @@ function App() {
           <Route path="/serviceAdmin" element={<AdminMain />} />
           {/* หน้าแรก dentist */}
           <Route path="/serviceDentist" element={<DentistMain />} />
-
+          {/* Menu */}
+          <Route path="/contact" element={<Datacontact />} />
           {/* Payment */}
           <Route path="/serviceMember" element={<MemberMain />} />
           <Route path="/service" element={<Payment />} />
@@ -66,18 +73,18 @@ function App() {
           <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
           <Route path="/history/create" element={<DentistHistoryCreate />} />
           <Route path="/memberhistory" element={<MemberHistory />} />
+          <Route path="/adminhistory" element={<HistoryAdmin />} />
+
           <Route path="/admin/data/dentist" element={<AdminDentistData />} />
           <Route path="/admin/create/dentist" element={<AdCreateDentist />} />
-          <Route
-            path="/admin/dentist/edit/:username"
-            element={<AdminEditDentist />}
-          />
+          <Route path="/admin/dentist/edit/:username"  element={<AdminEditDentist />}/>
           <Route path="/admin/data/member" element={<AdminMemberData />} />
           <Route path="/admin/create/member" element={<AdCreateMember />} />
-          <Route
-            path="/admin/member/edit/:username"
-            element={<AdminEditMember />}
-          />
+          <Route path="/admin/member/edit/:username"element={<AdminEditMember />}/>
+          <Route path="/dentist/profile/:username"element={<DProfile />}/>
+          <Route path="/dentist/profile/:username/edit"element={<DProfileEdit />}/>
+          <Route path="/member/profile/:username"element={<MProfile />}/>
+          <Route path="/member/profile/:username/edit"element={<MProfileEdit />}/>
 
           <Route path="/dentApp" element={<NavbarAppointment />} />
           <Route path="/dentRecord" element={<NavbarShowrecord />} />

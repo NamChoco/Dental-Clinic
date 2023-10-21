@@ -28,3 +28,4 @@ func ListAdmin(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": admins})
 }
 
+
