@@ -167,6 +167,7 @@ function Customers() {
     }
     setConfirmLoading(false);
   };
+  
 
   const handleCancel = () => {
     setOpen(false);
@@ -205,7 +206,7 @@ function Customers() {
       <Divider />
       
       <div style={{ marginTop: 20 }}>
-        <Table rowKey="ID" columns={columns} dataSource={ historys} />
+        <Table rowKey="ID" columns={columns} dataSource={ historys} pagination={{ pageSize: 5}} size="middle"/>
       </div>
       <Modal
         title="ลบข้อมูล ?"
