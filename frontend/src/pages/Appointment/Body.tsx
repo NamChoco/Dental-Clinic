@@ -1,37 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "../Appointment/index.css";
-import {
-  UserOutlined,
-  CalendarOutlined,
-  CarryOutOutlined,
-  GlobalOutlined,
-} from "@ant-design/icons";
+import { GlobalOutlined } from "@ant-design/icons";
 import {
   Button,
   DatePicker,
   Form,
-  Breadcrumb,
-  Avatar,
   Input,
   Select,
   message,
   TimePicker,
   Col,
 } from "antd";
-//import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { AppointmentInterface } from "../../interfaces/IAppointments";
 import { DentistsInterface } from "../../interfaces/IDentist";
 import { MembersInterface } from "../../interfaces/IMember";
 import { CreateAppointment } from "../../services/https/index";
-import {
-  //GetAppointment,
-  GetDentistByID,
-  GetMemberByID,
-} from "../../services/https";
-// import { ColumnsType } from "antd/es/table";
+import { GetDentistByID, GetMemberByID } from "../../services/https";
 const { Option } = Select;
-
 const Body = () => {
   const dateFormat = "DD/MM/YYYY";
   const timeFormat = "H:mm A";
@@ -56,27 +42,23 @@ const Body = () => {
       });
     }
   };
-
   useEffect(() => {
-    // GetAppointments();
     GetMembers();
-    GetDentists(); // Corrected function name
+    GetDentists();
   }, []);
-
   const GetMembers = async () => {
-    let res = await GetMemberByID(); // Call the correct function here.
+    let res = await GetMemberByID();
     if (res) {
       setMembers(res);
     }
   };
 
   const GetDentists = async () => {
-    let res = await GetDentistByID(); // Change to GetDentists()
+    let res = await GetDentistByID();
     if (res) {
       setDentists(res);
     }
   };
-
   return (
     <div>
       {contextHolder}
@@ -174,5 +156,4 @@ const Body = () => {
     </div>
   );
 };
-
 export default Body;

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
-import {
-  CalendarOutlined,
-  CarryOutOutlined,
-  GlobalOutlined,
-} from "@ant-design/icons";
-import { Breadcrumb, Table, Col, Row } from "antd"; // Added Row component
+import { GlobalOutlined } from "@ant-design/icons";
+import { Table, Col, Row } from "antd"; // Added Row component
 import { ColumnsType } from "antd/lib/table";
 import { AppointmentInterface } from "../../interfaces/IAppointments";
 import { GetAppointment } from "../../services/https";

@@ -1,9 +1,8 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import dayjs from "dayjs";
-import { CarryOutOutlined, GlobalOutlined } from "@ant-design/icons";
-import { Breadcrumb, Table, Col } from "antd";
+import { GlobalOutlined } from "@ant-design/icons";
+import { Table, Col } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { GetAppointment } from "../../services/https";
 import { AppointmentInterface } from "../../interfaces/IAppointments";
@@ -50,8 +49,6 @@ const Membershow = () => {
   const filteredByUsersname = appointments.filter(
     (appointment) => appointment.Member?.Username === usernameActive
   );
-  console.log(filteredByUsersname);
-  console.log(usernameActive);
   const GetAppointments = async () => {
     let res = await GetAppointment();
     if (res) {
@@ -61,7 +58,6 @@ const Membershow = () => {
   useEffect(() => {
     GetAppointments();
   }, []);
-
   return (
     <div>
       <div className="tableRecord">
@@ -78,5 +74,4 @@ const Membershow = () => {
     </div>
   );
 };
-
 export default Membershow;
