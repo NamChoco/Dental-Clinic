@@ -151,7 +151,7 @@ function Payments() {
       </Row>
       <Divider />
       <div style={{ marginTop: 20 }}>
-        <Table rowKey="ID" columns={columns} dataSource={payments} pagination={{ pageSize: 2}} size="middle"/>
+        <Table rowKey="ID" columns={columns} dataSource={payments} pagination={{ pageSize: 3}} size="large"/>
       </div>
       <Modal
         title="ลบข้อมูล ?"
