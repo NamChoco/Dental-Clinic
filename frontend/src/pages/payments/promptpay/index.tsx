@@ -134,7 +134,7 @@ const PromptPay = () => {
     
               <Box2>
                 <div className="dt">
-                <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> Promptpay</h1>
+                <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> PromptPay</h1>
                 </div>
               </Box2>
             </Link>
