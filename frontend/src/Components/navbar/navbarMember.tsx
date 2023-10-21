@@ -23,6 +23,13 @@ function NavbarMember() {
       }, 2000);
     }
   };
+  const handleViewHistory = () => {
+    // คลิกดูประวัติการรักษา
+    // ทำงานอื่น ๆ ที่คุณต้องการที่นี่
+    // รีเฟรชหน้าเว็บในพาท /memberhistory
+    window.location.href = '/memberhistory';
+  };
+  
   return (
     <>
       <Layout>
@@ -38,7 +45,7 @@ function NavbarMember() {
                       <Link to="">โปรไฟล์</Link>
                     </li>
                     <li>
-                      <Link to="/memberhistory">ประวัติการรักษา</Link>
+                    <Link to="/memberhistory" onClick={handleViewHistory}>ดูประวัติการรักษา</Link>
                     </li>
                     <li>
                       <Link to="/service">บริการ</Link>
