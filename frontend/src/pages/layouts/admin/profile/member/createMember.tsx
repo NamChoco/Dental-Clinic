@@ -2,7 +2,7 @@
 import NavbarAdmin from '../../../../../Components/navbar/navbarAdmin';
 
 //Menu
-import Menu from '../../../../../Components/menu/menu';
+import AdminMenu from '../../../../../Components/menu/adminManu';
 // content
 import AdminCreateMember from '../../../../profile/admin/member/create/adminCreateMember';
 
@@ -15,7 +15,7 @@ function AdCreateMember(){
         <>
             <div>
                 <NavbarAdmin />
-                <Menu />
+                <AdminMenu />
                 <AdminCreateMember />
                 
                 
