@@ -49,7 +49,7 @@ const Card = () => {
       if (res.status) {
         messageApi.open({
           type: "success",
-          content: "บันทึกข้อมูลสำเร็จ",
+          content: "ชำระเงินสำเร็จ",
         });
         setTimeout(function () {
           navigate("/success");
@@ -57,7 +57,7 @@ const Card = () => {
       } else {
         messageApi.open({
           type: "error",
-          content: "บันทึกข้อมูลไม่สำเร็จ",
+          content: "ชำระเงินไม่สำเร็จ",
         });
         setTimeout(function () {
           navigate("/Dentral");
@@ -113,20 +113,23 @@ const Card = () => {
       <div>
         <TextCom1 text="วิธีการชำระเงิน" />
       </div>
-      <div style={{marginLeft: "180px" }}>
+      <div style={{marginLeft: "240px" }}>
       <section className='app-section'>
         <div className='app-container'>
           <Grid>
             <Link to="/Card" style={linkStyle}>
               <Box2 >
+              <div style={{marginLeft: "30px"}}>
                 <h1><img src={card} alt="Logo" style={{ width: "20%", borderRadius: "0%" }} /> Card</h1>
+                 </div>
               </Box2>
-            </Link>
+            </Link>        
             <Link to="/PromptPay" style={linkStyle}>
-              <Box>
-                <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> PromptPay</h1>
+              <Box>   
+                <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> Promptpay</h1>
               </Box>
             </Link>
+            <div/>
           </Grid>
         </div>
       </section>
@@ -308,7 +311,7 @@ const Card = () => {
           </Form.Item>
         </div>
       </Form>
-      <div style={{ display: 'flex', marginLeft :"1050px", marginTop :"-200px" }}>
+      <div style={{ display: 'flex', marginLeft :"70%", marginTop :"-200px" }}>
              {services
              .filter((service) => service.ID === selectedServiceID)
             .map((service) => (

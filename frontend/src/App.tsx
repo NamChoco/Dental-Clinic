@@ -66,7 +66,6 @@ function App() {
           <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
           <Route path="/history/create" element={<DentistHistoryCreate />} />
           <Route path="/memberhistory" element={<MemberHistory />} />
-
           <Route path="/admin/data/dentist" element={<AdminDentistData />} />
           <Route path="/admin/create/dentist" element={<AdCreateDentist />} />
           <Route
