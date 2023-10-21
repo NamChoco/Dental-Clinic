@@ -10,7 +10,9 @@ import { HistoryInterface } from "../../../interfaces/IHistory";
 import { Link, useNavigate } from "react-router-dom";
 
 import Cookies from 'js-cookie';
+
 //Cookies.set('Name', '1');
+
 let usernameActive = String(Cookies.get('usernameMember'));
 
 function Customers() {
@@ -68,8 +70,6 @@ function Customers() {
   //กำหนดค่า fillter
   const [users, setUsers] = useState<HistoryInterface[]>([]);
   const filteredByUsersname = users.filter(user => user.Member?.Username === usernameActive);
- 
-
   console.log(filteredByUsersname);
   // const userWithMatchingUsername = users.find(user => user.Member?.Username === usernameActive);
   // const IDUser = String(userWithMatchingUsername)
