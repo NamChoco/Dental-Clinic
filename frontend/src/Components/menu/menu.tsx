@@ -7,6 +7,7 @@ import {
 import Logo from './../../photo/tooth1.png';
 // import profile from './../../photo/girl.png';
 import NavbarAdmin from '../navbar/navbarAdmin';
+import Datacontact from '../../pages/layouts/dentist/contact';
 
 function Menu() {
     return (
@@ -18,8 +19,8 @@ function Menu() {
                     </div>
                     <div className='menu'>
                         <div><Link to='/'>หน้าหลัก</Link></div>
-                        <div><Link to=''>แพทย์</Link></div>
-                        <div><Link to=''>ติดต่อเรา</Link></div> 
+                        {/* <div><Link to=''>แพทย์</Link></div> */}
+                        <div><Link to='/contact'>ติดต่อเรา</Link></div> 
                     </div>
                 </div>
             </div>

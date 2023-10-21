@@ -10,5 +10,6 @@ function Box(props: { children: string | number | boolean | ReactElement<any, st
     </div>
     );
 }
+   
 
 export default Box;
