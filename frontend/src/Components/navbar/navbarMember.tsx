@@ -6,9 +6,26 @@ import "./navbarV2CSS.css";
 import profileMember from "./../../photo/girl.png";
 
 import { Layout } from "antd";
+import { MembersInterface } from "../../interfaces/IMember";
+import { useEffect, useState } from "react";
+import { GetMemberByUsername } from "../../services/https";
+
 function NavbarMember() {
   let navigate = useNavigate();
   const [messageApi, contextHolder] = message.useMessage();
+  const username = Cookies.get("usernameMember");
+  const [member, setMember] = useState<MembersInterface>();
+  
+  const getMemberByUsername = async () => {
+    let res = await GetMemberByUsername(username);
+    console.log(res);
+    if (res) {
+      setMember(res);
+    }
+  }
+  useEffect(() => {
+    getMemberByUsername();
+  }, []);
 
   const handleSubmit2 = async () => {
     Cookies.remove("usernameMember");
@@ -46,7 +63,7 @@ function NavbarMember() {
                   <Link to="">สมาชิก</Link>
                   <ul>
                     <li>
-                      <Link to="">โปรไฟล์</Link>
+                      <Link to={`/member/profile/${member?.Username}`}>โปรไฟล์</Link>
                     </li>
                     <li>
                       <Link to="/memberhistory" onClick={handleViewHistory}>
