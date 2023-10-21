@@ -131,7 +131,6 @@ const PromptPay = () => {
               </Box>
             </Link>        
             <Link to="/PromptPay" style={linkStyle}>
-    
               <Box2>
                 <div className="dt">
                 <h1><img src={prom} alt="Logo" style={{ width: "30%", borderRadius: "0%" }} /> PromptPay</h1>

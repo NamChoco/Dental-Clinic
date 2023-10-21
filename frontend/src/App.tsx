@@ -29,6 +29,7 @@ import DentistHistory from "./pages/layouts/dentist/history";
 import DentistHistoryEdit from "./pages/layouts/dentist/historyedit";
 import DentistHistoryCreate from "./pages/layouts/dentist/hitorycreate";
 import MemberHistory from "./pages/layouts/member/history/memberhistory";
+import HistoryAdmin from "./pages/layouts/admin/history";
 
 // Layout
 
@@ -44,6 +45,7 @@ import Showpayment from "./pages/layouts/admin/payment/showpayment";
 import NavbarAppointment from "./pages/layouts/dentist/appointment/showappointment";
 import NavbarShowrecord from "./pages/layouts/dentist/appointment/showdentist";
 import NavbarShowmember from "./pages/layouts/member/showmember/showmember";
+import Datacontact from "./pages/layouts/dentist/contact";
 
 function App() {
   return (
@@ -56,7 +58,8 @@ function App() {
           <Route path="/serviceAdmin" element={<AdminMain />} />
           {/* หน้าแรก dentist */}
           <Route path="/serviceDentist" element={<DentistMain />} />
-
+          {/* Menu */}
+          <Route path="/contact" element={<Datacontact />} />
           {/* Payment */}
           <Route path="/serviceMember" element={<MemberMain />} />
           <Route path="/service" element={<Payment />} />
@@ -70,6 +73,8 @@ function App() {
           <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
           <Route path="/history/create" element={<DentistHistoryCreate />} />
           <Route path="/memberhistory" element={<MemberHistory />} />
+          <Route path="/adminhistory" element={<HistoryAdmin />} />
+
           <Route path="/admin/data/dentist" element={<AdminDentistData />} />
           <Route path="/admin/create/dentist" element={<AdCreateDentist />} />
           <Route path="/admin/dentist/edit/:username"  element={<AdminEditDentist />}/>
