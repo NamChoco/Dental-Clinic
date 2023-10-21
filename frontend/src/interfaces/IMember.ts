@@ -12,12 +12,12 @@ export interface MembersInterface {
     Birthday?: string;
     Phone_number?: string;
 
-    AdminID?: number
-    Admin?: AdminInterface;
-
     OccupationID?: number;
     Occupation?: OccupationInterface;
 
     GenderID?: number;
     Gender?: GendersInterface;
+
+    AdminID?: number
+    Admin?: AdminInterface;
 }

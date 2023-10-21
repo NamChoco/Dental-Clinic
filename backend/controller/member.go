@@ -51,10 +51,12 @@ func CreateMember(c *gin.Context) {
 		OccupationID: member.OccupationID, // ตั้งค่าฟิลด์ occupation
 		Occupation:   occupation,          // ตั้งค่าฟิลด์ occupation
 
-		GenderID: member.GenderID,
-		Gender:   gender,
+		GenderID: 	  member.GenderID,
+		Gender:   	  gender,
 
-		Admin: admin, // ตั้งค่าฟิลด์ Gender
+		// Admin: admin,
+		AdminID: 	  member.AdminID,
+		Admin:   	  admin,
 	}
 
 	// บันทึก
