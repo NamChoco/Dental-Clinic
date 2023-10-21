@@ -110,7 +110,7 @@ function Customers() {
       </Row>
       <Divider />
       <div style={{ marginTop: 20 }}>
-        <Table rowKey="ID" columns={columns} dataSource={filteredByUsersname} />
+        <Table rowKey="ID" columns={columns} dataSource={filteredByUsersname} pagination={{ pageSize: 5}} size="middle"/>
       </div>
 
     </>
