@@ -5,20 +5,7 @@ import { Link } from 'react-router-dom';
 import tooth from '../../assets/tooth.jpg';
 import fill from '../../assets/fill.jpg';
 import tartar from '../../assets/tarr.jpg';
-import Cookies from 'js-cookie';
 
-const handleReserveClick1 = () => {
-  // Set a cookie with the "Service" value of 2
-  Cookies.set('Service', '1');
-};
-const handleReserveClick2 = () => {
-  // Set a cookie with the "Service" value of 2
-  Cookies.set('Service', '2');
-};
-const handleReserveClick3 = () => {
-  // Set a cookie with the "Service" value of 2
-  Cookies.set('Service', '3');
-};
 
 const buttonContainerStyle = {
   display: 'flex',
@@ -53,7 +40,7 @@ const Dentral = () =>  (
               </div>
               <div style={buttonContainerStyle}>
                 <Link to="/Card">
-                  <Button type="primary" key="fill" onClick={handleReserveClick1}>
+                  <Button type="primary" key="fill" >
                     จองเลย!
                     <span
                       style={{
@@ -83,7 +70,7 @@ const Dentral = () =>  (
               </div>
               <div style={buttonContainerStyle}>
                 <Link to="/Card">
-                  <Button type="primary" key="tooth" onClick={handleReserveClick2}>
+                  <Button type="primary" key="tooth" >
                     จองเลย!
                     <span
                       style={{
@@ -113,7 +100,7 @@ const Dentral = () =>  (
               </div>
               <div style={buttonContainerStyle}>
                 <Link to="/Card">
-                  <Button type="primary" key="tarr" onClick={handleReserveClick3}>
+                  <Button type="primary" key="tarr" >
                     จองเลย!
                     <span
                       style={{
