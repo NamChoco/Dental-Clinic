@@ -29,6 +29,7 @@ import DentistHistory from "./pages/layouts/dentist/history";
 import DentistHistoryEdit from "./pages/layouts/dentist/historyedit";
 import DentistHistoryCreate from "./pages/layouts/dentist/hitorycreate";
 import MemberHistory from "./pages/layouts/member/history/memberhistory";
+import HistoryAdmin from "./pages/layouts/admin/history";
 
 // Layout
 
@@ -72,6 +73,8 @@ function App() {
           <Route path="/history/edit/:id" element={<DentistHistoryEdit />} />
           <Route path="/history/create" element={<DentistHistoryCreate />} />
           <Route path="/memberhistory" element={<MemberHistory />} />
+          <Route path="/adminhistory" element={<HistoryAdmin />} />
+
           <Route path="/admin/data/dentist" element={<AdminDentistData />} />
           <Route path="/admin/create/dentist" element={<AdCreateDentist />} />
           <Route path="/admin/dentist/edit/:username"  element={<AdminEditDentist />}/>
