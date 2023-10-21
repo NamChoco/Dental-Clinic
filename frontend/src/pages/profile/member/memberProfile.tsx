@@ -46,10 +46,8 @@ const MemberProfile: FC = () => {
   const [genders, setGenders] = useState<GendersInterface[]>([]);
   const [occupations, setOccupation] = useState<OccupationInterface[]>([]);
 
-  // รับข้อมูลจาก params ที่ได้จากหน้า login
   let  username  = Cookies.get("usernameMember");;
 
-  // อ้างอิง form กรอกข้อมูล
   const [form] = Form.useForm();
 
   const onClick = async () => {
