@@ -32,9 +32,7 @@ function Login() {
     let dentist = await LoginDentistByUsername(input.Username);
     let admin = await LoginAdminByUsername(input.Username);
     console.log(input.Username);
-    // console.log(member)
-    console.log(dentist);
-    // console.log(admin)
+    console.log(input.Username[0]);
 
     if (
       input.Username[0] === member.Username &&
@@ -45,7 +43,7 @@ function Login() {
       Cookies.set("usernameMember", usernameValues, { expires: 7 }); //setCookie(name, value, {วันหมดอายุ})
 
       let c = Cookies.get("usernameMember");
-      console.log(c);
+      // console.log(c);
       messageApi.open({
         type: "success",
         content: "Login Member Success",

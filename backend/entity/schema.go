@@ -23,11 +23,11 @@ type Appointment struct {
 
 type Member struct {
 	gorm.Model
-	Username     string
+	Username     string		`gorm:"uniqueIndex"`
 	Password     string
 	FirstName    string
 	LastName     string
-	Email        string
+	Email        string		`gorm:"uniqueIndex"`
 	Birthday     string
 	Phone_number string
 
@@ -51,11 +51,11 @@ type Member struct {
 type Dentist struct {
 	gorm.Model
 
-	Username     string
+	Username     string		`gorm:"uniqueIndex"`
 	Password     string
 	FirstName    string
 	LastName     string
-	Email        string
+	Email        string		`gorm:"uniqueIndex"`
 	Birthday     string
 	Phone_number string
 
@@ -73,7 +73,7 @@ type Dentist struct {
 
 type Gender struct {
 	gorm.Model
-	Name string
+	Name string		`gorm:"uniqueIndex"`
 
 	Member []Member `gorm:"foreignKey:GenderID"`
 	// clear
@@ -81,7 +81,7 @@ type Gender struct {
 
 type Occupation struct {
 	gorm.Model
-	Name string
+	Name string		`gorm:"uniqueIndex"`
 
 	Member []Member `gorm:"foreignKey:OccupationID"`
 	// clear

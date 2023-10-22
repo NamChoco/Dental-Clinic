@@ -33,17 +33,18 @@ function Register() {
     })
 
     const handleInput  = (e: any) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target; // ดึงค่ามาที่ e  e.target=เป้าหมาย
         if (name === "OccupationID" || name === "GenderID") {
             setInput({
                 ...input,[name]: parseInt(value, 10),
+                //แปลงเป็นจำนวนเต็ม กำหนดเชขฐาน
             });
         } else {
             setInput({
                 ...input, [name]: value,
             });
         }
-    }      
+    }
 
     const getOccupationed = async () => {
         let res = await GetOccupations();
@@ -58,12 +59,12 @@ function Register() {
             setGender(res);
         }
       };
-    
+      
+    // callback function
       useEffect(() => {
         getOccupationed();
         getGender()
       }, []);
-    
 
     const handleSubmit  = async (values: MembersInterface) => {
         values.Username = input.Username

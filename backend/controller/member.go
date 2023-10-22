@@ -27,7 +27,8 @@ func CreateMember(c *gin.Context) {
 	}
 
 	// ค้นหา Gender ด้วย id
-	if tx := entity.DB().Where("id = ?", member.GenderID).First(&gender); tx.RowsAffected == 0 {
+	entity.DB().Where("id = ?", member.GenderID).First(&gender)
+	if gender.ID == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "occupation not found"})
 		return
 	}
@@ -51,11 +52,10 @@ func CreateMember(c *gin.Context) {
 		OccupationID: member.OccupationID, // ตั้งค่าฟิลด์ occupation
 		Occupation:   occupation,          // ตั้งค่าฟิลด์ occupation
 
-		GenderID: 	  member.GenderID,
+		GenderID: member.GenderID,
 		Gender:   	  gender,
 
-		// Admin: admin,
-		AdminID: 	  member.AdminID,
+		AdminID: member.AdminID,
 		Admin:   	  admin,
 	}
 

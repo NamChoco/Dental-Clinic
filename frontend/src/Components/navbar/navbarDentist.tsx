@@ -76,7 +76,6 @@ function NavbarDentist() {
             </div>
           </div>
         </div>
-        <div className="box"></div>
       </Layout>
     </>
   );

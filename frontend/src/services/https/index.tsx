@@ -14,9 +14,8 @@ async function CreateMember(data: MembersInterface) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   };
-
-  let res = await fetch(`${apiUrl}/members`, requestOptions)
-    .then((response) => response.json())
+  let res = await fetch(`${apiUrl}/members`, requestOptions) //รอผลลัพธ์ ส่งrequest Post ไปapiUrl 
+    .then((response) => response.json()) 
     .then((res) => {
       if (res.data) {
         return { status: true, message: res.data };
@@ -24,7 +23,7 @@ async function CreateMember(data: MembersInterface) {
         return { status: false, message: res.error };
       }
     });
-
+    
   return res;
 }
 

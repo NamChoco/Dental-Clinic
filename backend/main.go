@@ -7,11 +7,12 @@ import (
 )
 
 func main() {
-	entity.SetupDatabase()
-	r := gin.Default()
+	entity.SetupDatabase() //เชื่อมข้อมูล sqlite ผ่าน gorm
+	r := gin.Default()  //สร้าง object r และใช้เป็น server  api route
 	r.ForwardedByClientIP = true
-	r.SetTrustedProxies([]string{"127.0.0.1"})
+	r.SetTrustedProxies([]string{"127.0.0.1"})  //กำหนด api
 	r.Use(CORSMiddleware())
+
 	// Member Routes
 	r.POST("/members", controller.CreateMember)
 	r.GET("/members", controller.ListMembers)
@@ -60,8 +61,8 @@ func main() {
 
 }
 
-func CORSMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
+func CORSMiddleware() gin.HandlerFunc {  //การตั้งค่าส่วนหัว ให้เรียกใช้แหล่งข้อมูล ผ่าน fetch api
+	return func(c *gin.Context) {	   //รับส่งค่าจาก HTTP request or response
 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
 		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
